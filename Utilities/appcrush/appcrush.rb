@@ -5,6 +5,8 @@
 # - finds all the images
 # - runs pngcrush with the revert-iphone-optimizations option on each image
 #
+# Requirements Xcode with iOS SDK 3.2 or higher
+#
 # Usage: appcrush '/Users/boctor/Music/iTunes/Mobile Applications/iBooks.ipa'
 #
 # Author: Peter Boctor
@@ -30,7 +32,6 @@ ARGV.each do |ipa|
     system "rm -drf '#{expanded_dir}'"
 
     # Extract .ipa zip file
-    puts "unzip -q '#{ipa}' -d '#{expanded_dir}'"
     system "unzip -q '#{ipa}' -d '#{expanded_dir}'"
     
     images_dir_path = File.join(destination, "#{app_name} Images")
