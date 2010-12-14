@@ -43,7 +43,7 @@ ARGV.each do |ipa|
     Dir.mkdir(images_dir_path)
     
     # Iterate through all png images
-    Dir.glob(File.join(expanded_dir, 'Payload', "#{app_name}.app", '*.png')).each do |png_file|
+    Dir.glob(File.join(expanded_dir, 'Payload', "*.app", '*.png')).each do |png_file|
       # and revert the iphone optimizations
       system "#{pngcrush} -q -revert-iphone-optimizations -d '#{images_dir_path}' '#{png_file}'"
     end
