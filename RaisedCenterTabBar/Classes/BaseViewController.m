@@ -27,9 +27,14 @@
   [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
 
   CGFloat heightDifference = buttonImage.size.height - self.tabBar.frame.size.height;
-  CGPoint center = self.tabBar.center;
-  center.y = center.y - heightDifference/2.0;
-  button.center = center;
+  if (heightDifference < 0)
+    button.center = self.tabBar.center;
+  else
+  {
+    CGPoint center = self.tabBar.center;
+    center.y = center.y - heightDifference/2.0;
+    button.center = center;
+  }
   
   [self.view addSubview:button];
 }
