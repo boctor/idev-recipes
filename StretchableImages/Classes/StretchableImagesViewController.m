@@ -25,13 +25,13 @@
 
   // An image with no caps
   UIImage* image1 = [[UIImage imageNamed:@"1-pixel-image.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:0.0];
-  UIImageView* imageView1 = [[UIImageView alloc] initWithImage:image1];
+  UIImageView* imageView1 = [[[UIImageView alloc] initWithImage:image1] autorelease];
   imageView1.frame = CGRectMake(0, 0, 300.0, image1.size.height);
   [self addView:imageView1 verticalOffset:0 title:@"Stretchable Image Without Caps"];
 
   // An image with caps stretched
   UIImage* image2 = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
-  UIImageView* imageView2 = [[UIImageView alloc] initWithImage:image2];
+  UIImageView* imageView2 = [[[UIImageView alloc] initWithImage:image2] autorelease];
   imageView2.frame = CGRectMake(0, 0, 300.0, image2.size.height);
   [self addView:imageView2 verticalOffset:1 title:@"Stretchable Image With Caps"];
 
