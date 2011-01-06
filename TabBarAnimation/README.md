@@ -1,4 +1,4 @@
-Blog post: http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation
+Blog post: [http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation][]
 
 ## Problem:
 
@@ -124,9 +124,9 @@ animation:
     is complete. Other curves like UIViewAnimationCurveEaseIn cause the
     animation to start slowly and then get faster until completion.
 
-Blog post: http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation
+Blog post: [http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation][]
 
-  [http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation/]: http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation/
+  [http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation]: http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation
   [Twitter iPhone App]: http://p.appju.mp/333903271&t=i
   [image]: http://idevrecipes.files.wordpress.com/2010/12/twitter_1.png?w=320&h=48 "First Frame"
   [1]: http://idevrecipes.files.wordpress.com/2010/12/twitter_2.png?w=320&h=48 "Second Frame"

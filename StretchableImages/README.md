@@ -1,4 +1,4 @@
-Blog post: http://idevrecipes.com/2010/12/08/stretchable-images-and-buttons
+Blog post: [http://idevrecipes.com/2010/12/08/stretchable-images-and-buttons][]
 
 ## Problem:
 
@@ -70,18 +70,13 @@ If we create two images then we can set the background image of a
 button for the normal and highlighted states and get some very nice
 looking buttons using very small images.
 
-Blog post: http://idevrecipes.com/2010/12/08/stretchable-images-and-buttons
+Blog post: [http://idevrecipes.com/2010/12/08/stretchable-images-and-buttons][]
 
-  [https://github.com/boctor/idev-recipes/tree/master/StretchableImages]: https://github.com/boctor/idev-recipes/tree/master/StretchableImages
+  [http://idevrecipes.com/2010/12/08/stretchable-images-and-buttons]: http://idevrecipes.com/2010/12/08/stretchable-images-and-buttons
   [Bit-101]: http://www.bit-101.com/
   [image showing this in action]: http://www.bit-101.com/blog/?p=2275
   [image]: http://idevrecipes.files.wordpress.com/2010/12/stretchable.png?w=300&h=300 "stretchableImageWithLeftCapWidth"
-  [![image][]]: http://idevrecipes.files.wordpress.com/2010/12/stretchable.png
   [1]: http://idevrecipes.files.wordpress.com/2010/12/1-pixel-image.png?w=1&h=30 "1 pixel wide image"
-  [![image][1]]: http://idevrecipes.files.wordpress.com/2010/12/1-pixel-image.png
   [2]: http://idevrecipes.files.wordpress.com/2010/12/stretched_image.png?w=300&h=30 "Stretched Image"
-  [![image][2]]: http://idevrecipes.files.wordpress.com/2010/12/stretched_image.png
   [3]: http://idevrecipes.files.wordpress.com/2010/12/button.png?w=11&h=30 "button"
-  [![image][3]]: http://idevrecipes.files.wordpress.com/2010/12/button.png
   [4]: http://idevrecipes.files.wordpress.com/2010/12/stretched_button.png?w=300&h=30 "Stretched Button"
-  [![image][4]]: http://idevrecipes.files.wordpress.com/2010/12/stretched_button.png

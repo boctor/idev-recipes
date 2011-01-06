@@ -1,4 +1,4 @@
-Blog post: http://idevrecipes.com/2010/12/03/transparent-uiwebviews
+Blog post: [http://idevrecipes.com/2010/12/03/transparent-uiwebviews][]
 
 ## Problem:
 
@@ -75,11 +75,9 @@ If you think think this is something that Apple should provide an
 API for, then please fill out an enhancement request at
 [http://bugreport.apple.com][]
 
-Blog post: http://idevrecipes.com/2010/12/03/transparent-uiwebviews
+Blog post: [http://idevrecipes.com/2010/12/03/transparent-uiwebviews][]
 
-  [http://github.com/boctor/idev-recipes/tree/master/TransparentUIWebViews]: http://github.com/boctor/idev-recipes/tree/master/TransparentUIWebViews/
+  [http://idevrecipes.com/2010/12/03/transparent-uiwebviews]: http://idevrecipes.com/2010/12/03/transparent-uiwebviews
   [image]: http://idevrecipes.files.wordpress.com/2010/12/uiwebview_gradient11.png?w=320&h=222 "UIWebView with gradient"
-  [![image][]]: http://idevrecipes.files.wordpress.com/2010/12/uiwebview_gradient11.png
   [1]: http://idevrecipes.files.wordpress.com/2010/12/uiwebview_no_gradient11.png?w=320&h=222 "UIWebView without gradient"
-  [![image][1]]: http://idevrecipes.files.wordpress.com/2010/12/uiwebview_no_gradient11.png
   [http://bugreport.apple.com]: http://bugreport.apple.com

@@ -1,4 +1,4 @@
-Blog post: http://idevrecipes.com/2010/12/11/custom-segmented-controls
+Blog post: [http://idevrecipes.com/2010/12/11/custom-segmented-controls][]
 
 ## Problem:
 
@@ -62,14 +62,12 @@ well as a sample app showing the custom control in action.
 
 ![image][1]
 
-Blog post: http://idevrecipes.com/2010/12/11/custom-segmented-controls
+Blog post: [http://idevrecipes.com/2010/12/11/custom-segmented-controls][]
 
-  [https://github.com/boctor/idev-recipes/tree/master/CustomSegmentedControls]: https://github.com/boctor/idev-recipes/tree/master/CustomSegmentedControls
+  [http://idevrecipes.com/2010/12/11/custom-segmented-controls]: http://idevrecipes.com/2010/12/11/custom-segmented-controls
   [image]: http://idevrecipes.files.wordpress.com/2010/12/uisegmentedcontrol.png?w=247&h=277 "UISegmentedControl styles"
-  [![image][]]: http://idevrecipes.files.wordpress.com/2010/12/uisegmentedcontrol.png
   [The Apple docs say]: http://developer.apple.com/library/ios/documentation/uikit/reference/UISegmentedControl_Class/Reference/UISegmentedControl.html
   [create nice looking buttons]: http://idevrecipes.com/2010/12/08/stretchable-images-and-buttons/
   [CustomSegmentedControl.h]: https://github.com/boctor/idev-recipes/blob/master/CustomSegmentedControls/Classes/CustomSegmentedControl.h
   [CustomSegmentedControl.m]: https://github.com/boctor/idev-recipes/blob/master/CustomSegmentedControls/Classes/CustomSegmentedControl.m
   [1]: http://idevrecipes.files.wordpress.com/2010/12/customsegmentedcontrol.png?w=302&h=47 "CustomSegmentedControl"
-  [![image][1]]: http://idevrecipes.files.wordpress.com/2010/12/customsegmentedcontrol.png

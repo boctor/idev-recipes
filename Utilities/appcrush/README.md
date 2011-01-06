@@ -1,4 +1,4 @@
-Blog post: http://idevrecipes.com/2010/12/06/extracting-images-from-apps-in-the-appstore
+Blog post: [http://idevrecipes.com/2010/12/06/extracting-images-from-apps-in-the-appstore][]
 
 To recreate features of existing apps, we can use a big clue: the
 images an app uses. This will often give us insight into how the
@@ -41,13 +41,12 @@ Point appcrush at an .ipa file from the iTunes AppStore and it:
 
     `appcrush '/Users/boctor/Music/iTunes/Mobile Applications/iBooks.ipa'`
 
-Blog post: http://idevrecipes.com/2010/12/06/extracting-images-from-apps-in-the-appstore
+Blog post: [http://idevrecipes.com/2010/12/06/extracting-images-from-apps-in-the-appstore][]
+
+  [http://idevrecipes.com/2010/12/06/extracting-images-from-apps-in-the-appstore]: http://idevrecipes.com/2010/12/06/extracting-images-from-apps-in-the-appstore
   [image]: http://idevrecipes.files.wordpress.com/2010/12/ibooksfinder.png?w=239&h=119 "Find iBooks app in iTunes"
-  [![image][]]: http://idevrecipes.files.wordpress.com/2010/12/ibooksfinder.png
   [1]: http://idevrecipes.files.wordpress.com/2010/12/ibookspayload.png?w=272&h=250 "iBooks Payload"
-  [![image][1]]: http://idevrecipes.files.wordpress.com/2010/12/ibookspayload.png
   [2]: http://idevrecipes.files.wordpress.com/2010/12/ibooksimages.png?w=300&h=220 "iBooks Optimized Images"
-  [![image][2]]: http://idevrecipes.files.wordpress.com/2010/12/ibooksimages.png
   [pngcrush]: http://pmt.sourceforge.net/pngcrush/index.html
   [Apple added the ‘revert-iphone-optimizations’ option to undo this optimization]: http://developer.apple.com/library/ios/#qa/qa2010/qa1681.html
   [appcrush]: https://github.com/boctor/idev-recipes/tree/master/Utilities/appcrush

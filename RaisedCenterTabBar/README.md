@@ -1,4 +1,4 @@
-Blog post: http://idevrecipes.com/2010/12/16/raised-center-tab-bar-button
+Blog post: [http://idevrecipes.com/2010/12/16/raised-center-tab-bar-button][]
 
 ## Problem:
 
@@ -68,16 +68,13 @@ been pushed onto the UINavigationController stack. We do this by
 registering for the navigationController’s willShowViewController
 callback.
 
-Blog post: http://idevrecipes.com/2010/12/16/raised-center-tab-bar-button
+Blog post: [http://idevrecipes.com/2010/12/16/raised-center-tab-bar-button][]
 
-  [http://idevrecipes.com/2010/12/16/raised-center-tab-bar-button/]: http://idevrecipes.com/2010/12/16/raised-center-tab-bar-button/
+  [http://idevrecipes.com/2010/12/16/raised-center-tab-bar-button]: http://idevrecipes.com/2010/12/16/raised-center-tab-bar-button
   [Instagram]: http://p.appju.mp/389801252&t=i
   [DailyBooth]: http://p.appju.mp/381470756&t=i
   [Path™]: http://p.appju.mp/403639508&t=i
   [image]: http://idevrecipes.files.wordpress.com/2010/12/path.png?w=460&h=70 "Path™"
-  [![image][]]: http://idevrecipes.files.wordpress.com/2010/12/path.png
   [1]: http://idevrecipes.files.wordpress.com/2010/12/instagram.png?w=460&h=84 "Instagram"
-  [![image][1]]: http://idevrecipes.files.wordpress.com/2010/12/instagram.png
   [2]: http://idevrecipes.files.wordpress.com/2010/12/dailybooth.png?w=460&h=94 "DailyBooth"
-  [![image][2]]: http://idevrecipes.files.wordpress.com/2010/12/dailybooth.png
   [the images]: http://idevrecipes.com/2010/12/06/extracting-images-from-apps-in-the-appstore/

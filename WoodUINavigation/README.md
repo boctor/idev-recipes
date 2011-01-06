@@ -1,4 +1,4 @@
-Blog post: http://idevrecipes.com/2010/12/13/wooduinavigation
+Blog post: [http://idevrecipes.com/2010/12/13/wooduinavigation][]
 
 ## Problem:
 
@@ -50,20 +50,14 @@ Our end result is nearly indistinguishable from the original:
 
 Blog post: http://idevrecipes.com/2010/12/13/wooduinavigation
 
-  [http://idevrecipes.com/2010/12/13/wooduinavigation/]: http://idevrecipes.com/2010/12/13/wooduinavigation/
+  [http://idevrecipes.com/2010/12/13/wooduinavigation]: http://idevrecipes.com/2010/12/13/wooduinavigation
   [iBooks]: http://p.appju.mp/364709193&t=i
   [extract the images]: http://idevrecipes.com/2010/12/06/extracting-images-from-apps-in-the-appstore/
   [image]: http://idevrecipes.files.wordpress.com/2010/12/navbar-iphone.png?w=320&h=44 "Wood NavBar"
-  [![image][]]: http://idevrecipes.files.wordpress.com/2010/12/navbar-iphone.png
   [1]: http://idevrecipes.files.wordpress.com/2010/12/navbar_wood_bkgd.png?w=320&h=44 "Navigation Bar Wood Background"
-  [![image][1]]: http://idevrecipes.files.wordpress.com/2010/12/navbar_wood_bkgd.png
   [custom buttons with stretchable images]: http://idevrecipes.com/2010/12/08/stretchable-images-and-buttons/
   [2]: http://idevrecipes.files.wordpress.com/2010/12/nav-button.png?w=11&h=30 "Wood Navigation Button"
-  [![image][2]]: http://idevrecipes.files.wordpress.com/2010/12/nav-button.png
   [3]: http://idevrecipes.files.wordpress.com/2010/12/navbar_wood_buttons.png?w=320&h=44 "NavBar Wood Buttons"
-  [![image][3]]: http://idevrecipes.files.wordpress.com/2010/12/navbar_wood_buttons.png
   [custom segmented control]: http://idevrecipes.com/2010/12/11/custom-segmented-controls/
   [4]: http://idevrecipes.files.wordpress.com/2010/12/navbar_wood_final1.png?w=320&h=44 "Final Wood NavBar"
-  [![image][4]]: http://idevrecipes.files.wordpress.com/2010/12/navbar_wood_final1.png
   [5]: http://idevrecipes.files.wordpress.com/2010/12/ibooks_navbar.png?w=320&h=44 "iBooks Nav Bar"
-  [![image][5]]: http://idevrecipes.files.wordpress.com/2010/12/ibooks_navbar.png
