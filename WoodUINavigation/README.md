@@ -48,7 +48,7 @@ Our end result is nearly indistinguishable from the original:
 
 ![image][5]
 
-Blog post: http://idevrecipes.com/2010/12/13/wooduinavigation
+Blog post: [http://idevrecipes.com/2010/12/13/wooduinavigation][]
 
   [http://idevrecipes.com/2010/12/13/wooduinavigation]: http://idevrecipes.com/2010/12/13/wooduinavigation
   [iBooks]: http://p.appju.mp/364709193&t=i
