@@ -1,5 +1,4 @@
-Blog post:
-[http://idevrecipes.com/2011/01/04/how-does-the-twitter-iphone-app-implement-a-custom-tab-bar][]
+Blog post: http://idevrecipes.com/2011/01/04/how-does-the-twitter-iphone-app-implement-a-custom-tab-bar
 
 ## Problem:
 
@@ -114,8 +113,7 @@ bar animates into place. We covered this animation in an
 [earlier post][]. We use the code from that post to get the same
 animation for the custom tab bar.
 
-Blog post:
-[http://idevrecipes.com/2011/01/04/how-does-the-twitter-iphone-app-implement-a-custom-tab-bar][]
+Blog post: http://idevrecipes.com/2011/01/04/how-does-the-twitter-iphone-app-implement-a-custom-tab-bar
 
   [http://idevrecipes.com/2011/01/04/how-does-the-twitter-iphone-app-implement-a-custom-tab-bar]: http://idevrecipes.com/2011/01/04/how-does-the-twitter-iphone-app-implement-a-custom-tab-bar
   [Twitter iPhone App]: http://p.appju.mp/333903271&t=i

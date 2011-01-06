@@ -1,6 +1,4 @@
-
-Blog post:
-[http://idevrecipes.com/2010/12/28/how-does-the-reeder-iphone-app-swipe-up-and-down-between-articles][]
+Blog post: http://idevrecipes.com/2010/12/28/how-does-the-reeder-iphone-app-swipe-up-and-down-between-articles
 
 ## Problem:
 
@@ -162,11 +160,9 @@ previousPage with page 0 and nextPage with page 2. If there are
 other caching techniques you think would work here, please share
 your thoughts in the comments.
 
-Blog post:
-[http://idevrecipes.com/2010/12/28/how-does-the-reeder-iphone-app-swipe-up-and-down-between-articles][]
+Blog post: http://idevrecipes.com/2010/12/28/how-does-the-reeder-iphone-app-swipe-up-and-down-between-articles
 
   [Reeder iPhone App]: http://p.appju.mp/325502379&t=i
   [image]: http://idevrecipes.files.wordpress.com/2010/12/reeder_app.jpg?w=460&h=690 "Reeder App"
-  [![image][]]: http://idevrecipes.files.wordpress.com/2010/12/reeder_app.jpg
   [The sample app]: https://github.com/boctor/idev-recipes/tree/master/VerticalSwipeArticles
   [http://idevrecipes.com/2010/12/28/how-does-the-reeder-iphone-app-swipe-up-and-down-between-articles]: http://idevrecipes.com/2010/12/28/how-does-the-reeder-iphone-app-swipe-up-and-down-between-articles
