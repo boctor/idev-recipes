@@ -122,12 +122,12 @@
 
 - (void) showNotificationViewFor:(NSUInteger)tabIndex
 {
-  // To get the vertical location we start at the bottom of the window, go up by height of the tab bar and go up again by the notification view
-  CGFloat verticalLocation = self.view.window.frame.size.height - self.tabBar.frame.size.height - notificationView.frame.size.height - 2.0;
+  // To get the vertical location we start at the top of the tab bar (0), go up by the height of the notification view, then go up another 2 pixels so our view is slightly above the tab bar
+  CGFloat verticalLocation = - notificationView.frame.size.height - 2.0;
   notificationView.frame = CGRectMake([self horizontalLocationFor:tabIndex], verticalLocation, notificationView.frame.size.width, notificationView.frame.size.height);
 
   if (!notificationView.superview)
-    [self.view.window addSubview:notificationView];
+    [self.tabBar addSubview:notificationView];
 
   notificationView.alpha = 0.0;
 
