@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* CustomTabBarNotificationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* CustomTabBarNotificationAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		7F5FA8191325F295007527CE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FA8161325F295007527CE /* BaseViewController.m */; };
+		7F5FA81A1325F295007527CE /* InstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FA8181325F295007527CE /* InstagramViewController.m */; };
+		7F5FA8281325F2EE007527CE /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA81E1325F2EE007527CE /* 112-group.png */; };
+		7F5FA8291325F2EE007527CE /* 112-group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA81F1325F2EE007527CE /* 112-group@2x.png */; };
+		7F5FA82A1325F2EE007527CE /* 123-id-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8201325F2EE007527CE /* 123-id-card.png */; };
+		7F5FA82B1325F2EE007527CE /* 123-id-card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8211325F2EE007527CE /* 123-id-card@2x.png */; };
+		7F5FA82C1325F2EE007527CE /* 29-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8221325F2EE007527CE /* 29-heart.png */; };
+		7F5FA82D1325F2EE007527CE /* 29-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8231325F2EE007527CE /* 29-heart@2x.png */; };
+		7F5FA82E1325F2EE007527CE /* cameraTabBarItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8241325F2EE007527CE /* cameraTabBarItem.png */; };
+		7F5FA82F1325F2EE007527CE /* cameraTabBarItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8251325F2EE007527CE /* cameraTabBarItem@2x.png */; };
+		7F5FA8301325F2EE007527CE /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8261325F2EE007527CE /* news.png */; };
+		7F5FA8311325F2EE007527CE /* news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8271325F2EE007527CE /* news@2x.png */; };
+		7F5FA8501325F451007527CE /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FA84F1325F451007527CE /* CustomNavigationBar.m */; };
+		7F5FA8551325F4E4007527CE /* navigationBarBackgroundRetro.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8511325F4E4007527CE /* navigationBarBackgroundRetro.png */; };
+		7F5FA8561325F4E4007527CE /* navigationBarBackgroundRetro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8521325F4E4007527CE /* navigationBarBackgroundRetro@2x.png */; };
+		7F5FA8571325F4E4007527CE /* navigationBarLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8531325F4E4007527CE /* navigationBarLogo.png */; };
+		7F5FA8581325F4E4007527CE /* navigationBarLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8541325F4E4007527CE /* navigationBarLogo@2x.png */; };
+		7F5FA8671325F802007527CE /* notificationToast.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA85F1325F802007527CE /* notificationToast.png */; };
+		7F5FA8681325F802007527CE /* notificationToast@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8601325F802007527CE /* notificationToast@2x.png */; };
+		7F5FA8691325F802007527CE /* notificationToastCommentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8611325F802007527CE /* notificationToastCommentIcon.png */; };
+		7F5FA86A1325F802007527CE /* notificationToastCommentIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8621325F802007527CE /* notificationToastCommentIcon@2x.png */; };
+		7F5FA86B1325F802007527CE /* notificationToastFollowerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8631325F802007527CE /* notificationToastFollowerIcon.png */; };
+		7F5FA86C1325F802007527CE /* notificationToastFollowerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8641325F802007527CE /* notificationToastFollowerIcon@2x.png */; };
+		7F5FA86D1325F802007527CE /* notificationToastLikeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8651325F802007527CE /* notificationToastLikeIcon.png */; };
+		7F5FA86E1325F802007527CE /* notificationToastLikeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA8661325F802007527CE /* notificationToastLikeIcon@2x.png */; };
+		7F5FA88113260168007527CE /* button-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA87B13260168007527CE /* button-disabled.png */; };
+		7F5FA88213260168007527CE /* button-disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA87C13260168007527CE /* button-disabled@2x.png */; };
+		7F5FA88313260168007527CE /* button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA87D13260168007527CE /* button-highlighted.png */; };
+		7F5FA88413260168007527CE /* button-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA87E13260168007527CE /* button-highlighted@2x.png */; };
+		7F5FA88513260168007527CE /* button-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA87F13260168007527CE /* button-normal.png */; };
+		7F5FA88613260168007527CE /* button-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FA88013260168007527CE /* button-normal@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* CustomTabBarNotificationAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarNotificationAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* CustomTabBarNotificationAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarNotificationAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* CustomTabBarNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTabBarNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* CustomTabBarNotification_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarNotification_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7F5FA8151325F295007527CE /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		7F5FA8161325F295007527CE /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		7F5FA8171325F295007527CE /* InstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramViewController.h; sourceTree = "<group>"; };
+		7F5FA8181325F295007527CE /* InstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramViewController.m; sourceTree = "<group>"; };
+		7F5FA81E1325F2EE007527CE /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
+		7F5FA81F1325F2EE007527CE /* 112-group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group@2x.png"; sourceTree = "<group>"; };
+		7F5FA8201325F2EE007527CE /* 123-id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "123-id-card.png"; sourceTree = "<group>"; };
+		7F5FA8211325F2EE007527CE /* 123-id-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "123-id-card@2x.png"; sourceTree = "<group>"; };
+		7F5FA8221325F2EE007527CE /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
+		7F5FA8231325F2EE007527CE /* 29-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart@2x.png"; sourceTree = "<group>"; };
+		7F5FA8241325F2EE007527CE /* cameraTabBarItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraTabBarItem.png; sourceTree = "<group>"; };
+		7F5FA8251325F2EE007527CE /* cameraTabBarItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraTabBarItem@2x.png"; sourceTree = "<group>"; };
+		7F5FA8261325F2EE007527CE /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
+		7F5FA8271325F2EE007527CE /* news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "news@2x.png"; sourceTree = "<group>"; };
+		7F5FA84E1325F451007527CE /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
+		7F5FA84F1325F451007527CE /* CustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
+		7F5FA8511325F4E4007527CE /* navigationBarBackgroundRetro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundRetro.png; sourceTree = "<group>"; };
+		7F5FA8521325F4E4007527CE /* navigationBarBackgroundRetro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarBackgroundRetro@2x.png"; sourceTree = "<group>"; };
+		7F5FA8531325F4E4007527CE /* navigationBarLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarLogo.png; sourceTree = "<group>"; };
+		7F5FA8541325F4E4007527CE /* navigationBarLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarLogo@2x.png"; sourceTree = "<group>"; };
+		7F5FA85F1325F802007527CE /* notificationToast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notificationToast.png; sourceTree = "<group>"; };
+		7F5FA8601325F802007527CE /* notificationToast@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notificationToast@2x.png"; sourceTree = "<group>"; };
+		7F5FA8611325F802007527CE /* notificationToastCommentIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notificationToastCommentIcon.png; sourceTree = "<group>"; };
+		7F5FA8621325F802007527CE /* notificationToastCommentIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notificationToastCommentIcon@2x.png"; sourceTree = "<group>"; };
+		7F5FA8631325F802007527CE /* notificationToastFollowerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notificationToastFollowerIcon.png; sourceTree = "<group>"; };
+		7F5FA8641325F802007527CE /* notificationToastFollowerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notificationToastFollowerIcon@2x.png"; sourceTree = "<group>"; };
+		7F5FA8651325F802007527CE /* notificationToastLikeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notificationToastLikeIcon.png; sourceTree = "<group>"; };
+		7F5FA8661325F802007527CE /* notificationToastLikeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notificationToastLikeIcon@2x.png"; sourceTree = "<group>"; };
+		7F5FA87B13260168007527CE /* button-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-disabled.png"; sourceTree = "<group>"; };
+		7F5FA87C13260168007527CE /* button-disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-disabled@2x.png"; sourceTree = "<group>"; };
+		7F5FA87D13260168007527CE /* button-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-highlighted.png"; sourceTree = "<group>"; };
+		7F5FA87E13260168007527CE /* button-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-highlighted@2x.png"; sourceTree = "<group>"; };
+		7F5FA87F13260168007527CE /* button-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-normal.png"; sourceTree = "<group>"; };
+		7F5FA88013260168007527CE /* button-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-normal@2x.png"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* CustomTabBarNotification-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CustomTabBarNotification-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7F5FA84E1325F451007527CE /* CustomNavigationBar.h */,
+				7F5FA84F1325F451007527CE /* CustomNavigationBar.m */,
+				1D3623240D0F684500981E51 /* CustomTabBarNotificationAppDelegate.h */,
+				1D3623250D0F684500981E51 /* CustomTabBarNotificationAppDelegate.m */,
+				7F5FA8151325F295007527CE /* BaseViewController.h */,
+				7F5FA8161325F295007527CE /* BaseViewController.m */,
+				7F5FA8171325F295007527CE /* InstagramViewController.h */,
+				7F5FA8181325F295007527CE /* InstagramViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* CustomTabBarNotification.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* CustomTabBarNotification_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F5FA81C1325F2EE007527CE /* Images */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* CustomTabBarNotification-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F5FA81C1325F2EE007527CE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7F5FA87A13260168007527CE /* button */,
+				7F5FA81D1325F2EE007527CE /* Instagram */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		7F5FA81D1325F2EE007527CE /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				7F5FA81E1325F2EE007527CE /* 112-group.png */,
+				7F5FA81F1325F2EE007527CE /* 112-group@2x.png */,
+				7F5FA8201325F2EE007527CE /* 123-id-card.png */,
+				7F5FA8211325F2EE007527CE /* 123-id-card@2x.png */,
+				7F5FA8221325F2EE007527CE /* 29-heart.png */,
+				7F5FA8231325F2EE007527CE /* 29-heart@2x.png */,
+				7F5FA8241325F2EE007527CE /* cameraTabBarItem.png */,
+				7F5FA8251325F2EE007527CE /* cameraTabBarItem@2x.png */,
+				7F5FA8511325F4E4007527CE /* navigationBarBackgroundRetro.png */,
+				7F5FA8521325F4E4007527CE /* navigationBarBackgroundRetro@2x.png */,
+				7F5FA8531325F4E4007527CE /* navigationBarLogo.png */,
+				7F5FA8541325F4E4007527CE /* navigationBarLogo@2x.png */,
+				7F5FA8261325F2EE007527CE /* news.png */,
+				7F5FA8271325F2EE007527CE /* news@2x.png */,
+				7F5FA85F1325F802007527CE /* notificationToast.png */,
+				7F5FA8601325F802007527CE /* notificationToast@2x.png */,
+				7F5FA8611325F802007527CE /* notificationToastCommentIcon.png */,
+				7F5FA8621325F802007527CE /* notificationToastCommentIcon@2x.png */,
+				7F5FA8631325F802007527CE /* notificationToastFollowerIcon.png */,
+				7F5FA8641325F802007527CE /* notificationToastFollowerIcon@2x.png */,
+				7F5FA8651325F802007527CE /* notificationToastLikeIcon.png */,
+				7F5FA8661325F802007527CE /* notificationToastLikeIcon@2x.png */,
+			);
+			path = Instagram;
+			sourceTree = "<group>";
+		};
+		7F5FA87A13260168007527CE /* button */ = {
+			isa = PBXGroup;
+			children = (
+				7F5FA87B13260168007527CE /* button-disabled.png */,
+				7F5FA87C13260168007527CE /* button-disabled@2x.png */,
+				7F5FA87D13260168007527CE /* button-highlighted.png */,
+				7F5FA87E13260168007527CE /* button-highlighted@2x.png */,
+				7F5FA87F13260168007527CE /* button-normal.png */,
+				7F5FA88013260168007527CE /* button-normal@2x.png */,
+			);
+			path = button;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* CustomTabBarNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "CustomTabBarNotification" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomTabBarNotification;
+			productName = CustomTabBarNotification;
+			productReference = 1D6058910D05DD3D006BFB54 /* CustomTabBarNotification.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CustomTabBarNotification" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* CustomTabBarNotification */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				7F5FA8281325F2EE007527CE /* 112-group.png in Resources */,
+				7F5FA8291325F2EE007527CE /* 112-group@2x.png in Resources */,
+				7F5FA82A1325F2EE007527CE /* 123-id-card.png in Resources */,
+				7F5FA82B1325F2EE007527CE /* 123-id-card@2x.png in Resources */,
+				7F5FA82C1325F2EE007527CE /* 29-heart.png in Resources */,
+				7F5FA82D1325F2EE007527CE /* 29-heart@2x.png in Resources */,
+				7F5FA82E1325F2EE007527CE /* cameraTabBarItem.png in Resources */,
+				7F5FA82F1325F2EE007527CE /* cameraTabBarItem@2x.png in Resources */,
+				7F5FA8301325F2EE007527CE /* news.png in Resources */,
+				7F5FA8311325F2EE007527CE /* news@2x.png in Resources */,
+				7F5FA8551325F4E4007527CE /* navigationBarBackgroundRetro.png in Resources */,
+				7F5FA8561325F4E4007527CE /* navigationBarBackgroundRetro@2x.png in Resources */,
+				7F5FA8571325F4E4007527CE /* navigationBarLogo.png in Resources */,
+				7F5FA8581325F4E4007527CE /* navigationBarLogo@2x.png in Resources */,
+				7F5FA8671325F802007527CE /* notificationToast.png in Resources */,
+				7F5FA8681325F802007527CE /* notificationToast@2x.png in Resources */,
+				7F5FA8691325F802007527CE /* notificationToastCommentIcon.png in Resources */,
+				7F5FA86A1325F802007527CE /* notificationToastCommentIcon@2x.png in Resources */,
+				7F5FA86B1325F802007527CE /* notificationToastFollowerIcon.png in Resources */,
+				7F5FA86C1325F802007527CE /* notificationToastFollowerIcon@2x.png in Resources */,
+				7F5FA86D1325F802007527CE /* notificationToastLikeIcon.png in Resources */,
+				7F5FA86E1325F802007527CE /* notificationToastLikeIcon@2x.png in Resources */,
+				7F5FA88113260168007527CE /* button-disabled.png in Resources */,
+				7F5FA88213260168007527CE /* button-disabled@2x.png in Resources */,
+				7F5FA88313260168007527CE /* button-highlighted.png in Resources */,
+				7F5FA88413260168007527CE /* button-highlighted@2x.png in Resources */,
+				7F5FA88513260168007527CE /* button-normal.png in Resources */,
+				7F5FA88613260168007527CE /* button-normal@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* CustomTabBarNotificationAppDelegate.m in Sources */,
+				7F5FA8191325F295007527CE /* BaseViewController.m in Sources */,
+				7F5FA81A1325F295007527CE /* InstagramViewController.m in Sources */,
+				7F5FA8501325F451007527CE /* CustomNavigationBar.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CustomTabBarNotification_Prefix.pch;
+				INFOPLIST_FILE = "CustomTabBarNotification-Info.plist";
+				PRODUCT_NAME = CustomTabBarNotification;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CustomTabBarNotification_Prefix.pch;
+				INFOPLIST_FILE = "CustomTabBarNotification-Info.plist";
+				PRODUCT_NAME = CustomTabBarNotification;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "CustomTabBarNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CustomTabBarNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
