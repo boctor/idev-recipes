@@ -67,7 +67,7 @@ view hierarchy at the right location. But it definitely looks sexier
 that the built in red badge. What do you think? Can you make this code
 better? Let us know in the comments of our blog post!
 
-Blog post: [http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation][]
+Blog post: [http://idevrecipes.com/2011/03/08/how-does-the-instagram-iphone-app-implement-a-custom-tab-bar-notification][]
 
   [http://idevrecipes.com/2011/03/08/how-does-the-instagram-iphone-app-implement-a-custom-tab-bar-notification]: http://idevrecipes.com/2011/03/08/how-does-the-instagram-iphone-app-implement-a-custom-tab-bar-notification
   [Instagram]: http://p.appju.mp/389801252?t=i
