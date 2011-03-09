@@ -1,4 +1,4 @@
-Blog post: [http://idevrecipes.com/2011/03/08/how-does-the-instagram-iphone-app-implement-a-custom-tab-bar-notification/][]
+Blog post: [http://idevrecipes.com/2011/03/08/how-does-the-instagram-iphone-app-implement-a-custom-tab-bar-notification][]
 
 ## Problem:
 
@@ -65,8 +65,11 @@ Hiding the custom notification view:
 In the end the solution is quite simple: A custom view laid out in a NIB, added to the
 view hierarchy at the right location. But it definitely looks sexier
 that the built in red badge. What do you think? Can you make this code
-better? Let us know in the comments!
+better? Let us know in the comments of our blog post!
 
+Blog post: [http://idevrecipes.com/2010/12/17/twitter-app-tab-bar-animation][]
+
+  [http://idevrecipes.com/2011/03/08/how-does-the-instagram-iphone-app-implement-a-custom-tab-bar-notification]: http://idevrecipes.com/2011/03/08/how-does-the-instagram-iphone-app-implement-a-custom-tab-bar-notification
   [Instagram]: http://p.appju.mp/389801252?t=i
   [image]: http://idevrecipes.files.wordpress.com/2011/03/uitabbaritem_badgevalue.png
     "UITabBarItem_badgeValue"
