@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* WordPressReimaginedAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* WordPressReimaginedAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
+		7F521BFD1333291D009334A7 /* istockphoto_5829125-plant-sprouts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F521BFC1333291D009334A7 /* istockphoto_5829125-plant-sprouts.jpg */; };
+		7FF53D861331480B00B62C1F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53D831331480B00B62C1F /* MainWindow.xib */; };
+		7FF53DB61331745600B62C1F /* FreshlyPressedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53DB51331745600B62C1F /* FreshlyPressedViewController.m */; };
+		7FF53DB81331748500B62C1F /* FreshlyPressedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53DB71331748500B62C1F /* FreshlyPressedViewController.xib */; };
+		7FF53DBC1331763100B62C1F /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53DBB1331763100B62C1F /* BaseTableViewController.m */; };
+		7FF53DD813317B5800B62C1F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53DD713317B5800B62C1F /* JSONKit.m */; };
+		7FF53E2F1331D94400B62C1F /* BaseLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53E2E1331D94400B62C1F /* BaseLoadingViewController.m */; };
+		7FF53E551331DB8100B62C1F /* BaseLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53E541331DB8100B62C1F /* BaseLoadingViewController.xib */; };
+		7FF53E7913328A4B00B62C1F /* FreshlyPressedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53E7813328A4B00B62C1F /* FreshlyPressedTableViewCell.m */; };
+		7FF53E7C1332A27D00B62C1F /* ModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53E7B1332A27D00B62C1F /* ModelObject.m */; };
+		7FF53EA71332A61800B62C1F /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53EA41332A61800B62C1F /* CustomTabBar.m */; };
+		7FF53EA81332A61800B62C1F /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53EA61332A61800B62C1F /* CustomTabBarViewController.m */; };
+		7FF53EBF1332ACCF00B62C1F /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF53EBE1332ACCF00B62C1F /* BaseTableViewCell.m */; };
+		7FF53EE61332ADEE00B62C1F /* CustomTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EE51332ADEE00B62C1F /* CustomTabBarViewController.xib */; };
+		7FF53EE81332ADF800B62C1F /* FreshlyPressedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EE71332ADF800B62C1F /* FreshlyPressedTableViewCell.xib */; };
+		7FF53F081332AE3600B62C1F /* TabBarGlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EF21332AE3600B62C1F /* TabBarGlow.png */; };
+		7FF53F091332AE3600B62C1F /* TabBarGlow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EF31332AE3600B62C1F /* TabBarGlow@2x.png */; };
+		7FF53F0A1332AE3600B62C1F /* TabBarGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EF41332AE3600B62C1F /* TabBarGradient.png */; };
+		7FF53F0B1332AE3600B62C1F /* TabBarGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EF51332AE3600B62C1F /* TabBarGradient@2x.png */; };
+		7FF53F0C1332AE3600B62C1F /* TabBarItemSelectedBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EF61332AE3600B62C1F /* TabBarItemSelectedBackground.png */; };
+		7FF53F0D1332AE3600B62C1F /* TabBarItemSelectedBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EF71332AE3600B62C1F /* TabBarItemSelectedBackground@2x.png */; };
+		7FF53F0E1332AE3600B62C1F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EF81332AE3600B62C1F /* TabBarNipple.png */; };
+		7FF53F0F1332AE3600B62C1F /* TabBarNipple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EF91332AE3600B62C1F /* TabBarNipple@2x.png */; };
+		7FF53F101332AE3600B62C1F /* TabBarSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EFA1332AE3600B62C1F /* TabBarSelection.png */; };
+		7FF53F111332AE3600B62C1F /* TabBarSelection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EFB1332AE3600B62C1F /* TabBarSelection@2x.png */; };
+		7FF53F131332AE3600B62C1F /* 111-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53EFE1332AE3600B62C1F /* 111-user.png */; };
+		7FF53F151332AE3600B62C1F /* 15-tags.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53F001332AE3600B62C1F /* 15-tags.png */; };
+		7FF53F171332AE3600B62C1F /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53F021332AE3600B62C1F /* 28-star.png */; };
+		7FF53F191332AE3600B62C1F /* 34-coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53F041332AE3600B62C1F /* 34-coffee.png */; };
+		7FF53F1B1332AE3600B62C1F /* Subscriptions.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF53F061332AE3600B62C1F /* Subscriptions.png */; };
+		7FF541401332DE3100B62C1F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5413F1332DE3100B62C1F /* WebViewController.m */; };
+		7FF541721332DFEE00B62C1F /* webBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5416E1332DFEE00B62C1F /* webBack.png */; };
+		7FF541731332DFEE00B62C1F /* webBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5416F1332DFEE00B62C1F /* webBack@2x.png */; };
+		7FF541741332DFEE00B62C1F /* webForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF541701332DFEE00B62C1F /* webForward.png */; };
+		7FF541751332DFEE00B62C1F /* webForward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF541711332DFEE00B62C1F /* webForward@2x.png */; };
+		7FF541B21332E4D400B62C1F /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF541B11332E4D400B62C1F /* WebViewController.xib */; };
+		7FF542511332F04600B62C1F /* MorePagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF542501332F04600B62C1F /* MorePagesTableViewCell.xib */; };
+		7FF542541332F05400B62C1F /* MorePagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF542531332F05400B62C1F /* MorePagesTableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* WordPressReimaginedAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPressReimaginedAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* WordPressReimaginedAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPressReimaginedAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* WordPressReimagined.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordPressReimagined.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AB4B0D9B1048005BE974 /* WordPressReimagined_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPressReimagined_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7F521BFC1333291D009334A7 /* istockphoto_5829125-plant-sprouts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "istockphoto_5829125-plant-sprouts.jpg"; sourceTree = "<group>"; };
+		7FF53D831331480B00B62C1F /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		7FF53DB41331745600B62C1F /* FreshlyPressedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreshlyPressedViewController.h; sourceTree = "<group>"; };
+		7FF53DB51331745600B62C1F /* FreshlyPressedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreshlyPressedViewController.m; sourceTree = "<group>"; };
+		7FF53DB71331748500B62C1F /* FreshlyPressedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreshlyPressedViewController.xib; sourceTree = "<group>"; };
+		7FF53DBA1331763100B62C1F /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		7FF53DBB1331763100B62C1F /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		7FF53DD613317B5800B62C1F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		7FF53DD713317B5800B62C1F /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		7FF53E2D1331D94400B62C1F /* BaseLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoadingViewController.h; sourceTree = "<group>"; };
+		7FF53E2E1331D94400B62C1F /* BaseLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoadingViewController.m; sourceTree = "<group>"; };
+		7FF53E541331DB8100B62C1F /* BaseLoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseLoadingViewController.xib; sourceTree = "<group>"; };
+		7FF53E7713328A4B00B62C1F /* FreshlyPressedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreshlyPressedTableViewCell.h; sourceTree = "<group>"; };
+		7FF53E7813328A4B00B62C1F /* FreshlyPressedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreshlyPressedTableViewCell.m; sourceTree = "<group>"; };
+		7FF53E7A1332A27D00B62C1F /* ModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelObject.h; sourceTree = "<group>"; };
+		7FF53E7B1332A27D00B62C1F /* ModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelObject.m; sourceTree = "<group>"; };
+		7FF53EA31332A61800B62C1F /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
+		7FF53EA41332A61800B62C1F /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
+		7FF53EA51332A61800B62C1F /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarViewController.h; sourceTree = "<group>"; };
+		7FF53EA61332A61800B62C1F /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarViewController.m; sourceTree = "<group>"; };
+		7FF53EBD1332ACCF00B62C1F /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		7FF53EBE1332ACCF00B62C1F /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		7FF53EE51332ADEE00B62C1F /* CustomTabBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBarViewController.xib; sourceTree = "<group>"; };
+		7FF53EE71332ADF800B62C1F /* FreshlyPressedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreshlyPressedTableViewCell.xib; sourceTree = "<group>"; };
+		7FF53EF21332AE3600B62C1F /* TabBarGlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarGlow.png; sourceTree = "<group>"; };
+		7FF53EF31332AE3600B62C1F /* TabBarGlow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarGlow@2x.png"; sourceTree = "<group>"; };
+		7FF53EF41332AE3600B62C1F /* TabBarGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarGradient.png; sourceTree = "<group>"; };
+		7FF53EF51332AE3600B62C1F /* TabBarGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarGradient@2x.png"; sourceTree = "<group>"; };
+		7FF53EF61332AE3600B62C1F /* TabBarItemSelectedBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarItemSelectedBackground.png; sourceTree = "<group>"; };
+		7FF53EF71332AE3600B62C1F /* TabBarItemSelectedBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarItemSelectedBackground@2x.png"; sourceTree = "<group>"; };
+		7FF53EF81332AE3600B62C1F /* TabBarNipple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarNipple.png; sourceTree = "<group>"; };
+		7FF53EF91332AE3600B62C1F /* TabBarNipple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarNipple@2x.png"; sourceTree = "<group>"; };
+		7FF53EFA1332AE3600B62C1F /* TabBarSelection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarSelection.png; sourceTree = "<group>"; };
+		7FF53EFB1332AE3600B62C1F /* TabBarSelection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarSelection@2x.png"; sourceTree = "<group>"; };
+		7FF53EFE1332AE3600B62C1F /* 111-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "111-user.png"; sourceTree = "<group>"; };
+		7FF53F001332AE3600B62C1F /* 15-tags.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags.png"; sourceTree = "<group>"; };
+		7FF53F021332AE3600B62C1F /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
+		7FF53F041332AE3600B62C1F /* 34-coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "34-coffee.png"; sourceTree = "<group>"; };
+		7FF53F061332AE3600B62C1F /* Subscriptions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Subscriptions.png; sourceTree = "<group>"; };
+		7FF5413E1332DE3100B62C1F /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		7FF5413F1332DE3100B62C1F /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		7FF5416E1332DFEE00B62C1F /* webBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webBack.png; sourceTree = "<group>"; };
+		7FF5416F1332DFEE00B62C1F /* webBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webBack@2x.png"; sourceTree = "<group>"; };
+		7FF541701332DFEE00B62C1F /* webForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webForward.png; sourceTree = "<group>"; };
+		7FF541711332DFEE00B62C1F /* webForward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webForward@2x.png"; sourceTree = "<group>"; };
+		7FF541B11332E4D400B62C1F /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		7FF542501332F04600B62C1F /* MorePagesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MorePagesTableViewCell.xib; sourceTree = "<group>"; };
+		7FF542521332F05400B62C1F /* MorePagesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorePagesTableViewCell.h; sourceTree = "<group>"; };
+		7FF542531332F05400B62C1F /* MorePagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorePagesTableViewCell.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* WordPressReimagined-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WordPressReimagined-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7FF53E2D1331D94400B62C1F /* BaseLoadingViewController.h */,
+				7FF53E2E1331D94400B62C1F /* BaseLoadingViewController.m */,
+				7FF53EBD1332ACCF00B62C1F /* BaseTableViewCell.h */,
+				7FF53EBE1332ACCF00B62C1F /* BaseTableViewCell.m */,
+				7FF53DBA1331763100B62C1F /* BaseTableViewController.h */,
+				7FF53DBB1331763100B62C1F /* BaseTableViewController.m */,
+				7FF53EA31332A61800B62C1F /* CustomTabBar.h */,
+				7FF53EA41332A61800B62C1F /* CustomTabBar.m */,
+				7FF53EA51332A61800B62C1F /* CustomTabBarViewController.h */,
+				7FF53EA61332A61800B62C1F /* CustomTabBarViewController.m */,
+				7FF53E7713328A4B00B62C1F /* FreshlyPressedTableViewCell.h */,
+				7FF53E7813328A4B00B62C1F /* FreshlyPressedTableViewCell.m */,
+				7FF53DB41331745600B62C1F /* FreshlyPressedViewController.h */,
+				7FF53DB51331745600B62C1F /* FreshlyPressedViewController.m */,
+				7FF53E7A1332A27D00B62C1F /* ModelObject.h */,
+				7FF53E7B1332A27D00B62C1F /* ModelObject.m */,
+				7FF5413E1332DE3100B62C1F /* WebViewController.h */,
+				7FF5413F1332DE3100B62C1F /* WebViewController.m */,
+				1D3623240D0F684500981E51 /* WordPressReimaginedAppDelegate.h */,
+				1D3623250D0F684500981E51 /* WordPressReimaginedAppDelegate.m */,
+				7FF542521332F05400B62C1F /* MorePagesTableViewCell.h */,
+				7FF542531332F05400B62C1F /* MorePagesTableViewCell.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* WordPressReimagined.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* WordPressReimagined */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				7FF53DD413317B5800B62C1F /* Libraries */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = WordPressReimagined;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AB4B0D9B1048005BE974 /* WordPressReimagined_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FF53D811331480B00B62C1F /* NIBs */,
+				7FF53D8D133149E800B62C1F /* Images */,
+				8D1107310486CEB800E47090 /* WordPressReimagined-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765070DF74369002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FF53D811331480B00B62C1F /* NIBs */ = {
+			isa = PBXGroup;
+			children = (
+				7FF53E541331DB8100B62C1F /* BaseLoadingViewController.xib */,
+				7FF53EE51332ADEE00B62C1F /* CustomTabBarViewController.xib */,
+				7FF53EE71332ADF800B62C1F /* FreshlyPressedTableViewCell.xib */,
+				7FF53DB71331748500B62C1F /* FreshlyPressedViewController.xib */,
+				7FF53D831331480B00B62C1F /* MainWindow.xib */,
+				7FF541B11332E4D400B62C1F /* WebViewController.xib */,
+				7FF542501332F04600B62C1F /* MorePagesTableViewCell.xib */,
+			);
+			path = NIBs;
+			sourceTree = "<group>";
+		};
+		7FF53D8D133149E800B62C1F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7F521BFC1333291D009334A7 /* istockphoto_5829125-plant-sprouts.jpg */,
+				7FF53EF11332AE3600B62C1F /* CustomTabBar */,
+				7FF53EFD1332AE3600B62C1F /* TabBarIcons */,
+				7FF5416D1332DFEE00B62C1F /* WebView */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		7FF53DD413317B5800B62C1F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				7FF53DD513317B5800B62C1F /* JSONKit */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		7FF53DD513317B5800B62C1F /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				7FF53DD613317B5800B62C1F /* JSONKit.h */,
+				7FF53DD713317B5800B62C1F /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		7FF53EF11332AE3600B62C1F /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7FF53EF21332AE3600B62C1F /* TabBarGlow.png */,
+				7FF53EF31332AE3600B62C1F /* TabBarGlow@2x.png */,
+				7FF53EF41332AE3600B62C1F /* TabBarGradient.png */,
+				7FF53EF51332AE3600B62C1F /* TabBarGradient@2x.png */,
+				7FF53EF61332AE3600B62C1F /* TabBarItemSelectedBackground.png */,
+				7FF53EF71332AE3600B62C1F /* TabBarItemSelectedBackground@2x.png */,
+				7FF53EF81332AE3600B62C1F /* TabBarNipple.png */,
+				7FF53EF91332AE3600B62C1F /* TabBarNipple@2x.png */,
+				7FF53EFA1332AE3600B62C1F /* TabBarSelection.png */,
+				7FF53EFB1332AE3600B62C1F /* TabBarSelection@2x.png */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		7FF53EFD1332AE3600B62C1F /* TabBarIcons */ = {
+			isa = PBXGroup;
+			children = (
+				7FF53EFE1332AE3600B62C1F /* 111-user.png */,
+				7FF53F001332AE3600B62C1F /* 15-tags.png */,
+				7FF53F021332AE3600B62C1F /* 28-star.png */,
+				7FF53F041332AE3600B62C1F /* 34-coffee.png */,
+				7FF53F061332AE3600B62C1F /* Subscriptions.png */,
+			);
+			path = TabBarIcons;
+			sourceTree = "<group>";
+		};
+		7FF5416D1332DFEE00B62C1F /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				7FF5416E1332DFEE00B62C1F /* webBack.png */,
+				7FF5416F1332DFEE00B62C1F /* webBack@2x.png */,
+				7FF541701332DFEE00B62C1F /* webForward.png */,
+				7FF541711332DFEE00B62C1F /* webForward@2x.png */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* WordPressReimagined */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "WordPressReimagined" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WordPressReimagined;
+			productName = WordPressReimagined;
+			productReference = 1D6058910D05DD3D006BFB54 /* WordPressReimagined.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Peter Boctor";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WordPressReimagined" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* WordPressReimagined */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* WordPressReimagined */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FF53D861331480B00B62C1F /* MainWindow.xib in Resources */,
+				7FF53DB81331748500B62C1F /* FreshlyPressedViewController.xib in Resources */,
+				7FF53E551331DB8100B62C1F /* BaseLoadingViewController.xib in Resources */,
+				7FF53EE61332ADEE00B62C1F /* CustomTabBarViewController.xib in Resources */,
+				7FF53EE81332ADF800B62C1F /* FreshlyPressedTableViewCell.xib in Resources */,
+				7FF53F081332AE3600B62C1F /* TabBarGlow.png in Resources */,
+				7FF53F091332AE3600B62C1F /* TabBarGlow@2x.png in Resources */,
+				7FF53F0A1332AE3600B62C1F /* TabBarGradient.png in Resources */,
+				7FF53F0B1332AE3600B62C1F /* TabBarGradient@2x.png in Resources */,
+				7FF53F0C1332AE3600B62C1F /* TabBarItemSelectedBackground.png in Resources */,
+				7FF53F0D1332AE3600B62C1F /* TabBarItemSelectedBackground@2x.png in Resources */,
+				7FF53F0E1332AE3600B62C1F /* TabBarNipple.png in Resources */,
+				7FF53F0F1332AE3600B62C1F /* TabBarNipple@2x.png in Resources */,
+				7FF53F101332AE3600B62C1F /* TabBarSelection.png in Resources */,
+				7FF53F111332AE3600B62C1F /* TabBarSelection@2x.png in Resources */,
+				7FF53F131332AE3600B62C1F /* 111-user.png in Resources */,
+				7FF53F151332AE3600B62C1F /* 15-tags.png in Resources */,
+				7FF53F171332AE3600B62C1F /* 28-star.png in Resources */,
+				7FF53F191332AE3600B62C1F /* 34-coffee.png in Resources */,
+				7FF53F1B1332AE3600B62C1F /* Subscriptions.png in Resources */,
+				7FF541721332DFEE00B62C1F /* webBack.png in Resources */,
+				7FF541731332DFEE00B62C1F /* webBack@2x.png in Resources */,
+				7FF541741332DFEE00B62C1F /* webForward.png in Resources */,
+				7FF541751332DFEE00B62C1F /* webForward@2x.png in Resources */,
+				7FF541B21332E4D400B62C1F /* WebViewController.xib in Resources */,
+				7FF542511332F04600B62C1F /* MorePagesTableViewCell.xib in Resources */,
+				7F521BFD1333291D009334A7 /* istockphoto_5829125-plant-sprouts.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* WordPressReimaginedAppDelegate.m in Sources */,
+				7FF53DB61331745600B62C1F /* FreshlyPressedViewController.m in Sources */,
+				7FF53DBC1331763100B62C1F /* BaseTableViewController.m in Sources */,
+				7FF53DD813317B5800B62C1F /* JSONKit.m in Sources */,
+				7FF53E2F1331D94400B62C1F /* BaseLoadingViewController.m in Sources */,
+				7FF53E7913328A4B00B62C1F /* FreshlyPressedTableViewCell.m in Sources */,
+				7FF53E7C1332A27D00B62C1F /* ModelObject.m in Sources */,
+				7FF53EA71332A61800B62C1F /* CustomTabBar.m in Sources */,
+				7FF53EA81332A61800B62C1F /* CustomTabBarViewController.m in Sources */,
+				7FF53EBF1332ACCF00B62C1F /* BaseTableViewCell.m in Sources */,
+				7FF541401332DE3100B62C1F /* WebViewController.m in Sources */,
+				7FF542541332F05400B62C1F /* MorePagesTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WordPressReimagined_Prefix.pch;
+				INFOPLIST_FILE = "WordPressReimagined-Info.plist";
+				PRODUCT_NAME = WordPressReimagined;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WordPressReimagined_Prefix.pch;
+				INFOPLIST_FILE = "WordPressReimagined-Info.plist";
+				PRODUCT_NAME = WordPressReimagined;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_CFLAGS = "-DDEBUG=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "WordPressReimagined" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WordPressReimagined" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
