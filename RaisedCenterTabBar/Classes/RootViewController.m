@@ -74,6 +74,11 @@
   [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+  return YES;
+}
+
 - (void)dealloc
 {
   [super dealloc];
