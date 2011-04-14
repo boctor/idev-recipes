@@ -114,9 +114,11 @@
 #pragma mark Button touch up inside action
 - (IBAction) touchUpInsideAction:(UIButton*)button
 {
+  NSIndexPath* indexPath = [tableView indexPathForCell:sideSwipeCell];
+  
   NSUInteger index = [buttons indexOfObject:button];
   NSDictionary* buttonInfo = [buttonData objectAtIndex:index];
-  [[[[UIAlertView alloc] initWithTitle:[buttonInfo objectForKey:@"title"]
+  [[[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@ on cell %d", [buttonInfo objectForKey:@"title"], indexPath.row]
                                message:nil
                               delegate:nil
                      cancelButtonTitle:nil
