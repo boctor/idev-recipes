@@ -14,6 +14,11 @@
 #define USE_GESTURE_RECOGNIZERS YES
 // Bounce pixels define how many pixels the view is moved during the bounce animation
 #define BOUNCE_PIXELS 5.0
+// The first implemenation of this animated both the cell and the sideSwipeView.
+// But this isn't exactly how the Twitter app does it. Instead it keeps the sideSwipeView behind the cell at x-offset of 0
+// then animates in and out the cell content. The code has been updated to do it this way. If you preferred the old way
+// set PUSH_STYLE_ANIMATION to YES and you'll get the older push style animation
+#define PUSH_STYLE_ANIMATION NO
 
 @interface SideSwipeTableViewController (PrivateStuff)
 - (void) addSwipeViewTo:(UITableViewCell*)cell direction:(UISwipeGestureRecognizerDirection)direction;
@@ -134,16 +139,24 @@
   // Change the frame of the side swipe view to match the cell
   sideSwipeView.frame = cell.frame;
 
-  // Add the side swipe view to the table
-  [tableView addSubview:sideSwipeView];
+  // Add the side swipe view to the table below the cell
+  [tableView insertSubview:sideSwipeView belowSubview:cell];
   
   // Remember which cell the side swipe view is displayed on and the swipe direction
   self.sideSwipeCell = cell;
   sideSwipeDirection = direction;
 
-  // Move the side swipe view offscreen either to the left or the right depending on the swipe direction
   CGRect cellFrame = cell.frame;
-  sideSwipeView.frame = CGRectMake(direction == UISwipeGestureRecognizerDirectionRight ? -cellFrame.size.width : cellFrame.size.width, cellFrame.origin.y, cellFrame.size.width, cellFrame.size.height);
+  if (PUSH_STYLE_ANIMATION)
+  {
+    // Move the side swipe view offscreen either to the left or the right depending on the swipe direction
+    sideSwipeView.frame = CGRectMake(direction == UISwipeGestureRecognizerDirectionRight ? -cellFrame.size.width : cellFrame.size.width, cellFrame.origin.y, cellFrame.size.width, cellFrame.size.height);
+  }
+  else
+  {
+    // Move the side swipe view to offset 0
+    sideSwipeView.frame = CGRectMake(0, cellFrame.origin.y, cellFrame.size.width, cellFrame.size.height);
+  }
 
   // Animate in the side swipe view
   animatingSideSwipe = YES;
@@ -151,10 +164,13 @@
   [UIView setAnimationDuration:0.2];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(animationDidStopAddingSwipeView:finished:context:)];
-  // Move the side swipe view to offset 0
-  sideSwipeView.frame = CGRectMake(0, cellFrame.origin.y, cellFrame.size.width, cellFrame.size.height);
-  // While simultaneously moving the cell's frame offscreen
-  // The net effect is that the side swipe view is pushing the cell offscreen
+  if (PUSH_STYLE_ANIMATION)
+  {
+    // Move the side swipe view to offset 0
+    // While simultaneously moving the cell's frame offscreen
+    // The net effect is that the side swipe view is pushing the cell offscreen
+    sideSwipeView.frame = CGRectMake(0, cellFrame.origin.y, cellFrame.size.width, cellFrame.size.height);
+  }
   cell.frame = CGRectMake(direction == UISwipeGestureRecognizerDirectionRight ? cellFrame.size.width : -cellFrame.size.width, cellFrame.origin.y, cellFrame.size.width, cellFrame.size.height);
   [UIView commitAnimations];
 }
@@ -202,12 +218,14 @@
     [UIView setAnimationDuration:0.2];
     if (sideSwipeDirection == UISwipeGestureRecognizerDirectionRight)
     {
-      sideSwipeView.frame = CGRectMake(-sideSwipeView.frame.size.width + BOUNCE_PIXELS,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
+      if (PUSH_STYLE_ANIMATION)
+        sideSwipeView.frame = CGRectMake(-sideSwipeView.frame.size.width + BOUNCE_PIXELS,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
       sideSwipeCell.frame = CGRectMake(BOUNCE_PIXELS, sideSwipeCell.frame.origin.y, sideSwipeCell.frame.size.width, sideSwipeCell.frame.size.height);
     }
     else
     {
-      sideSwipeView.frame = CGRectMake(sideSwipeView.frame.size.width - BOUNCE_PIXELS,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
+      if (PUSH_STYLE_ANIMATION)
+        sideSwipeView.frame = CGRectMake(sideSwipeView.frame.size.width - BOUNCE_PIXELS,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
       sideSwipeCell.frame = CGRectMake(-BOUNCE_PIXELS, sideSwipeCell.frame.origin.y, sideSwipeCell.frame.size.width, sideSwipeCell.frame.size.height);
     }
     animatingSideSwipe = YES;
@@ -231,12 +249,14 @@
   [UIView setAnimationDuration:0.2];
   if (sideSwipeDirection == UISwipeGestureRecognizerDirectionRight)
   {
-    sideSwipeView.frame = CGRectMake(-sideSwipeView.frame.size.width + BOUNCE_PIXELS*2,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
+    if (PUSH_STYLE_ANIMATION)
+      sideSwipeView.frame = CGRectMake(-sideSwipeView.frame.size.width + BOUNCE_PIXELS*2,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
     sideSwipeCell.frame = CGRectMake(BOUNCE_PIXELS*2, sideSwipeCell.frame.origin.y, sideSwipeCell.frame.size.width, sideSwipeCell.frame.size.height);
   }
   else
   {
-    sideSwipeView.frame = CGRectMake(sideSwipeView.frame.size.width - BOUNCE_PIXELS*2,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
+    if (PUSH_STYLE_ANIMATION)
+      sideSwipeView.frame = CGRectMake(sideSwipeView.frame.size.width - BOUNCE_PIXELS*2,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
     sideSwipeCell.frame = CGRectMake(-BOUNCE_PIXELS*2, sideSwipeCell.frame.origin.y, sideSwipeCell.frame.size.width, sideSwipeCell.frame.size.height);
   }
   [UIView setAnimationDelegate:self];
@@ -253,12 +273,14 @@
   [UIView setAnimationDuration:0.2];
   if (sideSwipeDirection == UISwipeGestureRecognizerDirectionRight)
   {
-    sideSwipeView.frame = CGRectMake(-sideSwipeView.frame.size.width ,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
+    if (PUSH_STYLE_ANIMATION)
+      sideSwipeView.frame = CGRectMake(-sideSwipeView.frame.size.width ,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
     sideSwipeCell.frame = CGRectMake(0, sideSwipeCell.frame.origin.y, sideSwipeCell.frame.size.width, sideSwipeCell.frame.size.height);
   }
   else
   {
-    sideSwipeView.frame = CGRectMake(sideSwipeView.frame.size.width ,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
+    if (PUSH_STYLE_ANIMATION)
+      sideSwipeView.frame = CGRectMake(sideSwipeView.frame.size.width ,sideSwipeView.frame.origin.y,sideSwipeView.frame.size.width, sideSwipeView.frame.size.height);
     sideSwipeCell.frame = CGRectMake(0, sideSwipeCell.frame.origin.y, sideSwipeCell.frame.size.width, sideSwipeCell.frame.size.height);
   }
   [UIView setAnimationDelegate:self];
