@@ -1,0 +1,342 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* SideSwipeTableViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* SideSwipeTableViewAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		7FA0B7DC133C50CE009D8F93 /* SideSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA0B7DB133C50CE009D8F93 /* SideSwipeTableViewCell.m */; };
+		7FA0B8B5133D077B009D8F93 /* dotted-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0B8B3133D077B009D8F93 /* dotted-pattern.png */; };
+		7FA0B8B6133D077B009D8F93 /* dotted-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0B8B4133D077B009D8F93 /* dotted-pattern@2x.png */; };
+		7FA0B951133D1405009D8F93 /* inner-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0B950133D1405009D8F93 /* inner-shadow.png */; };
+		7FA0BCB7133DBEB0009D8F93 /* reply.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0BCB5133DBEB0009D8F93 /* reply.png */; };
+		7FA0BCB8133DBEB0009D8F93 /* reply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA0BCB6133DBEB0009D8F93 /* reply@2x.png */; };
+		7FBA36D6135403A700719B06 /* SideSwipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBA36D5135403A700719B06 /* SideSwipeTableViewController.m */; };
+		7FBA3A021356598D00719B06 /* retweet-outline-button-item.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A001356598D00719B06 /* retweet-outline-button-item.png */; };
+		7FBA3A031356598D00719B06 /* retweet-outline-button-item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A011356598D00719B06 /* retweet-outline-button-item@2x.png */; };
+		7FBA3A1913565AB000719B06 /* star-hollow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A1713565AB000719B06 /* star-hollow.png */; };
+		7FBA3A1A13565AB000719B06 /* star-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A1813565AB000719B06 /* star-hollow@2x.png */; };
+		7FBA3A2013565AEA00719B06 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A1E13565AEA00719B06 /* person.png */; };
+		7FBA3A2113565AEA00719B06 /* person@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A1F13565AEA00719B06 /* person@2x.png */; };
+		7FBA3A2513565B1B00719B06 /* paperclip.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A2313565B1B00719B06 /* paperclip.png */; };
+		7FBA3A2613565B1B00719B06 /* paperclip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A2413565B1B00719B06 /* paperclip@2x.png */; };
+		7FBA3A2D13565B5000719B06 /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A2B13565B5000719B06 /* action.png */; };
+		7FBA3A2E13565B5000719B06 /* action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA3A2C13565B5000719B06 /* action@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* SideSwipeTableViewAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSwipeTableViewAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* SideSwipeTableViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSwipeTableViewAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* SideSwipeTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideSwipeTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* SideSwipeTableView_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSwipeTableView_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FA0B7DA133C50CE009D8F93 /* SideSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSwipeTableViewCell.h; sourceTree = "<group>"; };
+		7FA0B7DB133C50CE009D8F93 /* SideSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSwipeTableViewCell.m; sourceTree = "<group>"; };
+		7FA0B8B3133D077B009D8F93 /* dotted-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted-pattern.png"; sourceTree = "<group>"; };
+		7FA0B8B4133D077B009D8F93 /* dotted-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted-pattern@2x.png"; sourceTree = "<group>"; };
+		7FA0B950133D1405009D8F93 /* inner-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner-shadow.png"; sourceTree = "<group>"; };
+		7FA0BCB5133DBEB0009D8F93 /* reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reply.png; sourceTree = "<group>"; };
+		7FA0BCB6133DBEB0009D8F93 /* reply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply@2x.png"; sourceTree = "<group>"; };
+		7FBA36D4135403A700719B06 /* SideSwipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSwipeTableViewController.h; sourceTree = "<group>"; };
+		7FBA36D5135403A700719B06 /* SideSwipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSwipeTableViewController.m; sourceTree = "<group>"; };
+		7FBA3A001356598D00719B06 /* retweet-outline-button-item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-outline-button-item.png"; sourceTree = "<group>"; };
+		7FBA3A011356598D00719B06 /* retweet-outline-button-item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-outline-button-item@2x.png"; sourceTree = "<group>"; };
+		7FBA3A1713565AB000719B06 /* star-hollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-hollow.png"; sourceTree = "<group>"; };
+		7FBA3A1813565AB000719B06 /* star-hollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-hollow@2x.png"; sourceTree = "<group>"; };
+		7FBA3A1E13565AEA00719B06 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
+		7FBA3A1F13565AEA00719B06 /* person@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person@2x.png"; sourceTree = "<group>"; };
+		7FBA3A2313565B1B00719B06 /* paperclip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paperclip.png; sourceTree = "<group>"; };
+		7FBA3A2413565B1B00719B06 /* paperclip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paperclip@2x.png"; sourceTree = "<group>"; };
+		7FBA3A2B13565B5000719B06 /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
+		7FBA3A2C13565B5000719B06 /* action@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action@2x.png"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* SideSwipeTableView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SideSwipeTableView-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
+				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				1D3623240D0F684500981E51 /* SideSwipeTableViewAppDelegate.h */,
+				1D3623250D0F684500981E51 /* SideSwipeTableViewAppDelegate.m */,
+				7FA0B7DA133C50CE009D8F93 /* SideSwipeTableViewCell.h */,
+				7FA0B7DB133C50CE009D8F93 /* SideSwipeTableViewCell.m */,
+				7FBA36D4135403A700719B06 /* SideSwipeTableViewController.h */,
+				7FBA36D5135403A700719B06 /* SideSwipeTableViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* SideSwipeTableView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* SideSwipeTableView_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28F335F01007B36200424DE2 /* RootViewController.xib */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* SideSwipeTableView-Info.plist */,
+				7FA0B8B2133D077B009D8F93 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FA0B8B2133D077B009D8F93 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7FBA3A2B13565B5000719B06 /* action.png */,
+				7FBA3A2C13565B5000719B06 /* action@2x.png */,
+				7FA0B8B3133D077B009D8F93 /* dotted-pattern.png */,
+				7FA0B8B4133D077B009D8F93 /* dotted-pattern@2x.png */,
+				7FA0B950133D1405009D8F93 /* inner-shadow.png */,
+				7FBA3A2313565B1B00719B06 /* paperclip.png */,
+				7FBA3A2413565B1B00719B06 /* paperclip@2x.png */,
+				7FBA3A1E13565AEA00719B06 /* person.png */,
+				7FBA3A1F13565AEA00719B06 /* person@2x.png */,
+				7FA0BCB5133DBEB0009D8F93 /* reply.png */,
+				7FA0BCB6133DBEB0009D8F93 /* reply@2x.png */,
+				7FBA3A001356598D00719B06 /* retweet-outline-button-item.png */,
+				7FBA3A011356598D00719B06 /* retweet-outline-button-item@2x.png */,
+				7FBA3A1713565AB000719B06 /* star-hollow.png */,
+				7FBA3A1813565AB000719B06 /* star-hollow@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* SideSwipeTableView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SideSwipeTableView" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SideSwipeTableView;
+			productName = SideSwipeTableView;
+			productReference = 1D6058910D05DD3D006BFB54 /* SideSwipeTableView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Peter Boctor";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SideSwipeTableView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* SideSwipeTableView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
+				7FA0B8B5133D077B009D8F93 /* dotted-pattern.png in Resources */,
+				7FA0B8B6133D077B009D8F93 /* dotted-pattern@2x.png in Resources */,
+				7FA0B951133D1405009D8F93 /* inner-shadow.png in Resources */,
+				7FA0BCB7133DBEB0009D8F93 /* reply.png in Resources */,
+				7FA0BCB8133DBEB0009D8F93 /* reply@2x.png in Resources */,
+				7FBA3A021356598D00719B06 /* retweet-outline-button-item.png in Resources */,
+				7FBA3A031356598D00719B06 /* retweet-outline-button-item@2x.png in Resources */,
+				7FBA3A1913565AB000719B06 /* star-hollow.png in Resources */,
+				7FBA3A1A13565AB000719B06 /* star-hollow@2x.png in Resources */,
+				7FBA3A2013565AEA00719B06 /* person.png in Resources */,
+				7FBA3A2113565AEA00719B06 /* person@2x.png in Resources */,
+				7FBA3A2513565B1B00719B06 /* paperclip.png in Resources */,
+				7FBA3A2613565B1B00719B06 /* paperclip@2x.png in Resources */,
+				7FBA3A2D13565B5000719B06 /* action.png in Resources */,
+				7FBA3A2E13565B5000719B06 /* action@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* SideSwipeTableViewAppDelegate.m in Sources */,
+				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
+				7FA0B7DC133C50CE009D8F93 /* SideSwipeTableViewCell.m in Sources */,
+				7FBA36D6135403A700719B06 /* SideSwipeTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SideSwipeTableView_Prefix.pch;
+				INFOPLIST_FILE = "SideSwipeTableView-Info.plist";
+				PRODUCT_NAME = SideSwipeTableView;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SideSwipeTableView_Prefix.pch;
+				INFOPLIST_FILE = "SideSwipeTableView-Info.plist";
+				PRODUCT_NAME = SideSwipeTableView;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SideSwipeTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SideSwipeTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
