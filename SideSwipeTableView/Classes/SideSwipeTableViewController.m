@@ -119,6 +119,15 @@
 {
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // If we are using gestures, then don't allow editing
+  if ([self gestureRecognizersSupported])
+    return NO;
+  else
+    return YES;
+}
+
 #pragma mark Adding the side swipe view
 - (void) addSwipeViewTo:(UITableViewCell*)cell direction:(UISwipeGestureRecognizerDirection)direction
 {
