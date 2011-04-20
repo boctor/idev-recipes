@@ -69,6 +69,12 @@ ARGV.each do |ipa|
       system "#{pngcrush} -q -revert-iphone-optimizations -d '#{images_dir_path}' '#{png_file}'"
     end
     
+    # Iterate through all jpg images
+    Dir.glob(File.join(expanded_dir, 'Payload', "*.app", '*.jpg')).each do |jpg_file|
+      # and move each to the destination directory
+      system "mv '#{jpg_file}' '#{images_dir_path}'"
+    end
+    
     # Cleanup. Delete the expanded dir
     system "rm -drf '#{expanded_dir}'"
   end
