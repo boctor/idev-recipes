@@ -55,4 +55,6 @@
 - (void) glowItemAtIndex:(NSInteger)index;
 - (void) removeGlowAtIndex:(NSInteger)index;
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+
 @end

@@ -176,7 +176,7 @@ static NSArray* tabBarItems = nil;
   UIImage* tabBarGradient = [UIImage imageNamed:@"TabBarGradient.png"];
 
   // Set the view controller's frame to account for the tab bar
-  viewController.view.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height-(tabBarGradient.size.height*2));
+  viewController.view.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-(tabBarGradient.size.height*2));
 
   // Se the tag so we can find it later
   viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
@@ -199,6 +199,35 @@ static NSArray* tabBarItems = nil;
   
   // Then add it to this tab bar item
   [tabBar glowItemAtIndex:[[theTimer userInfo] integerValue]];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+  return YES;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+  // Let the tab bar that we're about to rotate
+  [tabBar willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+
+  // Adjust the current view in prepartion for the new orientation
+  UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
+  UIImage* tabBarGradient = [UIImage imageNamed:@"TabBarGradient.png"];
+
+  CGFloat width = 0, height = 0;
+  if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+  {
+    width = self.view.window.frame.size.width;
+    height = self.view.window.frame.size.height;
+  }
+  else
+  {
+    width = self.view.window.frame.size.height;
+    height = self.view.window.frame.size.width;
+  }
+
+  currentView.frame = CGRectMake(0,0,width, height-(tabBarGradient.size.height*2));
 }
 
 - (void)dealloc

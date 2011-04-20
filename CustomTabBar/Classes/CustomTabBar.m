@@ -29,6 +29,7 @@
 
 #define GLOW_IMAGE_TAG 2394858
 #define TAB_ARROW_IMAGE_TAG 2394859
+#define SELECTED_ITEM_TAG 2394860
 
 @interface CustomTabBar (PrivateMethods)
 - (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex;
@@ -46,6 +47,8 @@
 {
   if (self = [super init])
   {
+    self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+    
     // The tag allows callers withe multiple controls to distinguish between them
     self.tag = objectTag;
     
@@ -55,6 +58,7 @@
     // Add the background image
     UIImage* backgroundImage = [delegate backgroundImage];
     UIImageView* backgroundImageView = [[[UIImageView alloc] initWithImage:backgroundImage] autorelease];
+    backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     backgroundImageView.frame = CGRectMake(0, 0, backgroundImage.size.width, backgroundImage.size.height);
     [self addSubview:backgroundImageView];
 
@@ -105,7 +109,8 @@
     {
       button.selected = YES;
       button.highlighted = button.selected ? NO : YES;
-
+      button.tag = SELECTED_ITEM_TAG;
+      
       UIImageView* tabBarArrow = (UIImageView*)[self viewWithTag:TAB_ARROW_IMAGE_TAG];
       NSUInteger selectedIndex = [buttons indexOfObjectIdenticalTo:button];
       if (tabBarArrow)
@@ -126,6 +131,7 @@
     {
       button.selected = NO;
       button.highlighted = NO;
+      button.tag = 0;
     }
   }
 }
@@ -196,13 +202,15 @@
 {
   UIImageView* tabBarArrow = (UIImageView*)[self viewWithTag:TAB_ARROW_IMAGE_TAG];
   
-  // A single tab item's width is the entire width of the tab bar divided by number of items
-  CGFloat tabItemWidth = self.frame.size.width / buttons.count;
+  // A single tab item's width is the same as the button's width
+  UIButton* button = [buttons objectAtIndex:tabIndex];
+  CGFloat tabItemWidth = button.frame.size.width;
+
   // A half width is tabItemWidth divided by 2 minus half the width of the arrow
   CGFloat halfTabItemWidth = (tabItemWidth / 2.0) - (tabBarArrow.frame.size.width / 2.0);
   
   // The horizontal location is the index times the width plus a half width
-  return (tabIndex * tabItemWidth) + halfTabItemWidth;
+  return button.frame.origin.x + halfTabItemWidth;
 }
 
 - (void) addTabBarArrowAtIndex:(NSUInteger)itemIndex
@@ -333,6 +341,27 @@
   UIGraphicsEndImageContext();
   
   return finalBackgroundImage;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+  CGFloat itemWidth = ((toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)  ? self.window.frame.size.height : self.window.frame.size.width)/buttons.count;
+  // horizontalOffset tracks the x value
+  CGFloat horizontalOffset = 0;
+
+  // Iterate through each button
+  for (UIButton* button in buttons)
+  {
+    // Set the button's x offset
+    button.frame = CGRectMake(horizontalOffset, 0.0, button.frame.size.width, button.frame.size.height);
+
+    // Advance the horizontal offset
+    horizontalOffset = horizontalOffset + itemWidth;
+  }
+  
+  // Move the arrow to the new button location
+  UIButton* selectedButton = (UIButton*)[self viewWithTag:SELECTED_ITEM_TAG];
+  [self dimAllButtonsExcept:selectedButton];
 }
 
 - (void)dealloc
