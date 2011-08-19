@@ -27,9 +27,9 @@
 
 #import "CustomTabBar.h"
 
-@interface CustomTabBarViewController : UIViewController <CustomTabBarDelegate>
-{
-  CustomTabBar* tabBar;
+@interface CustomTabBarViewController : UIViewController <CustomTabBarDelegate> {
+    CustomTabBar* tabBar;
+    NSTimer*    glowTimer;
 }
 
 @property (nonatomic, retain) CustomTabBar* tabBar;
