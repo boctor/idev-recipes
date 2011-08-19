@@ -220,7 +220,7 @@
   tabBarArrow.tag = TAB_ARROW_IMAGE_TAG;
   // To get the vertical location we go up by the height of arrow and then come back down 2 pixels so the arrow is slightly on top of the tab bar.
   CGFloat verticalLocation = -tabBarArrowImage.size.height + 2;
-  tabBarArrow.frame = CGRectMake([self horizontalLocationFor:itemIndex], verticalLocation, tabBarArrowImage.size.width, tabBarArrowImage.size.height);
+  tabBarArrow.frame = CGRectMake([self horizontalLocationFor:itemIndex] - 5, verticalLocation, tabBarArrowImage.size.width, tabBarArrowImage.size.height);
 
   [self addSubview:tabBarArrow];
 }
