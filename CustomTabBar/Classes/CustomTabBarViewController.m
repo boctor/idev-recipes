@@ -32,7 +32,7 @@
 static NSArray* tabBarItems = nil;
 
 @implementation CustomTabBarViewController
-@synthesize tabBar;
+@synthesize currentIndex, tabBar;
 
 - (void) awakeFromNib
 {
@@ -173,30 +173,41 @@ static NSArray* tabBarItems = nil;
 
 - (void)startGlowTimer:(NSInteger)itemIndex {
     [self stopGlowTimer];
-    glowTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:0.3] interval:0.3 target:self selector:@selector(addGlowTimerFireMethod:) userInfo:[NSNumber numberWithInteger:itemIndex] repeats:NO];
+    glowTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:0.2] interval:0.2 target:self selector:@selector(addGlowTimerFireMethod:) userInfo:[NSNumber numberWithInteger:itemIndex] repeats:NO];
     [[NSRunLoop currentRunLoop] addTimer:glowTimer forMode:NSDefaultRunLoopMode];
 }
 
 - (void) touchDownAtItemAtIndex:(NSUInteger)itemIndex {
-    // Remove the current view controller's view
-    UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
-    [currentView removeFromSuperview];
+    NSDictionary* data = [tabBarItems objectAtIndex:self.currentIndex];
+    UIViewController* previousViewController = [data objectForKey:@"viewController"];    
+    data = [tabBarItems objectAtIndex:itemIndex];
+    UIViewController* nextViewController = [data objectForKey:@"viewController"];
     
-    // Get the right view controller
-    NSDictionary* data = [tabBarItems objectAtIndex:itemIndex];
-    UIViewController* viewController = [data objectForKey:@"viewController"];
+    UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
+    
+    if (currentView == previousViewController.view) {
+        [previousViewController viewWillDisappear:NO];
+    }
+    [nextViewController viewWillAppear:NO];
+    
+    // Remove the current view controller's view
+    [currentView removeFromSuperview];
     
     // Use the TabBarGradient image to figure out the tab bar's height (22x2=44)
     UIImage* tabBarGradient = [UIImage imageNamed:@"TabBarGradient.png"];
     
     // Set the view controller's frame to account for the tab bar
-    viewController.view.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-(tabBarGradient.size.height*2));
+    nextViewController.view.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-(tabBarGradient.size.height*2));
     
     // Se the tag so we can find it later
-    viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
+    nextViewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
     
     // Add the new view controller's view
-    [self.view insertSubview:viewController.view belowSubview:tabBar];
+    self.currentIndex = itemIndex;
+    [self.view insertSubview:nextViewController.view belowSubview:tabBar];
+    
+    [previousViewController viewDidDisappear:NO];
+    [nextViewController viewDidAppear:NO];
     
     // In 1 second glow the selected tab
     [self startGlowTimer:itemIndex];

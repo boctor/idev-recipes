@@ -32,6 +32,7 @@
     NSTimer*    glowTimer;
 }
 
+@property (nonatomic, assign) NSInteger     currentIndex;
 @property (nonatomic, retain) CustomTabBar* tabBar;
 
 @end
