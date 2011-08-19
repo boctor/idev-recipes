@@ -165,37 +165,60 @@
   [self dimAllButtonsExcept:button];
 }
 
-// Add a glow at the bottom of the specified item
-- (void) glowItemAtIndex:(NSInteger)index
-{
-  // Get the right button. We'll use to calculate where to put the glow
-  UIButton* button = [buttons objectAtIndex:index];
-  
-  // Ask the delegate for the glow image
-  UIImage* glowImage = [delegate glowImage];
-  
-  // Create the image view that will hold the glow image
-  UIImageView* glowImageView = [[[UIImageView alloc] initWithImage:glowImage] autorelease];
-  
-  // Center the glow image at the center of the button horizontally and at the bottom of the button vertically
-  glowImageView.frame = CGRectMake(button.frame.size.width/2.0 - glowImage.size.width/2.0, button.frame.origin.y + button.frame.size.height - glowImage.size.height, glowImage.size.width, glowImage.size.height);
-
-  // Set the glow image view's tag so we can find it later when we want to remove the glow
-  glowImageView.tag = GLOW_IMAGE_TAG;
-  
-  // Add the glow image view to the button
-  [button addSubview:glowImageView];
+- (void) hideGlow {
+    UIImageView* oldGlowImageView = (UIImageView*)[self viewWithTag:GLOW_IMAGE_TAG];
+    [UIView animateWithDuration:0.2 animations:^(void) {
+        oldGlowImageView.alpha = 0;
+    }];
 }
 
-// Remove the glow at the bottom of the specified item
-- (void) removeGlowAtIndex:(NSInteger)index
-{
-  // Find the right button
-  UIButton* button = [buttons objectAtIndex:index];
-  // Find the glow image view
-  UIImageView* glowImageView = (UIImageView*)[button viewWithTag:GLOW_IMAGE_TAG];
-  // Remove it from the button
-  [glowImageView removeFromSuperview];
+- (void) glowItemAtIndex:(NSInteger)index {
+    // Get the right button. We'll use to calculate where to put the glow
+    UIButton* button = [buttons objectAtIndex:index];
+    
+    // Ask the delegate for the glow image
+    UIImage* glowImage = [delegate glowImageWith:(NSInteger)index];
+    
+    // Create the image view that will hold the glow image
+    UIImageView* newGlowImageView = [[[UIImageView alloc] initWithImage:glowImage] autorelease];
+    // Center the glow image at the center of the button horizontally and at the bottom of the button vertically
+    newGlowImageView.frame = CGRectMake(button.frame.size.width/2.0 - glowImage.size.width/2.0, button.frame.origin.y + button.frame.size.height - glowImage.size.height, glowImage.size.width, glowImage.size.height);
+    newGlowImageView.alpha = 0;
+    
+    [button addSubview:newGlowImageView];
+    
+    UIImageView* oldGlowImageView = (UIImageView*)[self viewWithTag:GLOW_IMAGE_TAG];
+    newGlowImageView.tag = GLOW_IMAGE_TAG;
+    
+    if (oldGlowImageView) {
+        // oldGlowImageView already start hiding with animation
+        if (oldGlowImageView.alpha != 0) {
+            [UIView animateWithDuration:0.05 animations:^(void) {
+                oldGlowImageView.alpha = 0;
+                newGlowImageView.alpha = 0.3;
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.15 animations:^(void) {
+                    newGlowImageView.alpha = 1.0;
+                } completion:^(BOOL finished) {
+                    [oldGlowImageView removeFromSuperview];
+                }];
+            }];
+        } else {
+            [UIView animateWithDuration:0.1 animations:^(void) {
+                newGlowImageView.alpha = 1.0;
+            } completion:^(BOOL finished) {
+                [oldGlowImageView removeFromSuperview];
+            }];
+        }        
+    } else {
+        [UIView animateWithDuration:0.05 animations:^(void) {
+            newGlowImageView.alpha = 0.3;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.1 animations:^(void) {
+                newGlowImageView.alpha = 1.0;
+            }];
+        }];
+    }
 }
 
 - (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex
@@ -237,7 +260,7 @@
   // Create the normal state image by converting the image's background to gray
   UIImage* buttonImage = [self tabBarImage:rawButtonImage size:button.frame.size backgroundImage:nil];
   // And create the pressed state image by converting the image's background to the background image we get from the delegate
-  UIImage* buttonPressedImage = [self tabBarImage:rawButtonImage size:button.frame.size backgroundImage:[delegate selectedItemBackgroundImage]];
+  UIImage* buttonPressedImage = [self tabBarImage:rawButtonImage size:button.frame.size backgroundImage:[delegate selectedItemBackgroundImageWith:itemIndex]];
 
   // Set the gray & blue images as the button states
   [button setImage:buttonImage forState:UIControlStateNormal];

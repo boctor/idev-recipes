@@ -30,8 +30,8 @@
 
 - (UIImage*) imageFor:(CustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex;
 - (UIImage*) backgroundImage;
-- (UIImage*) selectedItemBackgroundImage;
-- (UIImage*) glowImage;
+- (UIImage*) selectedItemBackgroundImageWith:(NSInteger)index;
+- (UIImage*) glowImageWith:(NSInteger)index;
 - (UIImage*) selectedItemImage;
 - (UIImage*) tabBarArrowImage;
 
@@ -53,7 +53,7 @@
 
 - (void) selectItemAtIndex:(NSInteger)index;
 - (void) glowItemAtIndex:(NSInteger)index;
-- (void) removeGlowAtIndex:(NSInteger)index;
+- (void) hideGlow;
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 

@@ -32,6 +32,8 @@
     NSTimer*    glowTimer;
 }
 
+- (id)initWihViewControllers:(NSArray*)viewControllers imagesNames:(NSArray*)imagesNames;
+
 @property (nonatomic, assign) NSInteger     currentIndex;
 @property (nonatomic, retain) CustomTabBar* tabBar;
 

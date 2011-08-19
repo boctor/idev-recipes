@@ -37,12 +37,28 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UIViewController *detailController1 = [[[UIViewController alloc] init] autorelease];
+    detailController1.view.backgroundColor = [UIColor redColor];
     
-    // Override point for customization after application launch.
+    UIViewController *detailController2 = [[[UIViewController alloc] init] autorelease];
+    detailController2.view.backgroundColor = [UIColor greenColor];
+    
+    UIViewController *detailController3 = [[[UIViewController alloc] init] autorelease];
+    detailController3.view.backgroundColor = [UIColor blueColor];
+    
+    UIViewController *detailController4 = [[[UIViewController alloc] init] autorelease];
+    detailController4.view.backgroundColor = [UIColor cyanColor];
+    
+    UIViewController *detailController5 = [[[UIViewController alloc] init] autorelease];
+    detailController5.view.backgroundColor = [UIColor purpleColor];
+    
+    CustomTabBarViewController* customTabBarViewController = [[CustomTabBarViewController alloc] initWihViewControllers:[NSArray arrayWithObjects:detailController1, detailController2, detailController3, detailController4, detailController5, nil]
+imagesNames:[NSArray arrayWithObjects:@"chat.png", @"compose-at.png", @"messages.png", @"magnifying-glass.png", @"more.png", nil]];
+    self.viewController = customTabBarViewController;
+    [customTabBarViewController release];
 
-    // Add the view controller's view to the window and display.
-    [self.window addSubview:viewController.view];
+    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
 
     return YES;
