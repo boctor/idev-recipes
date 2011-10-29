@@ -33,7 +33,7 @@
   IBOutlet UILabel* commentCountLabel;
   IBOutlet UILabel* likeCountLabel;
   IBOutlet UILabel* followerCountLabel;
-  
+
   UIButton* showButton;
   UIButton* hideButton;
 }

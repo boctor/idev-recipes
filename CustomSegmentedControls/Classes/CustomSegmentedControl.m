@@ -5,17 +5,17 @@
 //  Created by Peter Boctor on 12/10/10.
 //
 // Copyright (c) 2011 Peter Boctor
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -36,7 +36,7 @@
   {
     // The tag allows callers withe multiple controls to distinguish between them
     self.tag = objectTag;
-    
+
     // Set the delegate
     delegate = customSegmentedControlDelegate;
 
@@ -48,7 +48,7 @@
 
     // horizontalOffset tracks the proper x value as we add buttons as subviews
     CGFloat horizontalOffset = 0;
-    
+
     // Iterate through each segment
     for (NSUInteger i = 0 ; i < segmentCount ; i++)
     {
@@ -61,7 +61,7 @@
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchUpOutside];
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchDragOutside];
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchDragInside];
-      
+
       // Add the button to our buttons array
       [buttons addObject:button];
 
@@ -107,7 +107,7 @@
 - (void)touchDownAction:(UIButton*)button
 {
   [self dimAllButtonsExcept:button];
-  
+
   if ([delegate respondsToSelector:@selector(touchDownAtSegmentIndex:)])
     [delegate touchDownAtSegmentIndex:[buttons indexOfObject:button]];
 }

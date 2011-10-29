@@ -40,7 +40,7 @@
 - (BOOL) gestureRecognizersSupported
 {
   if (!USE_GESTURE_RECOGNIZERS) return NO;
-  
+
   // Apple's docs: Although this class was publicly available starting with iOS 3.2, it was in development a short period prior to that
   // check if it responds to the selector locationInView:. This method was not added to the class until iOS 3.2.
   return [[[[UISwipeGestureRecognizer alloc] init] autorelease] respondsToSelector:@selector(locationInView:)];
@@ -50,7 +50,7 @@
 {
   // Do nothing under 3.x
   if (![self gestureRecognizersSupported]) return;
-  
+
   // Setup a right swipe gesture recognizer
   UISwipeGestureRecognizer* rightSwipeGestureRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)] autorelease];
   rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
@@ -83,17 +83,17 @@
     CGPoint location = [recognizer locationInView:tableView];
     NSIndexPath* indexPath = [tableView indexPathForRowAtPoint:location];
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
-    
+
     // If we are already showing the swipe view, remove it
     if (cell.frame.origin.x != 0)
     {
       [self removeSideSwipeView:YES];
       return;
     }
-    
+
     // Make sure we are starting out with the side swipe view and cell in the proper location
     [self removeSideSwipeView:NO];
-    
+
     // If this isn't the cell that already has thew side swipe view and we aren't in the middle of animating
     // then start animating in the the side swipe view
     if (cell!= sideSwipeCell && !animatingSideSwipe)
@@ -106,13 +106,13 @@
 {
   // If we are using gestures, then don't do anything
   if ([self gestureRecognizersSupported]) return;
-  
+
   // Get the table view cell where the swipe occured
   UITableViewCell* cell = [theTableView cellForRowAtIndexPath:indexPath];
 
   // Make sure we are starting out with the side swipe view and cell in the proper location
   [self removeSideSwipeView:NO];
-  
+
   // If this isn't the cell that already has thew side swipe view and we aren't in the middle of animating
   // then start animating in the the side swipe view. We don't have access to the direction, so we always assume right
   if (cell!= sideSwipeCell && !animatingSideSwipe)
@@ -141,7 +141,7 @@
 
   // Add the side swipe view to the table below the cell
   [tableView insertSubview:sideSwipeView belowSubview:cell];
-  
+
   // Remember which cell the side swipe view is displayed on and the swipe direction
   self.sideSwipeCell = cell;
   sideSwipeDirection = direction;
@@ -210,7 +210,7 @@
 {
   // Make sure we have a cell where the side swipe view appears and that we aren't in the middle of animating
   if (!sideSwipeCell || animatingSideSwipe) return;
-  
+
   if (animated)
   {
     // The first step in a bounce animation is to move the side swipe view a bit offscreen

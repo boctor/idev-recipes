@@ -5,17 +5,17 @@
 //  Created by Peter Boctor on 12/8/10.
 //
 // Copyright (c) 2011 Peter Boctor
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -56,7 +56,7 @@
 
   UIImage* buttonImage = [[UIImage imageNamed:@"button.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
   UIImage* buttonPressedImage = [[UIImage imageNamed:@"button-press.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
-  
+
   // A button stretched with separate images for normal and highlighted states
   UIButton* shortButton = [UIButton buttonWithType:UIButtonTypeCustom];
   shortButton.frame = CGRectMake(0.0, 0.0, 100.0, buttonImage.size.height);
@@ -78,13 +78,13 @@
 {
   // Figure out the vertical location based on the offset and heights
   CGFloat elementVerticalLocation = (VERTICAL_HEIGHT + (VERTICAL_SPACING * 2)) * verticalOffset;
-  
+
   // Add a label
   UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(HORIZONTAL_OFFSET, elementVerticalLocation + VERTICAL_OFFSET, 0, 0)] autorelease];
   label.backgroundColor = [UIColor clearColor];
   label.text = title;
   [label sizeToFit];
-  
+
   [self.view addSubview:label];
 
   // Adjust location of new subView and add it

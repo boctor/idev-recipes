@@ -73,25 +73,25 @@
 
   // Create a custom button
   UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-  
+
   // Set the title to use the same font and shadow as the standard back button
   button.titleLabel.font = [UIFont boldSystemFontOfSize:[UIFont smallSystemFontSize]];
   button.titleLabel.textColor = [UIColor whiteColor];
   button.titleLabel.shadowOffset = CGSizeMake(0,-1);
   button.titleLabel.shadowColor = [UIColor darkGrayColor];
-  
+
   // Set the break mode to truncate at the end like the standard back button
   button.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
-  
+
   // Inset the title on the left and right
   button.titleEdgeInsets = UIEdgeInsetsMake(0, 6.0, 0, 3.0);
 
   // Make the button as high as the passed in image
   button.frame = CGRectMake(0, 0, 0, buttonImage.size.height);
-  
+
   // Just like the standard back button, use the title of the previous item as the default back text
   [self setText:self.topItem.title onBackButton:button];
-  
+
   // Set the stretchable images as the background for the button
   [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
   [button setBackgroundImage:buttonHighlightImage forState:UIControlStateHighlighted];

@@ -5,17 +5,17 @@
 //  Created by Peter Boctor on 12/10/10.
 //
 // Copyright (c) 2011 Peter Boctor
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -54,7 +54,7 @@ typedef enum {
   buttons = [[NSArray arrayWithObjects:
               [NSDictionary dictionaryWithObjectsAndKeys:[NSArray arrayWithObjects:@"One", @"Two", @"Three", nil], @"titles", [NSValue valueWithCGSize:CGSizeMake(80,47)], @"size", @"bottombarblue.png", @"button-image", @"bottombarblue_pressed.png", @"button-highlight-image", @"blue-divider.png", @"divider-image", [NSNumber numberWithFloat:14.0], @"cap-width", nil],
               [NSDictionary dictionaryWithObjectsAndKeys:[NSArray arrayWithObjects:@"One", @"Two", nil], @"titles", [NSValue valueWithCGSize:CGSizeMake(80,47)], @"size", @"bottombarblue.png", @"button-image", @"bottombarblue_pressed.png", @"button-highlight-image", @"blue-divider.png", @"divider-image", [NSNumber numberWithFloat:14.0], @"cap-width", nil],
-              [NSDictionary dictionaryWithObjectsAndKeys:[NSArray arrayWithObjects:@"One", @"Two", @"Three", nil], @"titles", [NSValue valueWithCGSize:CGSizeMake(100,47)], @"size", @"bottombarredfire.png", @"button-image", @"bottombarredfire_pressed.png", @"button-highlight-image", @"red-divider.png", @"divider-image", [NSNumber numberWithFloat:14.0], @"cap-width", nil], 
+              [NSDictionary dictionaryWithObjectsAndKeys:[NSArray arrayWithObjects:@"One", @"Two", @"Three", nil], @"titles", [NSValue valueWithCGSize:CGSizeMake(100,47)], @"size", @"bottombarredfire.png", @"button-image", @"bottombarredfire_pressed.png", @"button-highlight-image", @"red-divider.png", @"divider-image", [NSNumber numberWithFloat:14.0], @"cap-width", nil],
               [NSDictionary dictionaryWithObjectsAndKeys:[NSArray arrayWithObjects:@"1", @"2", nil], @"titles", [NSValue valueWithCGSize:CGSizeMake(47,47)], @"size", @"bottombarredfire.png", @"button-image", @"bottombarredfire_pressed.png", @"button-highlight-image", @"red-divider.png", @"divider-image", [NSNumber numberWithFloat:14.0], @"cap-width", nil], nil] retain];
 }
 
@@ -91,14 +91,14 @@ typedef enum {
 {
   // Figure out the vertical location based on the offset and heights
   CGFloat elementVerticalLocation = (VERTICAL_HEIGHT + (VERTICAL_SPACING * 2)) * verticalOffset;
-  
+
   // Add a label
   UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(HORIZONTAL_OFFSET, elementVerticalLocation + VERTICAL_OFFSET, 0, 0)] autorelease];
   label.backgroundColor = [UIColor clearColor];
   label.textColor = [UIColor whiteColor];
   label.text = title;
   [label sizeToFit];
-  
+
   [self.view addSubview:label];
 
   // Adjust location of new subView and add it
@@ -144,10 +144,10 @@ typedef enum {
 
   UIImage* buttonImage = nil;
   UIImage* buttonPressedImage = nil;
-  
+
   CGFloat capWidth = [[data objectForKey:@"cap-width"] floatValue];
   CGSize buttonSize = [[data objectForKey:@"size"] CGSizeValue];
-  
+
   if (location == CapLeftAndRight)
   {
     buttonImage = [[UIImage imageNamed:[data objectForKey:@"button-image"]] stretchableImageWithLeftCapWidth:capWidth topCapHeight:0.0];
@@ -158,7 +158,7 @@ typedef enum {
     buttonImage = [self image:[[UIImage imageNamed:[data objectForKey:@"button-image"]] stretchableImageWithLeftCapWidth:capWidth topCapHeight:0.0] withCap:location capWidth:capWidth buttonWidth:buttonSize.width];
     buttonPressedImage = [self image:[[UIImage imageNamed:[data objectForKey:@"button-highlight-image"]] stretchableImageWithLeftCapWidth:capWidth topCapHeight:0.0] withCap:location capWidth:capWidth buttonWidth:buttonSize.width];
   }
-  
+
   UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
   button.frame = CGRectMake(0.0, 0.0, buttonSize.width, buttonSize.height);
 

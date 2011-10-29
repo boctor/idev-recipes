@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SideSwipeTableViewAppDelegate : NSObject <UIApplicationDelegate> {
-    
+
     UIWindow *window;
     UINavigationController *navigationController;
 }

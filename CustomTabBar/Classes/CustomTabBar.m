@@ -5,17 +5,17 @@
 //  Created by Peter Boctor on 1/2/11.
 //
 // Copyright (c) 2011 Peter Boctor
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -48,13 +48,13 @@
   if (self = [super init])
   {
     self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
-    
+
     // The tag allows callers withe multiple controls to distinguish between them
     self.tag = objectTag;
-    
+
     // Set the delegate
     delegate = customTabBarDelegate;
-    
+
     // Add the background image
     UIImage* backgroundImage = [delegate backgroundImage];
     UIImageView* backgroundImageView = [[[UIImageView alloc] initWithImage:backgroundImage] autorelease];
@@ -70,7 +70,7 @@
 
     // horizontalOffset tracks the proper x value as we add buttons as subviews
     CGFloat horizontalOffset = 0;
-    
+
     // Iterate through each item
     for (NSUInteger i = 0 ; i < itemCount ; i++)
     {
@@ -83,7 +83,7 @@
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchUpOutside];
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchDragOutside];
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchDragInside];
-      
+
       // Add the button to our buttons array
       [buttons addObject:button];
 
@@ -92,7 +92,7 @@
 
       // Add the button as our subview
       [self addSubview:button];
-      
+
       // Advance the horizontal offset
       horizontalOffset = horizontalOffset + itemSize.width;
     }
@@ -110,7 +110,7 @@
       button.selected = YES;
       button.highlighted = button.selected ? NO : YES;
       button.tag = SELECTED_ITEM_TAG;
-      
+
       UIImageView* tabBarArrow = (UIImageView*)[self viewWithTag:TAB_ARROW_IMAGE_TAG];
       NSUInteger selectedIndex = [buttons indexOfObjectIdenticalTo:button];
       if (tabBarArrow)
@@ -139,7 +139,7 @@
 - (void)touchDownAction:(UIButton*)button
 {
   [self dimAllButtonsExcept:button];
-  
+
   if ([delegate respondsToSelector:@selector(touchDownAtItemAtIndex:)])
     [delegate touchDownAtItemAtIndex:[buttons indexOfObject:button]];
 }
@@ -161,7 +161,7 @@
 {
   // Get the right button to select
   UIButton* button = [buttons objectAtIndex:index];
-  
+
   [self dimAllButtonsExcept:button];
 }
 
@@ -170,19 +170,19 @@
 {
   // Get the right button. We'll use to calculate where to put the glow
   UIButton* button = [buttons objectAtIndex:index];
-  
+
   // Ask the delegate for the glow image
   UIImage* glowImage = [delegate glowImage];
-  
+
   // Create the image view that will hold the glow image
   UIImageView* glowImageView = [[[UIImageView alloc] initWithImage:glowImage] autorelease];
-  
+
   // Center the glow image at the center of the button horizontally and at the bottom of the button vertically
   glowImageView.frame = CGRectMake(button.frame.size.width/2.0 - glowImage.size.width/2.0, button.frame.origin.y + button.frame.size.height - glowImage.size.height, glowImage.size.width, glowImage.size.height);
 
   // Set the glow image view's tag so we can find it later when we want to remove the glow
   glowImageView.tag = GLOW_IMAGE_TAG;
-  
+
   // Add the glow image view to the button
   [button addSubview:glowImageView];
 }
@@ -201,14 +201,14 @@
 - (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex
 {
   UIImageView* tabBarArrow = (UIImageView*)[self viewWithTag:TAB_ARROW_IMAGE_TAG];
-  
+
   // A single tab item's width is the same as the button's width
   UIButton* button = [buttons objectAtIndex:tabIndex];
   CGFloat tabItemWidth = button.frame.size.width;
 
   // A half width is tabItemWidth divided by 2 minus half the width of the arrow
   CGFloat halfTabItemWidth = (tabItemWidth / 2.0) - (tabBarArrow.frame.size.width / 2.0);
-  
+
   // The horizontal location is the index times the width plus a half width
   return button.frame.origin.x + halfTabItemWidth;
 }
@@ -247,9 +247,9 @@
   // Ask the delegate for the highlighted/selected state image & set it as the selected background state
   [button setBackgroundImage:[delegate selectedItemImage] forState:UIControlStateHighlighted];
   [button setBackgroundImage:[delegate selectedItemImage] forState:UIControlStateSelected];
-  
+
   button.adjustsImageWhenHighlighted = NO;
-  
+
   return button;
 }
 
@@ -258,10 +258,10 @@
 {
   // The background is either the passed in background image (for the blue selected state) or gray (for the non-selected state)
   UIImage* backgroundImage = [self tabBarBackgroundImageWithSize:startImage.size backgroundImage:backgroundImageSource];
-  
+
   // Convert the passed in image to a white backround image with a black fill
   UIImage* bwImage = [self blackFilledImageWithWhiteBackgroundUsing:startImage];
-  
+
   // Create an image mask
   CGImageRef imageMask = CGImageMaskCreate(CGImageGetWidth(bwImage.CGImage),
     CGImageGetHeight(bwImage.CGImage),
@@ -278,17 +278,17 @@
   // Cleanup
   CGImageRelease(imageMask);
   CGImageRelease(tabBarImageRef);
-  
+
   // Create a new context with the right size
   UIGraphicsBeginImageContextWithOptions(targetSize, NO, 0.0);
 
   // Draw the new tab bar image at the center
   [tabBarImage drawInRect:CGRectMake((targetSize.width/2.0) - (startImage.size.width/2.0), (targetSize.height/2.0) - (startImage.size.height/2.0), startImage.size.width, startImage.size.height)];
-  
+
   // Generate a new image
   UIImage* resultImage = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
-  
+
   return resultImage;
 }
 
@@ -318,7 +318,7 @@
   // Cleanup
   CGContextRelease(context);
   CGImageRelease(newCGImage);
-  
+
   return newImage;
 }
 
@@ -339,7 +339,7 @@
 
   UIImage* finalBackgroundImage = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
-  
+
   return finalBackgroundImage;
 }
 
@@ -358,7 +358,7 @@
     // Advance the horizontal offset
     horizontalOffset = horizontalOffset + itemWidth;
   }
-  
+
   // Move the arrow to the new button location
   UIButton* selectedButton = (UIButton*)[self viewWithTag:SELECTED_ITEM_TAG];
   [self dimAllButtonsExcept:selectedButton];

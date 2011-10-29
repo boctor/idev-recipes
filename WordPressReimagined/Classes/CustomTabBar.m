@@ -47,10 +47,10 @@
   {
     // The tag allows callers withe multiple controls to distinguish between them
     self.tag = objectTag;
-    
+
     // Set the delegate
     delegate = customTabBarDelegate;
-    
+
     // Add the background image
     UIImage* backgroundImage = [delegate backgroundImage];
     UIImageView* backgroundImageView = [[[UIImageView alloc] initWithImage:backgroundImage] autorelease];
@@ -65,7 +65,7 @@
 
     // horizontalOffset tracks the proper x value as we add buttons as subviews
     CGFloat horizontalOffset = 0;
-    
+
     // Iterate through each item
     for (NSUInteger i = 0 ; i < itemCount ; i++)
     {
@@ -78,7 +78,7 @@
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchUpOutside];
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchDragOutside];
       [button addTarget:self action:@selector(otherTouchesAction:) forControlEvents:UIControlEventTouchDragInside];
-      
+
       // Add the button to our buttons array
       [buttons addObject:button];
 
@@ -87,7 +87,7 @@
 
       // Add the button as our subview
       [self addSubview:button];
-      
+
       // Advance the horizontal offset
       horizontalOffset = horizontalOffset + itemSize.width;
     }
@@ -132,7 +132,7 @@
 - (void)touchDownAction:(UIButton*)button
 {
   [self dimAllButtonsExcept:button];
-  
+
   if ([delegate respondsToSelector:@selector(touchDownAtItemAtIndex:)])
     [delegate touchDownAtItemAtIndex:[buttons indexOfObject:button]];
 }
@@ -154,7 +154,7 @@
 {
   // Get the right button to select
   UIButton* button = [buttons objectAtIndex:index];
-  
+
   [self dimAllButtonsExcept:button];
 }
 
@@ -163,19 +163,19 @@
 {
   // Get the right button. We'll use to calculate where to put the glow
   UIButton* button = [buttons objectAtIndex:index];
-  
+
   // Ask the delegate for the glow image
   UIImage* glowImage = [delegate glowImage];
-  
+
   // Create the image view that will hold the glow image
   UIImageView* glowImageView = [[[UIImageView alloc] initWithImage:glowImage] autorelease];
-  
+
   // Center the glow image at the center of the button horizontally and at the bottom of the button vertically
   glowImageView.frame = CGRectMake(button.frame.size.width/2.0 - glowImage.size.width/2.0, button.frame.origin.y + button.frame.size.height - glowImage.size.height, glowImage.size.width, glowImage.size.height);
 
   // Set the glow image view's tag so we can find it later when we want to remove the glow
   glowImageView.tag = GLOW_IMAGE_TAG;
-  
+
   // Add the glow image view to the button
   [button addSubview:glowImageView];
 }
@@ -194,12 +194,12 @@
 - (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex
 {
   UIImageView* tabBarArrow = (UIImageView*)[self viewWithTag:TAB_ARROW_IMAGE_TAG];
-  
+
   // A single tab item's width is the entire width of the tab bar divided by number of items
   CGFloat tabItemWidth = self.frame.size.width / buttons.count;
   // A half width is tabItemWidth divided by 2 minus half the width of the arrow
   CGFloat halfTabItemWidth = (tabItemWidth / 2.0) - (tabBarArrow.frame.size.width / 2.0);
-  
+
   // The horizontal location is the index times the width plus a half width
   return (tabIndex * tabItemWidth) + halfTabItemWidth;
 }
@@ -238,9 +238,9 @@
   // Ask the delegate for the highlighted/selected state image & set it as the selected background state
   [button setBackgroundImage:[delegate selectedItemImage] forState:UIControlStateHighlighted];
   [button setBackgroundImage:[delegate selectedItemImage] forState:UIControlStateSelected];
-  
+
   button.adjustsImageWhenHighlighted = NO;
-  
+
   return button;
 }
 
@@ -249,10 +249,10 @@
 {
   // The background is either the passed in background image (for the blue selected state) or gray (for the non-selected state)
   UIImage* backgroundImage = [self tabBarBackgroundImageWithSize:startImage.size backgroundImage:backgroundImageSource];
-  
+
   // Convert the passed in image to a white backround image with a black fill
   UIImage* bwImage = [self blackFilledImageWithWhiteBackgroundUsing:startImage];
-  
+
   // Create an image mask
   CGImageRef imageMask = CGImageMaskCreate(CGImageGetWidth(bwImage.CGImage),
     CGImageGetHeight(bwImage.CGImage),
@@ -269,11 +269,11 @@
     tabBarImage = [UIImage imageWithCGImage:tabBarImageRef scale:startImage.scale orientation:startImage.imageOrientation];
   else
     tabBarImage = [UIImage imageWithCGImage:tabBarImageRef];
-    
+
   // Cleanup
   CGImageRelease(imageMask);
   CGImageRelease(tabBarImageRef);
-  
+
   // Create a new context with the right size
   if (UIGraphicsBeginImageContextWithOptions)
     UIGraphicsBeginImageContextWithOptions(targetSize, NO, 0.0);
@@ -282,11 +282,11 @@
 
   // Draw the new tab bar image at the center
   [tabBarImage drawInRect:CGRectMake((targetSize.width/2.0) - (startImage.size.width/2.0), (targetSize.height/2.0) - (startImage.size.height/2.0), startImage.size.width, startImage.size.height)];
-  
+
   // Generate a new image
   UIImage* resultImage = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
-  
+
   return resultImage;
 }
 
@@ -320,7 +320,7 @@
   // Cleanup
   CGContextRelease(context);
   CGImageRelease(newCGImage);
-  
+
   return newImage;
 }
 
@@ -344,7 +344,7 @@
 
   UIImage* finalBackgroundImage = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
-  
+
   return finalBackgroundImage;
 }
 

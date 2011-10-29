@@ -5,17 +5,17 @@
 //  Created by Peter Boctor on 12/26/10.
 //
 // Copyright (c) 2011 Peter Boctor
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -38,7 +38,7 @@
 - (void)awakeFromNib
 {
   self.contentSize = self.frame.size;
-  
+
   [self showCurrentPage];
 }
 
@@ -94,7 +94,7 @@
     // Place the header above the scroll view
     headerView.frame = CGRectMake(0, -headerView.frame.size.height, headerView.frame.size.width, headerView.frame.size.height);
     [self addSubview:headerView];
-    
+
     // Hide the header if there is no previous page
     if (currentPageIndex <= 0)
       headerView.hidden = YES;
@@ -115,7 +115,7 @@
     // Place the footer below the scroll view
     footerView.frame = CGRectMake(0, self.frame.size.height, footerView.frame.size.width, footerView.frame.size.height);
     [self addSubview:footerView];
-    
+
     // Hide the footer if there is no next page
     if (currentPageIndex == [externalDelegate pageCount]-1)
       footerView.hidden = YES;
@@ -126,7 +126,7 @@
 -(void) setCurrentPageIndex:(NSUInteger)newValue
 {
   currentPageIndex = newValue;
-  
+
   // Hide the header if there is no previous page
   headerView.hidden = currentPageIndex <= 0;
   // Hide the footer if there is no next page
@@ -150,7 +150,7 @@
 {
   if ([externalDelegate respondsToSelector:@selector(scrollViewDidScroll:)])
     [externalDelegate scrollViewDidScroll:scrollView];
-  
+
    // Everything we want to do is only applicable if the user is in the middle of dragging
   if (!scrollView.dragging) return;
 
@@ -165,7 +165,7 @@
     {
       // The header is already loaded, nothing for us to do
       if (_headerLoaded) return;
-      
+
       // The header has been loaded
       if ([externalDelegate respondsToSelector:@selector(headerLoadedInScrollView:)])
         [externalDelegate performSelector:@selector(headerLoadedInScrollView:)];
@@ -175,7 +175,7 @@
     {
       // If the header isn't already loaded, nothing for us to do
       if (!_headerLoaded) return;
-      
+
       // The header has been unloaded
       if ([externalDelegate respondsToSelector:@selector(headerUnloadedInScrollView:)])
         [externalDelegate performSelector:@selector(headerUnloadedInScrollView:)];
@@ -186,13 +186,13 @@
   {
     // If the footer is hidden, then there is no next page and nothing for us to do
     if (footerView.hidden) return;
-    
+
     // If the user has pulled up more than the height of the footer
     if (scrollView.contentOffset.y > footerView.frame.size.height)
     {
       // The footer is already loaded, nothing for us to do
       if (_footerLoaded) return;
-      
+
       // The footer has been loaded
       if ([externalDelegate respondsToSelector:@selector(footerLoadedInScrollView:)])
         [externalDelegate performSelector:@selector(footerLoadedInScrollView:)];
@@ -202,7 +202,7 @@
     {
       // If the footer isn't already loaded, nothing for us to do
       if (!_footerLoaded) return;
-      
+
       // The footer has been unloaded
       if ([externalDelegate respondsToSelector:@selector(footerUnloadedInScrollView:)])
         [externalDelegate performSelector:@selector(footerUnloadedInScrollView:)];
@@ -217,7 +217,7 @@
 {
   if ([externalDelegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
     [externalDelegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
-  
+
   // If the header is loaded, then the user wants to go to the previous page
   if (_headerLoaded)
   {
@@ -227,7 +227,7 @@
     // Set its frame to the top of the scroll view
     previousPage.frame = CGRectMake(0, -(previousPage.frame.size.height + self.contentOffset.y), self.frame.size.width, self.frame.size.height);
     [self addSubview:previousPage];
-    
+
     // Start the page down animation
     [UIView beginAnimations:nil context:previousPage];
     [UIView setAnimationDuration:0.2];
@@ -240,7 +240,7 @@
     // And we also animate the header view to animate off the bottom of the screen
     headerView.frame = CGRectMake(0, self.frame.size.height, headerView.frame.size.width, headerView.frame.size.height);
     [UIView commitAnimations];
-    
+
     // Decrement our current page
     currentPageIndex--;
   }
@@ -252,7 +252,7 @@
     // Set its frame to the bottom of the scroll view
     nextPage.frame = CGRectMake(0, nextPage.frame.size.height + self.contentOffset.y, self.frame.size.width, self.frame.size.height);
     [self addSubview:nextPage];
-    
+
     // Start the page u animation
     [UIView beginAnimations:nil context:nextPage];
     [UIView setAnimationDuration:0.2];
@@ -277,11 +277,11 @@
 {
   // Remove the old page
   [currentPageView removeFromSuperview];
-  
+
   // Set the previous/next page we just animated into view as the current page
   UIView* newPage = (UIView*)context;
   self.currentPageView = newPage;
-  
+
   // After we've switched pages, reset the header/footer loaded states
   if (_footerLoaded && [externalDelegate respondsToSelector:@selector(footerUnloadedInScrollView:)])
     [externalDelegate performSelector:@selector(footerUnloadedInScrollView:)];
@@ -290,11 +290,11 @@
   if (_headerLoaded && [externalDelegate respondsToSelector:@selector(headerUnloadedInScrollView:)])
     [externalDelegate performSelector:@selector(headerUnloadedInScrollView:)];
   _headerLoaded = NO;
-  
+
   // Force the header and footer views to their default states
   headerView.frame = CGRectMake(0, -headerView.frame.size.height, headerView.frame.size.width, headerView.frame.size.height);
   footerView.frame = CGRectMake(0, self.frame.size.height, footerView.frame.size.width, footerView.frame.size.height);
-  
+
   // Based on the current page index, hide/show the header and footer
   headerView.hidden = currentPageIndex <= 0;
   footerView.hidden = (currentPageIndex == [externalDelegate pageCount]-1);

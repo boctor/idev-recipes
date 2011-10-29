@@ -76,7 +76,7 @@
   frame.origin.y = self.view.frame.size.height / 4.0;
   showButton.frame = frame;
   [self.view addSubview:showButton];
-  
+
   self.hideButton = [self buttonWithText:@"Hide Notification"];
   [hideButton addTarget:self action:@selector(hideNotificationView:) forControlEvents:UIControlEventTouchUpInside];
   hideButton.center = self.view.center;
@@ -84,7 +84,7 @@
   frame.origin.y = self.view.frame.size.height / 2.0;
   hideButton.frame = frame;
   [self.view addSubview:hideButton];
- 
+
   showButton.enabled = YES;
   hideButton.enabled = NO;
 }
@@ -94,7 +94,7 @@
   UIImage* buttonImage = [UIImage imageNamed:@"button-normal.png"];
   UIImage* buttonPressedImage = [UIImage imageNamed:@"button-highlighted.png"];
   UIImage* buttonDisabledImage = [UIImage imageNamed:@"button-disabled.png"];
-  
+
   UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
   button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
 
@@ -105,7 +105,7 @@
   [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
   [button setBackgroundImage:buttonPressedImage forState:UIControlStateSelected];
   [button setBackgroundImage:buttonDisabledImage forState:UIControlStateDisabled];
-  
+
   return button;
 }
 
@@ -115,7 +115,7 @@
   CGFloat tabItemWidth = self.tabBar.frame.size.width / self.tabBar.items.count;
   // A half width is tabItemWidth divided by 2 minus half the width of the notification view
   CGFloat halfTabItemWidth = (tabItemWidth / 2.0) - (notificationView.frame.size.width / 2.0);
-  
+
   // The horizontal location is the index times the width plus a half width
   return (tabIndex * tabItemWidth) + halfTabItemWidth;
 }
@@ -141,12 +141,12 @@
 {
   showButton.enabled = NO;
   hideButton.enabled = YES;
-  
+
   // Set the values for the number of comments, likes and followers
   commentCountLabel.text = @"2";
   likeCountLabel.text = @"1";
   followerCountLabel.text = @"3";
-  
+
   // Show the notification view over the 3rd tab bar item
   [self showNotificationViewFor:3];
 }
@@ -155,7 +155,7 @@
 {
   showButton.enabled = YES;
   hideButton.enabled = NO;
-  
+
   [UIView beginAnimations:nil context:nil];
   [UIView setAnimationDuration:0.5];
   notificationView.alpha = 0.0;

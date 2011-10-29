@@ -43,7 +43,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
-  
+
   self.loadingView.center = [self centerForLoading];
 }
 

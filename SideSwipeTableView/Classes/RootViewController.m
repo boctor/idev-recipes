@@ -23,7 +23,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
+
   // Setup the title and image for each button within the side swipe view
   buttonData = [[NSArray arrayWithObjects:
                   [NSDictionary dictionaryWithObjectsAndKeys:@"Reply", @"title", @"reply.png", @"image", nil],
@@ -58,7 +58,7 @@
   {
     // Create the button
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    
+
     // Make sure the button ends up in the right place when the cell is resized
     button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
 
@@ -72,16 +72,16 @@
     // [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
     UIImage* grayImage = [self imageFilledWith:[UIColor colorWithWhite:0.9 alpha:1.0] using:buttonImage];
     [button setImage:grayImage forState:UIControlStateNormal];
-    
+
     // Add a touch up inside action
     [button addTarget:self action:@selector(touchUpInsideAction:) forControlEvents:UIControlEventTouchUpInside];
 
     // Keep track of the buttons so we know the proper text to display in the touch up inside action
     [buttons addObject:button];
-    
+
     // Add the button to the side swipe view
     [self.sideSwipeView addSubview:button];
-    
+
     // Move the left edge in prepartion for the next button
     leftEdge = leftEdge + buttonImage.size.width + BUTTON_SPACING;
   }
@@ -115,7 +115,7 @@
 - (IBAction) touchUpInsideAction:(UIButton*)button
 {
   NSIndexPath* indexPath = [tableView indexPathForCell:sideSwipeCell];
-  
+
   NSUInteger index = [buttons indexOfObject:button];
   NSDictionary* buttonInfo = [buttonData objectAtIndex:index];
   [[[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@ on cell %d", [buttonInfo objectForKey:@"title"], indexPath.row]
@@ -123,7 +123,7 @@
                               delegate:nil
                      cancelButtonTitle:nil
                      otherButtonTitles:@"OK", nil] autorelease] show];
-  
+
   [self removeSideSwipeView:YES];
 }
 
@@ -151,7 +151,7 @@
   // Cleanup
   CGContextRelease(context);
   CGImageRelease(newCGImage);
-  
+
   return newImage;
 }
 

@@ -16,10 +16,10 @@
 {
   if (!theView.superview)
     return nil;
-  
+
   if ([theView.superview isKindOfClass:[UITableView class]])
     return (UITableView*)theView.superview;
-  
+
   return [self getTableView:theView.superview];
 }
 
