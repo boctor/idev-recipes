@@ -1,11 +1,13 @@
-Blog post: [http://idevrecipes.com/2011/01/11/how-do-iphone-apps-instagramreederdailybooth-implement-custom-navigationbars-with-variable-width-back-buttons][]
+Blog post: [http://idevrecipes.com/2011/01/11/how-do-iphone-apps-instagramreederdailybooth-implement-custom-navigationbars-with-variable-width-back-buttons][http://idevrecipes.com/2011/01/11/how-do-iphone-apps-instagramreederdailybooth-implement-custom-navigationbars-with-variable-width-back-buttons]
 
 ## Problem:
 
 Apps like [Instagram][], [Reeder][] and [DailyBooth][] have a
 UINavigationBar with custom background and sometimes custom back
 buttons. How do we build a similar custom UINavigationBar?
+
 ![image][]![image][1]![image][2]
+
 ## Solution:
 
 In our recipe for
@@ -106,7 +108,7 @@ pushed onto the UINavigationController stack. The back button
 resizes as needed and you get to see and experiment with different
 text and button widths.
 
-Blog post: [http://idevrecipes.com/2011/01/11/how-do-iphone-apps-instagramreederdailybooth-implement-custom-navigationbars-with-variable-width-back-buttons][]
+Blog post: [http://idevrecipes.com/2011/01/11/how-do-iphone-apps-instagramreederdailybooth-implement-custom-navigationbars-with-variable-width-back-buttons][http://idevrecipes.com/2011/01/11/how-do-iphone-apps-instagramreederdailybooth-implement-custom-navigationbars-with-variable-width-back-buttons]
 
   [https://github.com/boctor/idev-recipes/tree/master/CustomBackButton]: https://github.com/boctor/idev-recipes/tree/master/CustomBackButton
   [Instagram]: http://p.appju.mp/389801252&t=i
