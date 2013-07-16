@@ -37,7 +37,7 @@
 
 # Only pngcrush in 3.2 and above supports revert-iphone-optimizations
 # See http://developer.apple.com/library/ios/#qa/qa2010/qa1681.html
-pngcrush = '/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush'
+pngcrush = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush'
 
 destination = File.join(ENV['HOME'], 'Desktop')
 
