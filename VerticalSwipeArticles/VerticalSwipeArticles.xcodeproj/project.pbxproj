@@ -26,6 +26,7 @@
 		7F840F3D12C85C12003D9FD1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3612C85C12003D9FD1 /* SBJsonBase.m */; };
 		7F840F3E12C85C12003D9FD1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3812C85C12003D9FD1 /* SBJsonParser.m */; };
 		7F840F3F12C85C12003D9FD1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */; };
+		F7005CDB1904FDFD007665C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7005CDA1904FDFD007665C7 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		7F840F3912C85C12003D9FD1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* VerticalSwipeArticles-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VerticalSwipeArticles-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		F7005CDA1904FDFD007665C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VerticalSwipeArticles/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7005CDA1904FDFD007665C7 /* Images.xcassets */,
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				7F59B60112C8720800160998 /* DetailViewController.xib */,
@@ -189,6 +192,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "VerticalSwipeArticles" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -216,6 +221,7 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
+				F7005CDB1904FDFD007665C7 /* Images.xcassets in Resources */,
 				7F59B5F512C86F0700160998 /* PullArrow.png in Resources */,
 				7F59B5F612C86F0700160998 /* PullArrow@2x.png in Resources */,
 				7F59B60212C8720800160998 /* DetailViewController.xib in Resources */,
@@ -250,6 +256,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -264,6 +272,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = VerticalSwipeArticles_Prefix.pch;
@@ -281,6 +291,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
@@ -294,6 +305,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;

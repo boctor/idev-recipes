@@ -123,9 +123,16 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
   NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
   htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- title -->" withString:[[[appData objectAtIndex:index] objectForKey:@"im:name"] objectForKey:@"label"]];
   htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- icon -->" withString:[[[[appData objectAtIndex:index] objectForKey:@"im:image"] objectAtIndex:0] objectForKey:@"label"]];
-  htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- content -->" withString:[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"]];
+  NSMutableString * contentString = [[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"] mutableCopy];
+    
+  //creat long html page, don't forget to remove height attri in DetailView.html
+  //[contentString appendString:[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"]];
+  //[contentString appendString:[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"]];
+    
+  htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- content -->" withString:contentString];
   [webView loadHTMLString:htmlString baseURL:nil];
-  
+    [webView.scrollView setShowsVerticalScrollIndicator:NO];
+    [webView.scrollView setShowsHorizontalScrollIndicator:NO];
   return webView;
 }
 

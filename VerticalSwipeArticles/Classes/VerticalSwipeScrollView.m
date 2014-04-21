@@ -155,13 +155,13 @@
   if (!scrollView.dragging) return;
 
   // The user is dragging down, we are loading/unloading the header/previous page view
-  if (scrollView.contentOffset.y < 0)
+  if (scrollView.contentOffset.y+scrollView.contentInset.top < 0)
   {
     // If the header is hidden, then there is no previous page and nothing for us to do
     if (headerView.hidden) return;
 
     // If the user has pulled down more than the height of the header
-    if (scrollView.contentOffset.y < -headerView.frame.size.height)
+    if (scrollView.contentOffset.y+scrollView.contentInset.top < -headerView.frame.size.height)
     {
       // The header is already loaded, nothing for us to do
       if (_headerLoaded) return;
@@ -188,7 +188,7 @@
     if (footerView.hidden) return;
     
     // If the user has pulled up more than the height of the footer
-    if (scrollView.contentOffset.y > footerView.frame.size.height)
+    if (scrollView.contentOffset.y+scrollView.contentInset.bottom > footerView.frame.size.height)
     {
       // The footer is already loaded, nothing for us to do
       if (_footerLoaded) return;
@@ -233,6 +233,7 @@
     [UIView setAnimationDuration:0.2];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(pageAnimationDidStop:finished:context:)];
+      [self setShowsVerticalScrollIndicator:NO];
     // When the animation is done, we want the previous page to be front and center
     previousPage.frame = self.frame;
     // We also want the existing page to animate to the bottom of the scroll view
@@ -250,7 +251,7 @@
     UIView* nextPage = [externalDelegate viewForScrollView:self atPage:currentPageIndex+1];
     // We want to animate this new page coming up, so we first
     // Set its frame to the bottom of the scroll view
-    nextPage.frame = CGRectMake(0, nextPage.frame.size.height + self.contentOffset.y, self.frame.size.width, self.frame.size.height);
+    nextPage.frame = CGRectMake(0, nextPage.frame.size.height + self.contentInset.top, self.frame.size.width, self.frame.size.height);
     [self addSubview:nextPage];
     
     // Start the page u animation
@@ -258,8 +259,10 @@
     [UIView setAnimationDuration:0.2];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(pageAnimationDidStop:finished:context:)];
+    //hide scroll indicator when pages animed
+    [self setShowsVerticalScrollIndicator:NO];
     // When the animation is done, we want the next page to be front and center
-    nextPage.frame = self.frame;
+    nextPage.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.height, self.frame.size.width);
     // We also want the existing page to animate to the top of the scroll view
     currentPageView.frame = CGRectMake(0, -(self.frame.size.height + headerView.frame.size.height), self.frame.size.width, self.frame.size.height);
     // And we also animate the footer view to animate off the top of the screen
@@ -308,6 +311,9 @@
 {
   if ([externalDelegate respondsToSelector:@selector(scrollViewWillBeginDragging:)])
     [externalDelegate scrollViewWillBeginDragging:scrollView];
+    if(!self.showsVerticalScrollIndicator){
+        [self setShowsVerticalScrollIndicator:YES];
+    }
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
