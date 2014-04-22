@@ -35,7 +35,9 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 -(UIWebView*) createWebViewForIndex:(NSUInteger)index;
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController{
+    UIEdgeInsets contentInset;
+}
 
 @synthesize headerView, headerImageView, headerLabel;
 @synthesize footerView, footerImageView, footerLabel;
@@ -45,11 +47,18 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 - (void)viewDidLoad
 {
   headerImageView.transform = CGAffineTransformMakeRotation(DegreesToRadians(180));
+    
+    if([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
+        [self setAutomaticallyAdjustsScrollViewInsets:NO];
+        contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0);
+    }else{
+        contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
 }
 
 -(void)willAppearIn:(UINavigationController *)navigationController
 {
-  self.verticalSwipeScrollView = [[[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame headerView:headerView footerView:footerView startingAt:startIndex delegate:self] autorelease];
+  self.verticalSwipeScrollView = [[[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame contentInset:contentInset headerView:headerView footerView:footerView startingAt:startIndex delegate:self] autorelease];
   [self.view addSubview:verticalSwipeScrollView];
 }
 
@@ -114,7 +123,8 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 -(UIWebView*) createWebViewForIndex:(NSUInteger)index
 {
-  UIWebView* webView = [[[UIWebView alloc] initWithFrame:self.view.frame] autorelease];
+    CGRect webViewFrame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame)-contentInset.left-contentInset.right, CGRectGetHeight(self.view.frame)-contentInset.top-contentInset.bottom);
+  UIWebView* webView = [[[UIWebView alloc] initWithFrame:webViewFrame] autorelease];
   webView.opaque = NO;
   [webView setBackgroundColor:[UIColor clearColor]];
   [self hideGradientBackground:webView];

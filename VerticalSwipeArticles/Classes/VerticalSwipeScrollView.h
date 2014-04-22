@@ -56,6 +56,6 @@
 @property (nonatomic) NSUInteger currentPageIndex;
 @property (nonatomic, retain) UIView* currentPageView;
 
-- (id) initWithFrame:(CGRect)frame headerView:(UIView*)headerView footerView:(UIView*)footerView startingAt:(NSUInteger)pageIndex delegate:(id<VerticalSwipeScrollViewDelegate,UIScrollViewDelegate>)verticalSwipeDelegate;
+- (id) initWithFrame:(CGRect)frame contentInset:(UIEdgeInsets)contentInset headerView:(UIView*)headerView footerView:(UIView*)footerView startingAt:(NSUInteger)pageIndex delegate:(id<VerticalSwipeScrollViewDelegate,UIScrollViewDelegate>)verticalSwipeDelegate;
 
 @end

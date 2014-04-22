@@ -55,7 +55,7 @@
 }
 
 // Setup for init method with explicit values
-- (id) initWithFrame:(CGRect)frame headerView:(UIView*)theHeaderView footerView:(UIView*)theFooterView startingAt:(NSUInteger)pageIndex delegate:(id<VerticalSwipeScrollViewDelegate,UIScrollViewDelegate>)verticalSwipeDelegate
+- (id) initWithFrame:(CGRect)frame contentInset:(UIEdgeInsets)contentInset headerView:(UIView*)theHeaderView footerView:(UIView*)theFooterView startingAt:(NSUInteger)pageIndex delegate:(id<VerticalSwipeScrollViewDelegate,UIScrollViewDelegate>)verticalSwipeDelegate
 {
   self = [super initWithFrame:frame];
   if (self)
@@ -65,7 +65,8 @@
     self.currentPageIndex = pageIndex;
     self.headerView = theHeaderView;
     self.footerView = theFooterView;
-    self.contentSize = self.frame.size;
+    self.contentInset = contentInset;
+    self.contentSize = CGSizeMake(CGRectGetWidth(self.frame)-contentInset.left-contentInset.right, CGRectGetHeight(self.frame)-contentInset.top-contentInset.bottom);
   }
   return self;
 }
@@ -225,7 +226,7 @@
     UIView* previousPage = [externalDelegate viewForScrollView:self atPage:currentPageIndex-1];
     // We want to animate this new page coming down, so we first
     // Set its frame to the top of the scroll view
-    previousPage.frame = CGRectMake(0, -(previousPage.frame.size.height + self.contentOffset.y), self.frame.size.width, self.frame.size.height);
+    previousPage.frame = CGRectMake(0, -(previousPage.frame.size.height + self.contentOffset.y), previousPage.frame.size.width, previousPage.frame.size.height);
     [self addSubview:previousPage];
     
     // Start the page down animation
@@ -235,9 +236,9 @@
     [UIView setAnimationDidStopSelector:@selector(pageAnimationDidStop:finished:context:)];
       [self setShowsVerticalScrollIndicator:NO];
     // When the animation is done, we want the previous page to be front and center
-    previousPage.frame = self.frame;
+    previousPage.frame = CGRectMake(0, 0 , previousPage.frame.size.width, previousPage.frame.size.height);
     // We also want the existing page to animate to the bottom of the scroll view
-    currentPageView.frame = CGRectMake(0, self.frame.size.height + headerView.frame.size.height, self.frame.size.width, self.frame.size.height);
+    currentPageView.frame = CGRectMake(0, self.frame.size.height + headerView.frame.size.height, currentPageView.frame.size.width, currentPageView.frame.size.height);
     // And we also animate the header view to animate off the bottom of the screen
     headerView.frame = CGRectMake(0, self.frame.size.height, headerView.frame.size.width, headerView.frame.size.height);
     [UIView commitAnimations];
@@ -251,7 +252,7 @@
     UIView* nextPage = [externalDelegate viewForScrollView:self atPage:currentPageIndex+1];
     // We want to animate this new page coming up, so we first
     // Set its frame to the bottom of the scroll view
-    nextPage.frame = CGRectMake(0, nextPage.frame.size.height + self.contentInset.top, self.frame.size.width, self.frame.size.height);
+    nextPage.frame = CGRectMake(0, nextPage.frame.size.height, self.frame.size.width, self.frame.size.height);
     [self addSubview:nextPage];
     
     // Start the page u animation
@@ -262,9 +263,9 @@
     //hide scroll indicator when pages animed
     [self setShowsVerticalScrollIndicator:NO];
     // When the animation is done, we want the next page to be front and center
-    nextPage.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.height, self.frame.size.width);
+    nextPage.frame = CGRectMake(0, 0, nextPage.frame.size.width, nextPage.frame.size.height);
     // We also want the existing page to animate to the top of the scroll view
-    currentPageView.frame = CGRectMake(0, -(self.frame.size.height + headerView.frame.size.height), self.frame.size.width, self.frame.size.height);
+    currentPageView.frame = CGRectMake(0, -(currentPageView.frame.size.height + headerView.frame.size.height), currentPageView.frame.size.width, currentPageView.frame.size.height);
     // And we also animate the footer view to animate off the top of the screen
     footerView.frame = CGRectMake(0, -footerView.frame.size.height, footerView.frame.size.width, footerView.frame.size.height);
     [UIView commitAnimations];
