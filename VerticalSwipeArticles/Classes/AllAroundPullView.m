@@ -17,7 +17,7 @@
 @property (nonatomic, strong) CALayer *arrowImage;
 @property (nonatomic, assign) AllAroundPullViewState state;
 @property (nonatomic, assign) UIEdgeInsets originalInset;
-@property (nonatomic, copy) void (^allAroundPullViewActionHandler)(AllAroundPullView *view);
+
 
 - (void)startTimer;
 - (void)dismissView;
@@ -107,15 +107,17 @@ static const CGFloat kSidePullViewWidth = 60.0;
     }
     
     if ((self = [super initWithFrame:frame])) {
+       
         _position = position;
         self.scrollView = scroll;
+        self.originalInset = self.scrollView.contentInset;
         [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:NULL];
         [self.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
         self.autoresizingMask = self.isSideView ? UIViewAutoresizingFlexibleHeight : UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor clearColor];
         _threshold = 60.0;
         self.arrowImage = [[CALayer alloc] init];
-        UIImage *arrow = [UIImage imageNamed:@"arrow.png"];
+        UIImage *arrow = [UIImage imageNamed:@"PullArrow.png"];
         self.arrowImage.contents = (id) arrow.CGImage;
         CGRect arrowAndActivityFrame;
         if (self.isSideView) {
@@ -233,10 +235,10 @@ static const CGFloat kSidePullViewWidth = 60.0;
 {
     switch (self.position) {
         case AllAroundPullViewPositionTop:
-            return self.scrollView.contentOffset.y <= -self.threshold;
+            return self.scrollView.contentOffset.y+self.originalInset.top <= -self.threshold;
         case AllAroundPullViewPositionBottom:
             if (self.scrollView.contentSize.height > self.scrollView.frame.size.height)
-                return self.scrollView.contentOffset.y >= (self.scrollView.contentSize.height - self.scrollView.frame.size.height) + self.threshold;
+                return self.scrollView.contentOffset.y-self.originalInset.bottom >= (self.scrollView.contentSize.height - self.scrollView.frame.size.height) + self.threshold;
             else
                 return self.scrollView.contentOffset.y >= self.threshold;
         case AllAroundPullViewPositionLeft:

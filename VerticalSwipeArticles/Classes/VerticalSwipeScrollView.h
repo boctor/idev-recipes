@@ -33,8 +33,8 @@
 @class VerticalSwipeScrollView;
 @protocol VerticalSwipeScrollViewDelegate
 -(UIWebView *) viewForScrollView:(VerticalSwipeScrollView*)scrollView atPage:(NSUInteger)page;
--(AllAroundPullView *) headerViewForScrollView:(VerticalSwipeScrollView*)scrollView atPage:(NSUInteger)page;
--(AllAroundPullView *) footerViewForScrollView:(VerticalSwipeScrollView*)scrollView atPage:(NSUInteger)page;
+-(AllAroundPullView *) headerViewForScrollView:(UIScrollView *)scrollView atPage:(NSUInteger)page;
+-(AllAroundPullView *) footerViewForScrollView:(UIScrollView*)scrollView atPage:(NSUInteger)page;
 -(NSUInteger) pageCount;
 @optional
 -(void) headerLoadedInScrollView:(VerticalSwipeScrollView*)scrollView;
@@ -44,17 +44,9 @@
 @end
 
 @interface VerticalSwipeScrollView : UIView
-{
-    BOOL _headerLoaded;
-    BOOL _footerLoaded;
-
-}
-
-@property (nonatomic, assign) id<VerticalSwipeScrollViewDelegate> externalDelegate;
-
 @property (nonatomic) NSUInteger currentPageIndex;
-@property (nonatomic, strong) UIView* currentPageView;
-
-- (id) initWithFrame:(CGRect)frame contentInset:(UIEdgeInsets)contentInset startingAt:(NSUInteger)pageIndex delegate:(id<VerticalSwipeScrollViewDelegate,UIScrollViewDelegate>)verticalSwipeDelegate;
+@property (nonatomic, strong) UIWebView* currentPageView;
+@property (nonatomic, assign) id<VerticalSwipeScrollViewDelegate> externalDelegate;
+- (id) initWithFrame:(CGRect)frame contentInset:(UIEdgeInsets)contentInset startingAt:(NSUInteger)pageIndex delegate:(id<VerticalSwipeScrollViewDelegate>)verticalSwipeDelegate;
 
 @end

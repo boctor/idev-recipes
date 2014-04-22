@@ -29,6 +29,7 @@
 		F7005CDB1904FDFD007665C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7005CDA1904FDFD007665C7 /* Images.xcassets */; };
 		F7005CDD1906436D007665C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7005CDC1906436D007665C7 /* QuartzCore.framework */; };
 		F7005CE01906437C007665C7 /* AllAroundPullView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7005CDF1906437C007665C7 /* AllAroundPullView.m */; };
+		F7005CE219065EFA007665C7 /* app.json in Resources */ = {isa = PBXBuildFile; fileRef = F7005CE119065EFA007665C7 /* app.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		F7005CDC1906436D007665C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F7005CDE1906437C007665C7 /* AllAroundPullView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllAroundPullView.h; sourceTree = "<group>"; };
 		F7005CDF1906437C007665C7 /* AllAroundPullView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllAroundPullView.m; sourceTree = "<group>"; };
+		F7005CE119065EFA007665C7 /* app.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = app.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7005CE119065EFA007665C7 /* app.json */,
 				F7005CDA1904FDFD007665C7 /* Images.xcassets */,
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				F7005CE219065EFA007665C7 /* app.json in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
 				F7005CDB1904FDFD007665C7 /* Images.xcassets in Resources */,
 				7F59B5F512C86F0700160998 /* PullArrow.png in Resources */,

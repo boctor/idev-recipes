@@ -45,13 +45,24 @@
 {
   // Override point for customization after application launch.
   navigationController.delegate = self;
+   
+//  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:TOP_APPS_URL]];
+//  NSURLConnection* topAppsConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self] ;
+//  if (topAppsConnection)
+//    self.topAppsData = [NSMutableData data];
+//  [self.window addSubview:loadingView];
+    
+    NSString* jsonFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/app.json"];
+    NSString* jsonString = [NSString stringWithContentsOfFile:jsonFile encoding:NSUTF8StringEncoding error:nil];
+    @try {
+        RootViewController* rootViewController = (RootViewController*)[navigationController.viewControllers objectAtIndex:0];
+        rootViewController.topApps = [[[jsonString JSONValue] objectForKey:@"feed"]objectForKey:@"entry"];
+        [self.window addSubview:navigationController.view];
+    }
+    @catch (NSException * e) {
+    }
 
-  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:TOP_APPS_URL]];
-  NSURLConnection* topAppsConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self] ;
-  if (topAppsConnection)
-    self.topAppsData = [NSMutableData data];
-
-  [self.window addSubview:loadingView];
+  
   [self.window makeKeyAndVisible];
 
   return YES;
@@ -137,7 +148,9 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    
   NSString* topAppsString = [[NSString alloc] initWithData:topAppsData encoding:NSUTF8StringEncoding];
+    NSLog(@"topAppsString: %@",topAppsString);
   self.topAppsData = nil;
 
   @try {

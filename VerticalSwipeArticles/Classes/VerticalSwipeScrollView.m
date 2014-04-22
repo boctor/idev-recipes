@@ -47,26 +47,26 @@
 
 @implementation VerticalSwipeScrollView
 
+//disable setup by interface file.Joiningss
 
-// Setup for when our view is setup in a NIB
-- (void)awakeFromNib
-{
-    self.contentSize = self.frame.size;
-    
-    [self showCurrentPage];
-}
-
-// Setup for default init method
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-        [self showCurrentPage];
-        self.contentSize = self.frame.size;
-    }
-    return self;
-}
+//// Setup for when our view is setup in a NIB
+//- (void)awakeFromNib
+//{
+//    self.contentSize = self.frame.size;
+//    [self showCurrentPage];
+//}
+//
+//// Setup for default init method
+//- (id)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if (self)
+//    {
+//        [self showCurrentPage];
+//        self.contentSize = self.frame.size;
+//    }
+//    return self;
+//}
 
 // Setup for init method with explicit values
 - (id) initWithFrame:(CGRect)frame contentInset:(UIEdgeInsets)contentInset startingAt:(NSUInteger)pageIndex delegate:(id<VerticalSwipeScrollViewDelegate,UIScrollViewDelegate>)verticalSwipeDelegate
@@ -79,6 +79,7 @@
         self.currentPageIndex = pageIndex;
         self.contentInset = contentInset;
         self.contentSize = CGSizeMake(CGRectGetWidth(self.frame)-contentInset.left-contentInset.right, CGRectGetHeight(self.frame)-contentInset.top-contentInset.bottom);
+        [self showCurrentPage];
     }
     return self;
 }
@@ -86,9 +87,9 @@
 // We override setting the delegate and:
 // 1. make ourselves the delegate instead
 // 2. remember the actual delegate and properly forward messages to it
--(void) setDelegate:(id<VerticalSwipeScrollViewDelegate,UIScrollViewDelegate>)newDelegate
+-(void) setDelegate:(id<VerticalSwipeScrollViewDelegate>)newDelegate
 {
-    if (newDelegate != (id<VerticalSwipeScrollViewDelegate,UIScrollViewDelegate>)self)
+    if (newDelegate != (id<VerticalSwipeScrollViewDelegate>)self)
         self.externalDelegate = newDelegate;
     //[super setDelegate:self];
 }
@@ -139,7 +140,7 @@
 // This accessor lets you setup the initial current page to a value other than 0
 -(void) setCurrentPageIndex:(NSUInteger)newValue
 {
-    self.currentPageIndex = newValue;
+    _currentPageIndex = newValue;
     
 //    // Hide the header if there is no previous page
 //    headerView.hidden = currentPageIndex <= 0;
@@ -154,7 +155,84 @@
 {
     [self.currentPageView removeFromSuperview];
     self.currentPageView = [self.externalDelegate viewForScrollView:self atPage:self.currentPageIndex];
+    [self addHeaderAndFooterForPage:self.currentPageIndex scrollView:self.currentPageView.scrollView];
     [self addSubview:self.currentPageView];
+    
+}
+- (void)addHeaderAndFooterForPage:(NSUInteger)pageIndex scrollView:(UIScrollView *)scrollView{
+    AllAroundPullView * headerView = [self.externalDelegate headerViewForScrollView:scrollView atPage:pageIndex];
+    if(headerView){
+        [headerView setAllAroundPullViewActionHandler:^(AllAroundPullView *view){
+            NSLog(@"show previous page");
+            [self showOhterPage:YES];
+        }];
+        [scrollView addSubview:headerView];
+    }
+    AllAroundPullView * footer = [self.externalDelegate footerViewForScrollView:scrollView atPage:pageIndex];
+    if(footer){
+        [footer setAllAroundPullViewActionHandler:^(AllAroundPullView *view){
+            NSLog(@"show next page");
+            [self showOhterPage:NO];
+        }];
+        [scrollView addSubview:footer];
+    }
+}
+
+- (void)showOhterPage:(BOOL)showPrevious{
+    if(showPrevious){
+        UIWebView * previousPage = [self.externalDelegate viewForScrollView:self atPage:self.currentPageIndex-1];
+        previousPage.frame = CGRectMake(0, -(previousPage.frame.size.height), previousPage.frame.size.width, previousPage.frame.size.height);
+        [self addHeaderAndFooterForPage:self.currentPageIndex-1 scrollView:previousPage.scrollView];
+        [self addSubview:previousPage];
+        // Start the page down animation
+        //[self setUserInteractionEnabled:NO];
+        [UIView beginAnimations:nil context:(__bridge void *)(previousPage)];
+        [UIView setAnimationDuration:0.3];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(pageAnimationDidStop:finished:context:)];
+        // When the animation is done, we want the previous page to be front and center
+        previousPage.frame = CGRectMake(0, 0 , previousPage.frame.size.width, previousPage.frame.size.height);
+        // We also want the existing page to animate to the bottom of the scroll view
+        self.currentPageView.frame = CGRectMake(0, self.frame.size.height, self.currentPageView.frame.size.width, self.currentPageView.frame.size.height);
+        [UIView commitAnimations];
+        // Decrement our current page
+        self.currentPageIndex--;
+    }else{
+        // Ask the delegate for the next page
+        UIWebView* nextPage = [self.externalDelegate viewForScrollView:self atPage:self.currentPageIndex+1];
+        // We want to animate this new page coming up, so we first
+        // Set its frame to the bottom of the scroll view
+        nextPage.frame = CGRectMake(0, self.frame.size.height, nextPage.frame.size.width, nextPage.frame.size.height);
+        [self addHeaderAndFooterForPage:self.currentPageIndex+1 scrollView:nextPage.scrollView];
+        [self addSubview:nextPage];
+        //[self setUserInteractionEnabled:NO];
+        // Start the page u animation
+        [UIView beginAnimations:nil context:(__bridge void *)(nextPage)];
+        [UIView setAnimationDuration:0.3];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(pageAnimationDidStop:finished:context:)];
+
+        // When the animation is done, we want the next page to be front and center
+        nextPage.frame = CGRectMake(0, 0, nextPage.frame.size.width, nextPage.frame.size.height);
+        // We also want the existing page to animate to the top of the scroll view
+        self.currentPageView.frame = CGRectMake(0, -self.currentPageView.frame.size.height, self.currentPageView.frame.size.width, self.currentPageView.frame.size.height);
+
+        [UIView commitAnimations];
+        
+        // Increment our current page
+        self.currentPageIndex++;
+
+    }
+}
+- (void)pageAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+    // Remove the old page
+    [self.currentPageView removeFromSuperview];
+    
+    // Set the previous/next page we just animated into view as the current page
+    UIWebView* newPage = (__bridge UIWebView*)context;
+    self.currentPageView = newPage;
+    [self setUserInteractionEnabled:YES];
 }
 
 /*
