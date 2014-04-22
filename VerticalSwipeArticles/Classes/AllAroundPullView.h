@@ -1,6 +1,6 @@
-//  
+//
 //  AllAroundPullView.h
-//  
+//
 //  Created by r_plus on 9/2/12
 //  Copyright (c) 2012 r_plus All rights reserved.
 //
@@ -13,17 +13,17 @@
 #import <QuartzCore/QuartzCore.h>
 
 typedef enum {
-  AllAroundPullViewStateNormal = 0,
-  AllAroundPullViewStateReady,
-  AllAroundPullViewStateLoading,
-  AllAroundPullViewStateNone
+    AllAroundPullViewStateNormal = 0,
+    AllAroundPullViewStateReady,
+    AllAroundPullViewStateLoading,
+    AllAroundPullViewStateNone
 } AllAroundPullViewState;
 
 typedef enum {
-  AllAroundPullViewPositionTop = 1 << 0,
-  AllAroundPullViewPositionBottom = 1 << 1,
-  AllAroundPullViewPositionLeft = 1 << 2,
-  AllAroundPullViewPositionRight = 1 << 3
+    AllAroundPullViewPositionTop = 1 << 0,
+    AllAroundPullViewPositionBottom = 1 << 1,
+    AllAroundPullViewPositionLeft = 1 << 2,
+    AllAroundPullViewPositionRight = 1 << 3
 } AllAroundPullViewPosition;
 
 @interface AllAroundPullView : UIView

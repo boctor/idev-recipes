@@ -37,6 +37,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 @implementation DetailViewController{
     UIEdgeInsets contentInset;
+    
 }
 
 @synthesize headerView, headerImageView, headerLabel;
@@ -58,7 +59,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 -(void)willAppearIn:(UINavigationController *)navigationController
 {
-  self.verticalSwipeScrollView = [[[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame contentInset:contentInset headerView:headerView footerView:footerView startingAt:startIndex delegate:self] autorelease];
+  self.verticalSwipeScrollView = [[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame contentInset:contentInset  startingAt:startIndex delegate:self];
   [self.view addSubview:verticalSwipeScrollView];
 }
 
@@ -97,9 +98,9 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
   UIWebView* webView = nil;
   
   if (page < scrollView.currentPageIndex)
-    webView = [[previousPage retain] autorelease];
+    webView = previousPage;
   else if (page > scrollView.currentPageIndex)
-    webView = [[nextPage retain] autorelease];
+    webView = nextPage;
   
   if (!webView)
     webView = [self createWebViewForIndex:page];
@@ -124,7 +125,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 -(UIWebView*) createWebViewForIndex:(NSUInteger)index
 {
     CGRect webViewFrame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame)-contentInset.left-contentInset.right, CGRectGetHeight(self.view.frame)-contentInset.top-contentInset.bottom);
-  UIWebView* webView = [[[UIWebView alloc] initWithFrame:webViewFrame] autorelease];
+  UIWebView* webView = [[UIWebView alloc] initWithFrame:webViewFrame];
   webView.opaque = NO;
   [webView setBackgroundColor:[UIColor clearColor]];
   [self hideGradientBackground:webView];
@@ -168,22 +169,6 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
   self.footerLabel = nil;
 }
 
-- (void)dealloc
-{
-  [headerView release];
-  [headerImageView release];
-  [headerLabel release];
 
-  [footerView release];
-  [footerImageView release];
-  [footerLabel release];
-
-  [verticalSwipeScrollView release];
-  [appData release];
-  [previousPage release];
-  [nextPage release];
-
-  [super dealloc];
-}
 
 @end

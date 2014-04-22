@@ -1,6 +1,6 @@
-//  
+//
 //  AllAroundPullView.m
-//  
+//
 //  Created by r_plus on 9/2/12
 //  Copyright (c) 2012 r_plus All rights reserved.
 //
@@ -31,8 +31,8 @@
 
 @implementation AllAroundPullView
 {
-  AllAroundPullViewState _state;
-  AllAroundPullViewPosition _position;
+    AllAroundPullViewState _state;
+    AllAroundPullViewPosition _position;
 }
 
 static const CGFloat kViewHeight = 60.0;
@@ -51,7 +51,7 @@ static const CGFloat kSidePullViewWidth = 60.0;
         [self.activityView startAnimating];
     else
         [self.activityView stopAnimating];
-
+    
     [UIView animateWithDuration:(animated ? 0.1 : 0.0) animations:^{
         self.arrowImage.opacity = (shouldShow ? 0.0 : 1.0);
     }];
@@ -92,7 +92,7 @@ static const CGFloat kSidePullViewWidth = 60.0;
 {
     CGFloat offset;
     CGRect frame;
-
+    
     switch (position) {
         case AllAroundPullViewPositionTop:
         case AllAroundPullViewPositionBottom:
@@ -105,7 +105,7 @@ static const CGFloat kSidePullViewWidth = 60.0;
             frame = CGRectMake(offset, 0.0, kSidePullViewWidth, scroll.frame.size.height);
             break;
     }
-
+    
     if ((self = [super initWithFrame:frame])) {
         _position = position;
         self.scrollView = scroll;
@@ -128,16 +128,16 @@ static const CGFloat kSidePullViewWidth = 60.0;
         self.arrowImage.frame = arrowAndActivityFrame;
         self.arrowImage.contentsGravity = kCAGravityResizeAspect;
         [self setImageFlipped:NO];
-
+        
         if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
             self.arrowImage.contentsScale = [[UIScreen mainScreen] scale];
         [self.layer addSublayer:self.arrowImage];
-
+        
         self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         self.activityView.autoresizingMask = self.isSideView ? (UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin) : (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
         self.activityView.frame = arrowAndActivityFrame;
         [self addSubview:self.activityView];
-
+        
         self.state = AllAroundPullViewStateNormal;
     }
     return self;
@@ -173,7 +173,7 @@ static const CGFloat kSidePullViewWidth = 60.0;
 - (void)setState:(AllAroundPullViewState)state_
 {
     _state = state_;
-
+    
     switch (_state) {
         case AllAroundPullViewStateReady:
             [self showActivity:NO animated:NO];
@@ -212,20 +212,20 @@ static const CGFloat kSidePullViewWidth = 60.0;
 {
     switch (self.position) {
         case AllAroundPullViewPositionTop:
-            {
-                BOOL scrolledAboveContent = self.scrollView.contentOffset.y < 0.0;
-                return scrolledAboveContent && ![self isScrolledOverThreshold];
-            }
+        {
+            BOOL scrolledAboveContent = self.scrollView.contentOffset.y < 0.0;
+            return scrolledAboveContent && ![self isScrolledOverThreshold];
+        }
         case AllAroundPullViewPositionBottom:
-            {
-                BOOL scrolledBelowContent = self.scrollView.contentOffset.y > (self.scrollView.contentSize.height - self.scrollView.frame.size.height);
-                return scrolledBelowContent && ![self isScrolledOverThreshold];
-            }
+        {
+            BOOL scrolledBelowContent = self.scrollView.contentOffset.y > (self.scrollView.contentSize.height - self.scrollView.frame.size.height);
+            return scrolledBelowContent && ![self isScrolledOverThreshold];
+        }
         case AllAroundPullViewPositionLeft:
         case AllAroundPullViewPositionRight:
             return ![self isScrolledOverThreshold];
     }
-
+    
     return NO;
 }
 
@@ -244,7 +244,7 @@ static const CGFloat kSidePullViewWidth = 60.0;
         case AllAroundPullViewPositionRight:
             return self.scrollView.contentOffset.x >= (self.scrollView.contentSize.width - self.scrollView.frame.size.width) + self.threshold;
     }
-
+    
     return NO;
 }
 
@@ -273,14 +273,14 @@ static const CGFloat kSidePullViewWidth = 60.0;
         } else if (self.position == AllAroundPullViewPositionTop) {
             self.scrollView.contentInset = UIEdgeInsetsMake(MIN(-self.scrollView.contentOffset.y, kViewHeight), 0, 0, 0);
         }
-    }    
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"contentSize"])
         [self updatePositionWhenContentsSizeIsChanged];
-
+    
     if ([keyPath isEqualToString:@"contentOffset"]) {
         if (self.scrollView.isDragging) {
             if (_state == AllAroundPullViewStateReady) {

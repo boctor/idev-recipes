@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* VerticalSwipeArticlesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* VerticalSwipeArticlesAppDelegate.m */; };
-		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
-		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 		7F59B5F512C86F0700160998 /* PullArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F59B5F312C86F0700160998 /* PullArrow.png */; };
 		7F59B5F612C86F0700160998 /* PullArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F59B5F412C86F0700160998 /* PullArrow@2x.png */; };
@@ -21,11 +21,11 @@
 		7F59B60212C8720800160998 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F59B60112C8720800160998 /* DetailViewController.xib */; };
 		7F59B60512C8720F00160998 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F59B60412C8720F00160998 /* DetailViewController.m */; };
 		7F59B60E12C872E400160998 /* DetailView.html in Resources */ = {isa = PBXBuildFile; fileRef = 7F59B60D12C872E400160998 /* DetailView.html */; };
-		7F840F3B12C85C12003D9FD1 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3212C85C12003D9FD1 /* NSObject+SBJSON.m */; };
-		7F840F3C12C85C12003D9FD1 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3412C85C12003D9FD1 /* NSString+SBJSON.m */; };
-		7F840F3D12C85C12003D9FD1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3612C85C12003D9FD1 /* SBJsonBase.m */; };
-		7F840F3E12C85C12003D9FD1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3812C85C12003D9FD1 /* SBJsonParser.m */; };
-		7F840F3F12C85C12003D9FD1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */; };
+		7F840F3B12C85C12003D9FD1 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3212C85C12003D9FD1 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F840F3C12C85C12003D9FD1 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3412C85C12003D9FD1 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F840F3D12C85C12003D9FD1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3612C85C12003D9FD1 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F840F3E12C85C12003D9FD1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3812C85C12003D9FD1 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F840F3F12C85C12003D9FD1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F7005CDB1904FDFD007665C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7005CDA1904FDFD007665C7 /* Images.xcassets */; };
 		F7005CDD1906436D007665C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7005CDC1906436D007665C7 /* QuartzCore.framework */; };
 		F7005CE01906437C007665C7 /* AllAroundPullView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7005CDF1906437C007665C7 /* AllAroundPullView.m */; };
@@ -268,6 +268,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -284,6 +285,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = VerticalSwipeArticles_Prefix.pch;

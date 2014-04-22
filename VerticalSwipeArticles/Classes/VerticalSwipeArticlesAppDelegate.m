@@ -47,7 +47,7 @@
   navigationController.delegate = self;
 
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:TOP_APPS_URL]];
-  NSURLConnection* topAppsConnection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
+  NSURLConnection* topAppsConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self] ;
   if (topAppsConnection)
     self.topAppsData = [NSMutableData data];
 
@@ -137,7 +137,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-  NSString* topAppsString = [[[NSString alloc] initWithData:topAppsData encoding:NSUTF8StringEncoding] autorelease]; 
+  NSString* topAppsString = [[NSString alloc] initWithData:topAppsData encoding:NSUTF8StringEncoding];
   self.topAppsData = nil;
 
   @try {
@@ -149,13 +149,7 @@
   }
 }
 
-- (void)dealloc {
-  [topAppsData release];
-  [loadingView release];
-  [navigationController release];
-  [window release];
-  [super dealloc];
-}
+
 
 
 @end
