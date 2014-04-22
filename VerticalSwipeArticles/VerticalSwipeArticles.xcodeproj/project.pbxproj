@@ -27,6 +27,8 @@
 		7F840F3E12C85C12003D9FD1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3812C85C12003D9FD1 /* SBJsonParser.m */; };
 		7F840F3F12C85C12003D9FD1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */; };
 		F7005CDB1904FDFD007665C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7005CDA1904FDFD007665C7 /* Images.xcassets */; };
+		F7005CDD1906436D007665C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7005CDC1906436D007665C7 /* QuartzCore.framework */; };
+		F7005CE01906437C007665C7 /* AllAroundPullView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7005CDF1906437C007665C7 /* AllAroundPullView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,9 @@
 		7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* VerticalSwipeArticles-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VerticalSwipeArticles-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F7005CDA1904FDFD007665C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VerticalSwipeArticles/Images.xcassets; sourceTree = "<group>"; };
+		F7005CDC1906436D007665C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F7005CDE1906437C007665C7 /* AllAroundPullView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllAroundPullView.h; sourceTree = "<group>"; };
+		F7005CDF1906437C007665C7 /* AllAroundPullView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllAroundPullView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7005CDD1906436D007665C7 /* QuartzCore.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
@@ -90,6 +96,8 @@
 				7F59B60412C8720F00160998 /* DetailViewController.m */,
 				7F59B5F912C86F1500160998 /* VerticalSwipeScrollView.h */,
 				7F59B5FA12C86F1500160998 /* VerticalSwipeScrollView.m */,
+				F7005CDE1906437C007665C7 /* AllAroundPullView.h */,
+				F7005CDF1906437C007665C7 /* AllAroundPullView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7005CDC1906436D007665C7 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
@@ -245,6 +254,7 @@
 				7F840F3E12C85C12003D9FD1 /* SBJsonParser.m in Sources */,
 				7F840F3F12C85C12003D9FD1 /* SBJsonWriter.m in Sources */,
 				7F59B5FC12C86F1500160998 /* VerticalSwipeScrollView.m in Sources */,
+				F7005CE01906437C007665C7 /* AllAroundPullView.m in Sources */,
 				7F59B60512C8720F00160998 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
