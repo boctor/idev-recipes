@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>EC48652E-E077-4E51-9F87-29A2AA541E89</string>
+	<string>EFED1C67-E275-4494-8BF9-DFCD06BF0635</string>
 	<key>IDESourceControlProjectName</key>
 	<string>VerticalSwipeArticles</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4C05F90F-D1EA-475B-9DCF-577743018A76</key>
-		<string>https://github.com/boctor/idev-recipes.git</string>
+		<key>F92B9019-BAAF-4639-BAA7-992EC61899FF</key>
+		<string>https://github.com/Joiningss/idev-recipes.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>VerticalSwipeArticles/VerticalSwipeArticles.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4C05F90F-D1EA-475B-9DCF-577743018A76</key>
+		<key>F92B9019-BAAF-4639-BAA7-992EC61899FF</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/boctor/idev-recipes.git</string>
+	<string>https://github.com/Joiningss/idev-recipes.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4C05F90F-D1EA-475B-9DCF-577743018A76</string>
+	<string>F92B9019-BAAF-4639-BAA7-992EC61899FF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4C05F90F-D1EA-475B-9DCF-577743018A76</string>
+			<string>F92B9019-BAAF-4639-BAA7-992EC61899FF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>idev-recipes</string>
 		</dict>

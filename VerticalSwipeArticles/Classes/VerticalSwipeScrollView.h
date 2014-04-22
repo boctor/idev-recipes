@@ -48,5 +48,5 @@
 @property (nonatomic, strong) UIWebView* currentPageView;
 @property (nonatomic, assign) id<VerticalSwipeScrollViewDelegate> externalDelegate;
 - (id) initWithFrame:(CGRect)frame contentInset:(UIEdgeInsets)contentInset startingAt:(NSUInteger)pageIndex delegate:(id<VerticalSwipeScrollViewDelegate>)verticalSwipeDelegate;
-
+- (void)showCurrentPage;
 @end

@@ -34,6 +34,7 @@ typedef enum {
 @property (nonatomic, readonly) BOOL isSideView;
 @property (nonatomic, readonly) AllAroundPullViewPosition position;
 @property (nonatomic, copy) void (^allAroundPullViewActionHandler)(AllAroundPullView *view);
+@property (nonatomic, assign) BOOL hideIndicatorView;
 - (void)finishedLoading;
 - (void)hideAllAroundPullViewIfNeed:(BOOL)disable;
 - (id)initWithScrollView:(UIScrollView *)scroll position:(AllAroundPullViewPosition)position action:(void (^)(AllAroundPullView *view))actionHandler;

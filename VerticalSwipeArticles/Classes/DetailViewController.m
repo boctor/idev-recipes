@@ -86,6 +86,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         headerLabel.text = [[[appData objectAtIndex:page-1] objectForKey:@"im:name"] objectForKey:@"label"];
     if (page != appData.count-1)
         footerLabel.text = [[[appData objectAtIndex:page+1] objectForKey:@"im:name"] objectForKey:@"label"];
+    [webView clearsContextBeforeDrawing];
     return webView;
 }
 
@@ -93,6 +94,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     AllAroundPullView *topPullView;
     if(page!=0){
         topPullView = [[AllAroundPullView alloc] initWithScrollView:scrollView position:AllAroundPullViewPositionTop action:nil];
+        topPullView.hideIndicatorView = YES;
     }
     return topPullView;
 }
@@ -101,6 +103,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     AllAroundPullView *footerPullView;
     if(page != [self pageCount]-1){
         footerPullView = [[AllAroundPullView alloc] initWithScrollView:scrollView position:AllAroundPullViewPositionBottom action:nil];
+        footerPullView.hideIndicatorView = YES;
     }
     return footerPullView;
 }
@@ -118,6 +121,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     [webView.scrollView setScrollIndicatorInsets:contentInset];
     webView.opaque = NO;
     [webView setBackgroundColor:[UIColor clearColor]];
+    //[webView loadHTMLString:@"" baseURL:nil];
     [self hideGradientBackground:webView];
     
     NSString* htmlFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/DetailView.html"];

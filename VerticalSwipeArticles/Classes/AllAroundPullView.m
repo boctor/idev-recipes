@@ -47,14 +47,16 @@ static const CGFloat kSidePullViewWidth = 60.0;
 
 - (void)showActivity:(BOOL)shouldShow animated:(BOOL)animated
 {
-    if (shouldShow)
-        [self.activityView startAnimating];
-    else
-        [self.activityView stopAnimating];
-    
-    [UIView animateWithDuration:(animated ? 0.1 : 0.0) animations:^{
-        self.arrowImage.opacity = (shouldShow ? 0.0 : 1.0);
-    }];
+    if(!self.hideIndicatorView){
+        if (shouldShow)
+            [self.activityView startAnimating];
+        else
+            [self.activityView stopAnimating];
+        
+        [UIView animateWithDuration:(animated ? 0.1 : 0.0) animations:^{
+            self.arrowImage.opacity = (shouldShow ? 0.0 : 1.0);
+        }];
+    }
 }
 
 - (void)setImageFlipped:(BOOL)flipped
@@ -66,6 +68,9 @@ static const CGFloat kSidePullViewWidth = 60.0;
         }];
     } else {
         BOOL isBottom = (self.position == AllAroundPullViewPositionBottom);
+        if(!flipped && self.hideIndicatorView){
+            return;
+        }
         [UIView animateWithDuration:0.1 animations:^{
             self.arrowImage.transform = (flipped ^ isBottom ? CATransform3DMakeRotation(M_PI * 2, 0.0, 0.0, 1.0) : CATransform3DMakeRotation(M_PI, 0.0, 0.0, 1.0));
         }];
@@ -107,7 +112,7 @@ static const CGFloat kSidePullViewWidth = 60.0;
     }
     
     if ((self = [super initWithFrame:frame])) {
-       
+        
         _position = position;
         self.scrollView = scroll;
         self.originalInset = self.scrollView.contentInset;
