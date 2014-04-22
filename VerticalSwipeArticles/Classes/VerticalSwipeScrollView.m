@@ -38,7 +38,7 @@
 @property(nonatomic, assign) UIEdgeInsets contentInset;
 @property(nonatomic, assign) BOOL headerLoaded;
 @property(nonatomic, assign) BOOL footerLoaded;
-
+@property (nonatomic, strong) UIWebView* latestPageView;
 @end
 
 @interface VerticalSwipeScrollView (PrivateMethods)
@@ -169,65 +169,43 @@
 }
 
 - (void)showOhterPage:(BOOL)showPrevious{
+    float animDuration = 0.6;
     if(showPrevious){
         UIWebView * previousPage = [self.externalDelegate viewForScrollView:self atPage:self.currentPageIndex-1];
-        previousPage.frame = CGRectMake(0, -(previousPage.frame.size.height), previousPage.frame.size.width, previousPage.frame.size.height);
+        previousPage.frame = CGRectMake(0, 0, previousPage.frame.size.width, previousPage.frame.size.height);
         [self addHeaderAndFooterForPage:self.currentPageIndex-1 scrollView:previousPage.scrollView];
         [self addSubview:previousPage];
+        self.latestPageView = previousPage;
         // Start the page down animation
         [self setUserInteractionEnabled:NO];
         [self.currentPageView.scrollView setScrollEnabled:NO];
-        
-        [UIView animateWithDuration:0.2 animations:^{
-            // When the animation is done, we want the previous page to be front and center
-            previousPage.frame = CGRectMake(0, 0 , previousPage.frame.size.width, previousPage.frame.size.height);
-            // We also want the existing page to animate to the bottom of the scroll view
-            self.currentPageView.frame = CGRectMake(0, self.frame.size.height, self.currentPageView.frame.size.width, self.currentPageView.frame.size.height);
-        } completion:^(BOOL finished) {
-            // Remove the old page
-            [self.currentPageView removeFromSuperview];
-            self.currentPageView = previousPage;
-            [self.currentPageView.scrollView setScrollEnabled:YES];
-            [self setUserInteractionEnabled:YES];
-        }];
-        // Decrement our current page
+        [self.currentPageView backOutTo:kFTAnimationBottom inView:self withFade:YES duration:animDuration*0.70 delegate:nil startSelector:nil stopSelector:nil];
+        [previousPage backInFrom:kFTAnimationTop inView:self withFade:YES duration:animDuration delegate:nil startSelector:nil stopSelector:nil];
+        [self performSelector:@selector(pageAnimationDidStop) withObject:nil afterDelay:animDuration];
         _currentPageIndex--;
     }else{
         // Ask the delegate for the next page
         UIWebView* nextPage = [self.externalDelegate viewForScrollView:self atPage:self.currentPageIndex+1];
         // We want to animate this new page coming up, so we first
         // Set its frame to the bottom of the scroll view
-        nextPage.frame = CGRectMake(0, self.frame.size.height, nextPage.frame.size.width, nextPage.frame.size.height);
+        nextPage.frame = CGRectMake(0, 0, nextPage.frame.size.width, nextPage.frame.size.height);
         [self addHeaderAndFooterForPage:self.currentPageIndex+1 scrollView:nextPage.scrollView];
         [self addSubview:nextPage];
+        self.latestPageView = nextPage;
         [self setUserInteractionEnabled:NO];
         [self.currentPageView.scrollView setScrollEnabled:NO];
-        [UIView animateWithDuration:0.2 animations:^{
-            // When the animation is done, we want the next page to be front and center
-            nextPage.frame = CGRectMake(0, 0, nextPage.frame.size.width, nextPage.frame.size.height);
-            // We also want the existing page to animate to the top of the scroll view
-            self.currentPageView.frame = CGRectMake(0, -self.currentPageView.frame.size.height, self.currentPageView.frame.size.width, self.currentPageView.frame.size.height);
-            
-        } completion:^(BOOL finished) {
-            // Remove the old page
-            [self.currentPageView removeFromSuperview];
-            self.currentPageView = nextPage;
-            [self.currentPageView.scrollView setScrollEnabled:YES];
-            [self setUserInteractionEnabled:YES];
-
-        }];
-        // Increment our current page
+        [self.currentPageView backOutTo:kFTAnimationTop inView:self withFade:YES duration:animDuration*0.70 delegate:nil startSelector:nil stopSelector:nil];
+        [nextPage backInFrom:kFTAnimationBottom inView:self withFade:YES duration:animDuration delegate:nil startSelector:nil stopSelector:nil];
+        [self performSelector:@selector(pageAnimationDidStop) withObject:nil afterDelay:animDuration];
         _currentPageIndex++;
     }
 }
-- (void)pageAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+- (void)pageAnimationDidStop
 {
     // Remove the old page
     [self.currentPageView removeFromSuperview];
-    
     // Set the previous/next page we just animated into view as the current page
-    UIWebView* newPage = (__bridge UIWebView*)context;
-    self.currentPageView = newPage;
+    self.currentPageView = self.latestPageView;
     [self.currentPageView.scrollView setScrollEnabled:YES];
     [self setUserInteractionEnabled:YES];
 }

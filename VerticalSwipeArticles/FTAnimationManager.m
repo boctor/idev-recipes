@@ -273,9 +273,9 @@ NSString *const kFTAnimationWasInteractionEnabledKey = @"kFTAnimationWasInteract
 - (CAAnimation *)backInAnimationFor:(UIView *)view withFade:(BOOL)fade direction:(FTAnimationDirection)direction 
                            duration:(NSTimeInterval)duration delegate:(id)delegate 
                       startSelector:(SEL)startSelector stopSelector:(SEL)stopSelector {
-  CGPoint path[3] = {
+  CGPoint path[2] = {
     FTAnimationOffscreenCenterPoint(view.frame, view.center, direction),
-    [self overshootPointFor:view.center withDirection:direction threshold:(overshootThreshold_ * 1.15)],
+    //[self overshootPointFor:view.center withDirection:direction threshold:(overshootThreshold_ * 1.15)],
     view.center
   };
   
@@ -304,9 +304,9 @@ NSString *const kFTAnimationWasInteractionEnabledKey = @"kFTAnimationWasInteract
 - (CAAnimation *)backOutAnimationFor:(UIView *)view withFade:(BOOL)fade direction:(FTAnimationDirection)direction inView:(UIView*)enclosingView
                             duration:(NSTimeInterval)duration delegate:(id)delegate 
                        startSelector:(SEL)startSelector stopSelector:(SEL)stopSelector {
-	CGPoint path[3] = {
+	CGPoint path[2] = {
 		view.center,
-		[self overshootPointFor:view.center withDirection:direction threshold:overshootThreshold_],
+		//[self overshootPointFor:view.center withDirection:direction threshold:overshootThreshold_],
 		FTAnimationOutOfViewCenterPoint(enclosingView.bounds, view.frame, view.center, direction)
 	};
 	
