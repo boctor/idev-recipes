@@ -25,12 +25,6 @@
 // THE SOFTWARE
 //
 
-#define iOS7 [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 
-#define STATUS_BAR_HEIGHT 20
-#define NAVIGATION_BAR_HEIGHT 44
-#define SCREEN_WIDTH  [[UIScreen mainScreen] bounds].size.width
-#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
-
 @class VerticalSwipeScrollView;
 @protocol VerticalSwipeScrollViewDelegate
 -(UIView*) viewForScrollView:(VerticalSwipeScrollView*)scrollView atPage:(NSUInteger)page;
