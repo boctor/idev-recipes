@@ -65,7 +65,7 @@
     self.currentPageIndex = pageIndex;
     self.headerView = theHeaderView;
     self.footerView = theFooterView;
-      self.contentSize =iOS7?CGSizeMake(SCREEN_WIDTH,SCREEN_HEIGHT-STATUS_BAR_HEIGHT-NAVIGATION_BAR_HEIGHT):self.frame.size;
+    self.contentSize = self.frame.size;
   }
   return self;
 }
@@ -92,7 +92,7 @@
     headerView = [newValue retain];
 
     // Place the header above the scroll view
-      headerView.frame = CGRectMake(0, iOS7?-(STATUS_BAR_HEIGHT+NAVIGATION_BAR_HEIGHT):-headerView.frame.size.height, headerView.frame.size.width, headerView.frame.size.height);
+    headerView.frame = CGRectMake(0, -headerView.frame.size.height, headerView.frame.size.width, headerView.frame.size.height);
     [self addSubview:headerView];
     
     // Hide the header if there is no previous page
@@ -155,16 +155,14 @@
   if (!scrollView.dragging) return;
 
   // The user is dragging down, we are loading/unloading the header/previous page view
-
-    
-    if (scrollView.contentOffset.y < (iOS7?-(headerView.frame.size.height+NAVIGATION_BAR_HEIGHT+STATUS_BAR_HEIGHT):0))
+  if (scrollView.contentOffset.y < 0)
   {
     // If the header is hidden, then there is no previous page and nothing for us to do
     if (headerView.hidden) return;
 
     // If the user has pulled down more than the height of the header
-      if (scrollView.contentOffset.y < (iOS7==YES?-135:-headerView.frame.size.height))
-     {
+    if (scrollView.contentOffset.y < -headerView.frame.size.height)
+    {
       // The header is already loaded, nothing for us to do
       if (_headerLoaded) return;
       
