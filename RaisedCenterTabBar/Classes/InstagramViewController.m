@@ -43,7 +43,11 @@
 
 -(void)willAppearIn:(UINavigationController *)navigationController
 {
-  [self addCenterButtonWithImage:[UIImage imageNamed:@"cameraTabBarItem.png"] highlightImage:nil];
+    [self addCenterButtonWithImage:[UIImage imageNamed:@"cameraTabBarItem.png"] highlightImage:nil target:self action:@selector(buttonPressed:)];
+}
+
+- (void)buttonPressed:(id)sender {
+    NSLog(@"the button was pressed");
 }
 
 @end

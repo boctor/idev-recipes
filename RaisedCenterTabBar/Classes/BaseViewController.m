@@ -38,7 +38,7 @@
 }
 
 // Create a custom UIButton and add it to the center of our tab bar
--(void) addCenterButtonWithImage:(UIImage*)buttonImage highlightImage:(UIImage*)highlightImage
+-(void) addCenterButtonWithImage:(UIImage*)buttonImage highlightImage:(UIImage*)highlightImage target:(id)target action:(SEL)action
 {
   UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
   button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
@@ -55,6 +55,8 @@
     center.y = center.y - heightDifference/2.0;
     button.center = center;
   }
+    
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
   
   [self.view addSubview:button];
 }
