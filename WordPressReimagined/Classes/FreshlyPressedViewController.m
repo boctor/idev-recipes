@@ -46,7 +46,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
+
   tableView.tableHeaderView = tableHeaderView;
 }
 
@@ -66,7 +66,7 @@
   CGRect titleFrame = cell.title.frame;
   titleFrame.size.height = titleHeight;
   cell.title.frame = titleFrame;
-  
+
   CGRect subtitleFrame = cell.subtitle.frame;
   subtitleFrame.origin.y = titleFrame.origin.y + titleFrame.size.height + 2.0;
   cell.subtitle.frame = subtitleFrame;
@@ -82,14 +82,14 @@
     [[NSBundle mainBundle] loadNibNamed:@"FreshlyPressedTableViewCell" owner:self options:nil];
     cell = (FreshlyPressedTableViewCell*)self.tableViewCell;
     self.tableViewCell = nil;
-    
+
     cell.imageView.superview.layer.borderColor = [UIColor colorWithRed:223.0/255.0 green:223.0/255.0 blue:223.0/255.0 alpha:1.0].CGColor;
     cell.imageView.superview.layer.borderWidth = 1.0;
   }
 
   [self populate:cell atIndexPath:indexPath];
   [self loadImageForCell:cell];
-  
+
   return cell;
 }
 
@@ -97,11 +97,11 @@
 {
   if ([self isMoreCell:indexPath])
     return [super tableView:theTableView didSelectRowAtIndexPath:indexPath];
-  
+
   ModelObject* modelObject = [collection objectAtIndex:indexPath.row];
   WebViewController* webViewController =  [[[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil] autorelease];
   webViewController.url = [modelObject objectForKey:@"url"];
-  
+
   UINavigationController *navigationController = ((WordPressReimaginedAppDelegate*)[[UIApplication sharedApplication] delegate]).navigationController;
   [navigationController pushViewController:webViewController animated:YES];
 }

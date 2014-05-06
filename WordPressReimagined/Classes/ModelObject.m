@@ -63,9 +63,9 @@
 {
   // if we already have an image or are in the middle of downloading the image
   if (image || imageConnection) return;
-  
+
   NSString* imageURL = [attributes objectForKey:imageURLKey];
-    
+
   if ([imageURL isKindOfClass:[NSNull class]])
   {
     [self useGenericImage];
@@ -122,16 +122,16 @@
   // }
   // else
   //   selectedViewController = customTabBarViewController.selectedViewController;
-  
+
   if ([selectedViewController respondsToSelector:@selector(visibleTable)])
   {
     UITableView* tableView = [(UITableView*)selectedViewController performSelector:@selector(visibleTable)];
-  
+
     NSArray* visibleCells = tableView.visibleCells;
-  
+
     if (!visibleCells)
       return nil;
-  
+
     NSMutableArray* cells = [[[NSMutableArray alloc] init] autorelease];
     for (UITableViewCell* cell in visibleCells)
     {
@@ -146,14 +146,14 @@
     if (cells.count > 0)
       return cells;
   }
-  
+
   // if ([navigationController.topViewController respondsToSelector:@selector(defferedDownloadImageView)] && [navigationController.topViewController respondsToSelector:@selector(defferedDownloadModelObject)])
   // {
   //   RailsObject* railsObject = [navigationController.topViewController performSelector:@selector(defferedDownloadModelObject)];
   //   if ([railsObject isEqual:self])
   //     return [NSArray arrayWithObject:[navigationController.topViewController performSelector:@selector(defferedDownloadImageView)]];
   // }
-  
+
   return nil;
 }
 
@@ -161,13 +161,13 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
   NSInteger status = [(NSHTTPURLResponse*)response statusCode];
-  
+
   if (status != 200)
   {
     if (connection == imageConnection)
       [self handleFailedImageDownload];
   }
-  
+
   if (connection == imageConnection)
     [imageData setLength:0];
 }
@@ -191,12 +191,12 @@
     UIImage* theImage = [[[UIImage alloc] initWithData:imageData] autorelease];
     [imageData release], imageData = nil;
     [imageConnection release], imageConnection = nil;
-    
+
     if (theImage.size.height > 0 && theImage.size.width > 0)
         self.image = theImage;
     else
       [self useGenericImage];
-    
+
     [self updateVisibleCellsWithImage];
   }
 }
@@ -204,7 +204,7 @@
 - (BOOL)isEqual:(ModelObject*)otherObject
 {
   if (![otherObject isKindOfClass:[ModelObject class]]) return NO;
-  
+
   return [[self objectForKey:uniqueIdentifierKey] isEqual:[otherObject objectForKey:uniqueIdentifierKey]];
 }
 

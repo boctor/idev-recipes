@@ -6,23 +6,23 @@
 
 /*
  Copyright (c) 2011, John Engelhart
- 
+
  All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
- 
+
  * Redistributions of source code must retain the above copyright
  notice, this list of conditions and the following disclaimer.
- 
+
  * Redistributions in binary form must reproduce the above copyright
  notice, this list of conditions and the following disclaimer in the
  documentation and/or other materials provided with the distribution.
- 
+
  * Neither the name of the Zang Industries nor the names of its
  contributors may be used to endorse or promote products derived from
  this software without specific prior written permission.
- 
+
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -59,9 +59,9 @@
   From the original ConvertUTF.[ch]:
 
  * Copyright 2001-2004 Unicode, Inc.
- * 
+ *
  * Disclaimer
- * 
+ *
  * This source code is provided as is by Unicode, Inc. No claims are
  * made as to fitness for any particular purpose. No warranties of any
  * kind are expressed or implied. The recipient agrees to determine
@@ -69,9 +69,9 @@
  * purchased on magnetic or optical media from Unicode, Inc., the
  * sole remedy for any claim will be exchange of defective media
  * within 90 days of receipt.
- * 
+ *
  * Limitations on Rights to Redistribute This Code
- * 
+ *
  * Unicode, Inc. hereby grants the right to freely use the information
  * supplied in this file in the creation of products supporting the
  * Unicode Standard, and to make copies of this file in any form
@@ -133,11 +133,11 @@
 #define JK_ATTRIBUTES(attr, ...)        __attribute__((attr, ##__VA_ARGS__))
 #define JK_EXPECTED(cond, expect)       __builtin_expect((long)(cond), (expect))
 #define JK_PREFETCH(ptr)                __builtin_prefetch(ptr)
-#else  // defined (__GNUC__) && (__GNUC__ >= 4) 
+#else  // defined (__GNUC__) && (__GNUC__ >= 4)
 #define JK_ATTRIBUTES(attr, ...)
 #define JK_EXPECTED(cond, expect)       (cond)
 #define JK_PREFETCH(ptr)
-#endif // defined (__GNUC__) && (__GNUC__ >= 4) 
+#endif // defined (__GNUC__) && (__GNUC__ >= 4)
 
 #define JK_STATIC_INLINE                         static __inline__ JK_ATTRIBUTES(always_inline)
 #define JK_ALIGNED(arg)                                            JK_ATTRIBUTES(aligned(arg))
@@ -431,7 +431,7 @@ static unsigned char *jk_managedBuffer_resize(JKManagedBuffer *managedBuffer, si
     if((managedBuffer->flags & JKManagedBufferLocationMask) == JKManagedBufferOnStack) {
       NSCParameterAssert((managedBuffer->flags & JKManagedBufferMustFree) == 0);
       unsigned char *newBuffer = NULL, *oldBuffer = managedBuffer->bytes.ptr;
-      
+
       if((newBuffer = (unsigned char *)malloc(roundedUpNewSize)) == NULL) { return(NULL); }
       memcpy(newBuffer, oldBuffer, jk_min(managedBuffer->bytes.length, roundedUpNewSize));
       managedBuffer->flags        = (managedBuffer->flags & ~JKManagedBufferLocationMask) | (JKManagedBufferOnHeap | JKManagedBufferMustFree);
@@ -572,7 +572,7 @@ static int isLegalUTF8(const UTF8 *source, size_t length) {
     case 4: if(JK_EXPECTED(((a = (*--srcptr)) < 0x80) || (a > 0xBF), 0U)) { return(0); }
     case 3: if(JK_EXPECTED(((a = (*--srcptr)) < 0x80) || (a > 0xBF), 0U)) { return(0); }
     case 2: if(JK_EXPECTED( (a = (*--srcptr)) > 0xBF               , 0U)) { return(0); }
-      
+
       switch(*source) { // no fall-through in this inner switch
         case 0xE0: if(JK_EXPECTED(a < 0xA0, 0U)) { return(0); } break;
         case 0xED: if(JK_EXPECTED(a > 0x9F, 0U)) { return(0); } break;
@@ -580,7 +580,7 @@ static int isLegalUTF8(const UTF8 *source, size_t length) {
         case 0xF4: if(JK_EXPECTED(a > 0x8F, 0U)) { return(0); } break;
         default:   if(JK_EXPECTED(a < 0x80, 0U)) { return(0); }
       }
-      
+
     case 1: if(JK_EXPECTED((JK_EXPECTED(*source < 0xC2, 0U)) && JK_EXPECTED(*source >= 0x80, 1U), 0U)) { return(0); }
   }
 
@@ -602,7 +602,7 @@ static ConversionResult ConvertSingleCodePointInUTF8(const UTF8 *sourceStart, co
 
   if(JK_EXPECTED((source + extraBytesToRead + 1) > sourceEnd, 0U) || JK_EXPECTED(!isLegalUTF8(source, extraBytesToRead + 1), 0U)) {
     source++;
-    while((source < sourceEnd) && (((*source) & 0xc0) == 0x80) && ((source - sourceStart) < (extraBytesToRead + 1))) { source++; } 
+    while((source < sourceEnd) && (((*source) & 0xc0) == 0x80) && ((source - sourceStart) < (extraBytesToRead + 1))) { source++; }
     NSCParameterAssert(source <= sourceEnd);
     result = ((source < sourceEnd) && (((*source) & 0xc0) != 0x80)) ? sourceIllegal : ((sourceStart + extraBytesToRead + 1) > sourceEnd) ? sourceExhausted : sourceIllegal;
     ch = UNI_REPLACEMENT_CHAR;
@@ -620,11 +620,11 @@ static ConversionResult ConvertSingleCodePointInUTF8(const UTF8 *sourceStart, co
   ch -= offsetsFromUTF8[extraBytesToRead];
 
   result = isValidCodePoint(&ch);
-  
+
  finished:
   *nextUTF8       = source;
   *convertedUTF32 = ch;
-  
+
   return(result);
 }
 
@@ -644,7 +644,7 @@ static ConversionResult ConvertUTF32toUTF8 (UTF32 u32CodePoint, UTF8 **targetSta
   else if(ch < (UTF32)0x10000)       { bytesToWrite = 3; }
   else if(ch <= UNI_MAX_LEGAL_UTF32) { bytesToWrite = 4; }
   else {                               bytesToWrite = 3; ch = UNI_REPLACEMENT_CHAR; result = sourceIllegal; }
-        
+
   target += bytesToWrite;
   if (target > targetEnd) { target -= bytesToWrite; result = targetExhausted; goto finished; }
 
@@ -668,7 +668,7 @@ JK_STATIC_INLINE int jk_string_add_unicodeCodePoint(JKParseState *parseState, ui
 
   if((result = ConvertUTF32toUTF8(unicodeCodePoint, &u8s, (parseState->token.tokenBuffer.bytes.ptr + parseState->token.tokenBuffer.bytes.length))) != conversionOK) { if(result == targetExhausted) { return(1); } }
   size_t utf8len = u8s - &parseState->token.tokenBuffer.bytes.ptr[*tokenBufferIdx], nextIdx = (*tokenBufferIdx) + utf8len;
-  
+
   while(*tokenBufferIdx < nextIdx) { *stringHash = calculateHash(*stringHash, parseState->token.tokenBuffer.bytes.ptr[(*tokenBufferIdx)++]); }
 
   return(0);
@@ -693,7 +693,7 @@ static int jk_parse_string(JKParseState *parseState) {
     unsigned long currentChar;
 
     if(JK_EXPECTED(atStringCharacter == endOfBuffer, 0U)) { /* XXX Add error message */ stringState = JSONStringStateError; goto finishedParsing; }
-    
+
     if(JK_EXPECTED((currentChar = *atStringCharacter++) >= 0x80UL, 0U)) {
       const unsigned char *nextValidCharacter = NULL;
       UTF32                u32ch              = 0UL;
@@ -776,13 +776,13 @@ static int jk_parse_string(JKParseState *parseState) {
             case '\\': escapedChar = '\\'; goto parsedEscapedChar;
             case '/':  escapedChar = '/';  goto parsedEscapedChar;
             case '"':  escapedChar = '"';  goto parsedEscapedChar;
-              
+
             parsedEscapedChar:
               stringState = JSONStringStateParsing;
               stringHash  = calculateHash(stringHash, escapedChar);
               tokenBuffer[tokenBufferIdx++] = escapedChar;
               break;
-              
+
             default: jk_error(parseState, @"Invalid escape sequence found in \"\" string."); stringState = JSONStringStateError; goto finishedParsing; break;
           }
           break;
@@ -802,14 +802,14 @@ static int jk_parse_string(JKParseState *parseState) {
               case '0' ... '9': hexValue =  currentChar - '0';        goto parsedHex;
               case 'a' ... 'f': hexValue = (currentChar - 'a') + 10U; goto parsedHex;
               case 'A' ... 'F': hexValue = (currentChar - 'A') + 10U; goto parsedHex;
-                
+
               parsedHex:
               if(!isSurrogate) { escapedUnicode1 = (escapedUnicode1 << 4) | hexValue; } else { escapedUnicode2 = (escapedUnicode2 << 4) | hexValue; }
-                
+
               if(stringState == JSONStringStateEscapedUnicode4) {
                 if(((escapedUnicode1 >= 0xD800U) && (escapedUnicode1 < 0xE000U))) {
                   if((escapedUnicode1 >= 0xD800U) && (escapedUnicode1 < 0xDC00U)) { stringState = JSONStringStateEscapedNeedEscapeForSurrogate; }
-                  else if((escapedUnicode1 >= 0xDC00U) && (escapedUnicode1 < 0xE000U)) { 
+                  else if((escapedUnicode1 >= 0xDC00U) && (escapedUnicode1 < 0xE000U)) {
                     if((parseState->parseOptionFlags & JKParseOptionLooseUnicode)) { escapedUnicodeCodePoint = UNI_REPLACEMENT_CHAR; }
                     else { jk_error(parseState, @"Illegal \\u Unicode escape sequence."); stringState = JSONStringStateError; goto finishedParsing; }
                   }
@@ -824,8 +824,8 @@ static int jk_parse_string(JKParseState *parseState) {
                 }
                 else { escapedUnicodeCodePoint = ((escapedUnicode1 - 0xd800) * 0x400) + (escapedUnicode2 - 0xdc00) + 0x10000; }
               }
-                
-              if((stringState == JSONStringStateEscapedUnicode4) || (stringState == JSONStringStateEscapedUnicodeSurrogate4)) { 
+
+              if((stringState == JSONStringStateEscapedUnicode4) || (stringState == JSONStringStateEscapedUnicodeSurrogate4)) {
                 if((parseState->parseOptionFlags & JKParseOptionLooseUnicode) == 0) {
                   UTF32 cp = escapedUnicodeCodePoint;
                   if(isValidCodePoint(&cp) == sourceIllegal) { jk_error(parseState, @"Illegal \\u Unicode escape sequence."); stringState = JSONStringStateError; goto finishedParsing; }
@@ -874,7 +874,7 @@ finishedParsing:
       parseState->token.value.ptrRange.ptr    = parseState->token.tokenBuffer.bytes.ptr;
       parseState->token.value.ptrRange.length = tokenBufferIdx;
     }
-    
+
     parseState->token.value.hash = stringHash;
     parseState->token.value.type = JKValueTypeString;
     parseState->atIndex          = (atStringCharacter - parseState->stringBuffer.bytes.ptr);
@@ -926,7 +926,7 @@ static int jk_parse_number(JKParseState *parseState) {
     numberTempBuf[parseState->token.tokenPtrRange.length] = 0;
 
     errno = 0;
-    
+
     // Treat "-0" as a floating point number, which is capable of representing negative zeros.
     if(isNegative && (parseState->token.tokenPtrRange.length == 2UL) && (numberTempBuf[1] == '0')) { isFloatingPoint = 1; }
 
@@ -1405,7 +1405,7 @@ static id json_parse_it(JKParseState *parseState) {
 // This needs to be completely rewritten.
 - (id)parseUTF8String:(const unsigned char *)string length:(size_t)length error:(NSError **)error
 {
-  if(string == NULL) { [NSException raise:NSInvalidArgumentException format:@"The string argument is NULL."]; } 
+  if(string == NULL) { [NSException raise:NSInvalidArgumentException format:@"The string argument is NULL."]; }
   if((error != NULL) && (*error != NULL)) { *error = NULL; }
 
   parseState.stringBuffer.bytes.ptr    = string;
@@ -1456,7 +1456,7 @@ static id json_parse_it(JKParseState *parseState) {
 
 - (id)parseJSONData:(NSData *)jsonData error:(NSError **)error
 {
-  if(jsonData == NULL) { [NSException raise:NSInvalidArgumentException format:@"The jsonData argument is NULL."]; } 
+  if(jsonData == NULL) { [NSException raise:NSInvalidArgumentException format:@"The jsonData argument is NULL."]; }
   return([self parseUTF8String:(const unsigned char *)[jsonData bytes] length:[jsonData length] error:error]);
 }
 
@@ -1634,17 +1634,17 @@ static int jk_encode_add_atom_to_buffer(JKEncodeState *encodeState, void *object
         {
           CFIndex stringLength = CFStringGetLength((CFStringRef)object);
           CFIndex maxStringUTF8Length = CFStringGetMaximumSizeForEncoding(stringLength, kCFStringEncodingUTF8) + 32L;
-        
+
           if(((size_t)maxStringUTF8Length > encodeState->utf8ConversionBuffer.bytes.length) && (jk_managedBuffer_resize(&encodeState->utf8ConversionBuffer, maxStringUTF8Length + 1024UL) == NULL)) { jk_encode_error(encodeState, @"Unable to resize temporary buffer."); return(1); }
-        
+
           CFIndex usedBytes = 0L, convertedCount = 0L;
           convertedCount = CFStringGetBytes((CFStringRef)object, CFRangeMake(0L, stringLength), kCFStringEncodingUTF8, '?', NO, encodeState->utf8ConversionBuffer.bytes.ptr, encodeState->utf8ConversionBuffer.bytes.length - 16L, &usedBytes);
           encodeState->utf8ConversionBuffer.bytes.ptr[usedBytes] = 0;
-        
+
           if(((encodeState->atIndex + maxStringUTF8Length) > encodeState->stringBuffer.bytes.length) && (jk_managedBuffer_resize(&encodeState->stringBuffer, encodeState->atIndex + maxStringUTF8Length + 1024UL) == NULL)) { jk_encode_error(encodeState, @"Unable to resize temporary buffer."); return(1); }
-        
+
           const unsigned char *utf8String = encodeState->utf8ConversionBuffer.bytes.ptr;
-        
+
           size_t utf8Idx = 0UL;
           encodeState->stringBuffer.bytes.ptr[encodeState->atIndex++] = '\"';
           for(utf8Idx = 0UL; utf8String[utf8Idx] != 0; utf8Idx++) {
@@ -1700,7 +1700,7 @@ static int jk_encode_add_atom_to_buffer(JKEncodeState *encodeState, void *object
         anum[255] = 0;
 
         switch(objCType[0]) {
-          case 'c': case 'i': case 's': case 'l': case 'q': 
+          case 'c': case 'i': case 's': case 'l': case 'q':
             if(CFNumberGetValue((CFNumberRef)object, kCFNumberLongLongType, &llv))  {
               if(llv < 0LL) { llv = -llv; isNegative = 1; }
               if(llv < 10LL) { *--aptr = llv + '0'; } else { while(llv > 0LL) { *--aptr = (llv % 10LL) + '0'; llv /= 10LL; } }
@@ -1725,7 +1725,7 @@ static int jk_encode_add_atom_to_buffer(JKEncodeState *encodeState, void *object
         }
       }
       break;
-    
+
     case JKClassArray:
       {
         int printComma = 0;

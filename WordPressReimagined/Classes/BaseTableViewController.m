@@ -45,13 +45,13 @@
 @synthesize collection, collectionConnection, collectionData;
 @synthesize nextPage;
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil 
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) 
+  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
   {
     self.nextPage = 1;
   }
-  
+
   return self;
 }
 
@@ -170,7 +170,7 @@
     modelObject.uniqueIdentifierKey = @"url";
     modelObject.imageURLKey = @"image";
     modelObject.verticalOffsetKey = @"y_offset";
-    
+
     [modelObjectResults addObject:modelObject];
 
     NSNumber* nextPageObject = [modelObject objectForKey:@"next_page"];
@@ -234,7 +234,7 @@
   }
   moreCell.loadingLabel.textColor = [UIColor darkGrayColor];
   moreCell.loading.hidden = YES;
-  
+
   return moreCell;
 }
 

@@ -5,17 +5,17 @@
 //  Created by Peter Boctor on 12/26/10.
 //
 // Copyright (c) 2011 Peter Boctor
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -86,18 +86,18 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 -(UIView*) viewForScrollView:(VerticalSwipeScrollView*)scrollView atPage:(NSUInteger)page
 {
   UIWebView* webView = nil;
-  
+
   if (page < scrollView.currentPageIndex)
     webView = [[previousPage retain] autorelease];
   else if (page > scrollView.currentPageIndex)
     webView = [[nextPage retain] autorelease];
-  
+
   if (!webView)
     webView = [self createWebViewForIndex:page];
-  
+
   self.previousPage = page > 0 ? [self createWebViewForIndex:page-1] : nil;
   self.nextPage = (page == (appData.count-1)) ? nil : [self createWebViewForIndex:page+1];
-  
+
   self.navigationItem.title = [[[appData objectAtIndex:page] objectForKey:@"im:name"] objectForKey:@"label"];
   if (page > 0)
     headerLabel.text = [[[appData objectAtIndex:page-1] objectForKey:@"im:name"] objectForKey:@"label"];
@@ -125,7 +125,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
   htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- icon -->" withString:[[[[appData objectAtIndex:index] objectForKey:@"im:image"] objectAtIndex:0] objectForKey:@"label"]];
   htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- content -->" withString:[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"]];
   [webView loadHTMLString:htmlString baseURL:nil];
-  
+
   return webView;
 }
 

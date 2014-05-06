@@ -42,12 +42,12 @@
 - (void) viewWillAppear:(BOOL)animated
 {
   [self.navigationController setNavigationBarHidden:NO animated:YES];
-  
+
   [self showLoading];
-  
+
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
   [webView loadRequest:request];
-  
+
   [super viewWillAppear:animated];
 }
 
@@ -111,13 +111,13 @@
 {
   [self hideLoading];
   theWebView.backgroundColor = [UIColor whiteColor];
-  
+
   NSString* pageTitle = [theWebView stringByEvaluatingJavaScriptFromString:@"document.title"];
   self.navigationItem.title = pageTitle;
-  
+
   UIBarItem* back = [toolbar.items objectAtIndex:backIndex];
   back.enabled = [theWebView canGoBack];
-    
+
   UIBarItem* forward = [toolbar.items objectAtIndex:forwardIndex];
   forward.enabled = [theWebView canGoForward];
 }

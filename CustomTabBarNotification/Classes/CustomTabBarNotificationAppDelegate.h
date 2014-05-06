@@ -27,7 +27,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomTabBarNotificationAppDelegate : NSObject <UIApplicationDelegate> {
-    
+
     UIWindow *window;
     UINavigationController *navigationController;
 }

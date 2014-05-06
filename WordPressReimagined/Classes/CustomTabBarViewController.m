@@ -75,14 +75,14 @@ static NSUInteger selectedIndex = 0;
 
   // Use the TabBarGradient image to figure out the tab bar's height (22x2=44)
   UIImage* tabBarGradient = [UIImage imageNamed:@"TabBarGradient.png"];
-  
+
   // Create a custom tab bar passing in the number of items, the size of each item and setting ourself as the delegate
   self.tabBar = [[[CustomTabBar alloc] initWithItemCount:viewControllers.count itemSize:CGSizeMake(self.view.frame.size.width/viewControllers.count, tabBarGradient.size.height*2) tag:0 delegate:self] autorelease];
-  
+
   // Place the tab bar at the bottom of our view
   tabBar.frame = CGRectMake(0,self.view.frame.size.height-(tabBarGradient.size.height*2),self.view.frame.size.width, tabBarGradient.size.height*2);
   [self.view addSubview:tabBar];
-  
+
   // Select the first tab
   [self performSelector:@selector(selectFirstTab) withObject:nil afterDelay:0];
 }
@@ -124,21 +124,21 @@ static NSUInteger selectedIndex = 0;
   CGFloat width = self.view.frame.size.width;
   // Get the image that will form the top of the background
   UIImage* topImage = [UIImage imageNamed:@"TabBarGradient.png"];
-  
+
   // Create a new image context
   if (UIGraphicsBeginImageContextWithOptions)
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, topImage.size.height*2), NO, 0.0);
   else
     UIGraphicsBeginImageContext(CGSizeMake(width, topImage.size.height*2));
-  
+
   // Create a stretchable image for the top of the background and draw it
   UIImage* stretchedTopImage = [topImage stretchableImageWithLeftCapWidth:0 topCapHeight:0];
   [stretchedTopImage drawInRect:CGRectMake(0, 0, width, topImage.size.height)];
-  
+
   // Draw a solid black color for the bottom of the background
   [[UIColor blackColor] set];
   CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, topImage.size.height, width, topImage.size.height));
-  
+
   // Generate a new image
   UIImage* resultImage = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
@@ -156,7 +156,7 @@ static NSUInteger selectedIndex = 0;
 - (UIImage*) glowImage
 {
   UIImage* tabBarGlow = [UIImage imageNamed:@"TabBarGlow.png"];
-  
+
   // Create a new image using the TabBarGlow image but offset 4 pixels down
   if (UIGraphicsBeginImageContextWithOptions)
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(tabBarGlow.size.width, tabBarGlow.size.height-4.0), NO, 0.0);
@@ -185,12 +185,12 @@ static NSUInteger selectedIndex = 0;
     UIGraphicsBeginImageContext(tabBarItemSize);
 
   // Create a stretchable image using the TabBarSelection image but offset 4 pixels down
-  [[[UIImage imageNamed:@"TabBarSelection.png"] stretchableImageWithLeftCapWidth:4.0 topCapHeight:0] drawInRect:CGRectMake(0, 4.0, tabBarItemSize.width, tabBarItemSize.height-4.0)];  
+  [[[UIImage imageNamed:@"TabBarSelection.png"] stretchableImageWithLeftCapWidth:4.0 topCapHeight:0] drawInRect:CGRectMake(0, 4.0, tabBarItemSize.width, tabBarItemSize.height-4.0)];
 
   // Generate a new image
   UIImage* selectedItemImage = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
-  
+
   return selectedItemImage;
 }
 
@@ -202,11 +202,11 @@ static NSUInteger selectedIndex = 0;
 - (void) touchDownAtItemAtIndex:(NSUInteger)itemIndex
 {
   selectedIndex = itemIndex;
-  
+
   // Remove the current view controller's view
   UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
   [currentView removeFromSuperview];
-  
+
   // Get the right view controller
   NSDictionary* data = [viewControllers objectAtIndex:itemIndex];
   UIViewController* viewController = [data objectForKey:@"viewController"];
@@ -219,14 +219,14 @@ static NSUInteger selectedIndex = 0;
 
   // Se the tag so we can find it later
   viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
-  
+
   // Add the new view controller's view
   [self.view insertSubview:viewController.view belowSubview:tabBar];
-  
+
   [viewController viewWillAppear:NO];
   // In 1 second glow the selected tab
   // [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(addGlowTimerFireMethod:) userInfo:[NSNumber numberWithInteger:itemIndex] repeats:NO];
-  
+
 }
 
 // - (void)addGlowTimerFireMethod:(NSTimer*)theTimer
@@ -236,7 +236,7 @@ static NSUInteger selectedIndex = 0;
 //   {
 //     [tabBar removeGlowAtIndex:i];
 //   }
-//   
+//
 //   // Then add it to this tab bar item
 //   [tabBar glowItemAtIndex:[[theTimer userInfo] integerValue]];
 // }
@@ -252,7 +252,7 @@ static NSUInteger selectedIndex = 0;
   label.text = text;
   [label sizeToFit];
   return label;
-  
+
 }
 - (void)dealloc
 {
