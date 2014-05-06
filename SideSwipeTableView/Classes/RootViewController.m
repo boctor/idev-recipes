@@ -35,7 +35,7 @@
                    nil] retain];
   buttons = [[NSMutableArray alloc] initWithCapacity:buttonData.count];
 
-  self.sideSwipeView = [[[UIView alloc] initWithFrame:CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.rowHeight)] autorelease];
+  self.sideSwipeView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.rowHeight)] autorelease];
   [self setupSideSwipeView];
 }
 
@@ -114,7 +114,7 @@
 #pragma mark Button touch up inside action
 - (IBAction) touchUpInsideAction:(UIButton*)button
 {
-  NSIndexPath* indexPath = [tableView indexPathForCell:sideSwipeCell];
+  NSIndexPath* indexPath = [self.tableView indexPathForCell:sideSwipeCell];
   
   NSUInteger index = [buttons indexOfObject:button];
   NSDictionary* buttonInfo = [buttonData objectAtIndex:index];
