@@ -55,15 +55,15 @@
     // Set the delegate
     delegate = customTabBarDelegate;
     
+    // Adjust our width based on the number of items & the width of each item
+    self.frame = CGRectMake(0, 0, itemSize.width * itemCount, itemSize.height);
+
     // Add the background image
     UIImage* backgroundImage = [delegate backgroundImage];
     UIImageView* backgroundImageView = [[[UIImageView alloc] initWithImage:backgroundImage] autorelease];
     backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     backgroundImageView.frame = CGRectMake(0, 0, backgroundImage.size.width, backgroundImage.size.height);
     [self addSubview:backgroundImageView];
-
-    // Adjust our width based on the number of items & the width of each item
-    self.frame = CGRectMake(0, 0, itemSize.width * itemCount, itemSize.height);
 
     // Initalize the array we use to store our buttons
     self.buttons = [[NSMutableArray alloc] initWithCapacity:itemCount];
