@@ -35,7 +35,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet CustomTabBarViewController *viewController;
+@property (nonatomic, retain) CustomTabBarViewController *viewController;
 
 @end
 

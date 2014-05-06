@@ -32,51 +32,47 @@
 static NSArray* tabBarItems = nil;
 
 @implementation CustomTabBarViewController
-@synthesize tabBar;
+@synthesize currentIndex, tabBar;
 
-- (void) awakeFromNib
-{
-  // Set up some fake view controllers each with a different background color so we can visually see the controllers getting swapped around
-  UIViewController *detailController1 = [[[UIViewController alloc] init] autorelease];
-  detailController1.view.backgroundColor = [UIColor redColor];
 
-  UIViewController *detailController2 = [[[UIViewController alloc] init] autorelease];
-  detailController2.view.backgroundColor = [UIColor greenColor];
-
-  UIViewController *detailController3 = [[[UIViewController alloc] init] autorelease];
-  detailController3.view.backgroundColor = [UIColor blueColor];
-
-  UIViewController *detailController4 = [[[UIViewController alloc] init] autorelease];
-  detailController4.view.backgroundColor = [UIColor cyanColor];
-
-  UIViewController *detailController5 = [[[UIViewController alloc] init] autorelease];
-  detailController5.view.backgroundColor = [UIColor purpleColor];
-
-  tabBarItems = [[NSArray arrayWithObjects:
-              [NSDictionary dictionaryWithObjectsAndKeys:@"chat.png", @"image", detailController1, @"viewController", nil],
-              [NSDictionary dictionaryWithObjectsAndKeys:@"compose-at.png", @"image", detailController2, @"viewController", nil],
-              [NSDictionary dictionaryWithObjectsAndKeys:@"messages.png", @"image", detailController3, @"viewController", nil],
-              [NSDictionary dictionaryWithObjectsAndKeys:@"magnifying-glass.png", @"image", detailController4, @"viewController", nil],
-              [NSDictionary dictionaryWithObjectsAndKeys:@"more.png", @"image", detailController5, @"viewController", nil], nil] retain];
+- (id)initWihViewControllers:(NSArray*)viewControllers imagesNames:(NSArray*)imagesNames {
+    if ([viewControllers count] != [imagesNames count]) {
+        return nil;
+    } else {
+        self = [super init];
+        if (self) {            
+            NSMutableArray* dictionarys = [NSMutableArray new];
+            
+            int count = 0;
+            for (NSString* imageName in imagesNames) {
+                UIViewController* vc = [viewControllers objectAtIndex:count];
+                [dictionarys addObject:[NSDictionary dictionaryWithObjectsAndKeys:imageName, @"image", vc, @"viewController", nil]];
+                count++;
+            }
+            
+            tabBarItems = dictionarys;
+            
+            // Use the TabBarGradient image to figure out the tab bar's height (22x2=44)
+            UIImage* tabBarGradient = [UIImage imageNamed:@"TabBarGradient.png"];
+            
+            // Create a custom tab bar passing in the number of items, the size of each item and setting ourself as the delegate
+            self.tabBar = [[[CustomTabBar alloc] initWithItemCount:tabBarItems.count itemSize:CGSizeMake(self.view.frame.size.width/tabBarItems.count, tabBarGradient.size.height*2) tag:0 delegate:self] autorelease];
+            
+            // Place the tab bar at the bottom of our view
+            tabBar.frame = CGRectMake(0,self.view.frame.size.height-(tabBarGradient.size.height*2),self.view.frame.size.width, tabBarGradient.size.height*2);
+            [self.view addSubview:tabBar];
+            
+            // Select the first tab
+            [tabBar selectItemAtIndex:0];
+            [self touchDownAtItemAtIndex:0];
+        }
+        return self;
+    }
 }
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-
-  // Use the TabBarGradient image to figure out the tab bar's height (22x2=44)
-  UIImage* tabBarGradient = [UIImage imageNamed:@"TabBarGradient.png"];
-  
-  // Create a custom tab bar passing in the number of items, the size of each item and setting ourself as the delegate
-  self.tabBar = [[[CustomTabBar alloc] initWithItemCount:tabBarItems.count itemSize:CGSizeMake(self.view.frame.size.width/tabBarItems.count, tabBarGradient.size.height*2) tag:0 delegate:self] autorelease];
-  
-  // Place the tab bar at the bottom of our view
-  tabBar.frame = CGRectMake(0,self.view.frame.size.height-(tabBarGradient.size.height*2),self.view.frame.size.width, tabBarGradient.size.height*2);
-  [self.view addSubview:tabBar];
-  
-  // Select the first tab
-  [tabBar selectItemAtIndex:0];
-  [self touchDownAtItemAtIndex:0];
 }
 
 #pragma mark -
@@ -116,15 +112,15 @@ static NSArray* tabBarItems = nil;
 }
 
 // This is the blue background shown for selected tab bar items
-- (UIImage*) selectedItemBackgroundImage
+- (UIImage*) selectedItemBackgroundImageWith:(NSInteger)index
 {
-  return [UIImage imageNamed:@"TabBarItemSelectedBackground.png"];
+  return [UIImage imageNamed:[NSString stringWithFormat:@"TabBarItemSelectedBackground%d.png", index+1]];
 }
 
 // This is the glow image shown at the bottom of a tab bar to indicate there are new items
-- (UIImage*) glowImage
+- (UIImage*) glowImageWith:(NSInteger)index
 {
-  UIImage* tabBarGlow = [UIImage imageNamed:@"TabBarGlow.png"];
+  UIImage* tabBarGlow = [UIImage imageNamed:[NSString stringWithFormat:@"TabBarGlow%d.png", index+1]];
   
   // Create a new image using the TabBarGlow image but offset 4 pixels down
   UIGraphicsBeginImageContextWithOptions(CGSizeMake(tabBarGlow.size.width, tabBarGlow.size.height-4.0), NO, 0.0);
@@ -162,43 +158,72 @@ static NSArray* tabBarItems = nil;
   return [UIImage imageNamed:@"TabBarNipple.png"];
 }
 
-- (void) touchDownAtItemAtIndex:(NSUInteger)itemIndex
-{
-  // Remove the current view controller's view
-  UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
-  [currentView removeFromSuperview];
-  
-  // Get the right view controller
-  NSDictionary* data = [tabBarItems objectAtIndex:itemIndex];
-  UIViewController* viewController = [data objectForKey:@"viewController"];
-
-  // Use the TabBarGradient image to figure out the tab bar's height (22x2=44)
-  UIImage* tabBarGradient = [UIImage imageNamed:@"TabBarGradient.png"];
-
-  // Set the view controller's frame to account for the tab bar
-  viewController.view.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-(tabBarGradient.size.height*2));
-
-  // Se the tag so we can find it later
-  viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
-  
-  // Add the new view controller's view
-  [self.view insertSubview:viewController.view belowSubview:tabBar];
-  
-  // In 1 second glow the selected tab
-  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(addGlowTimerFireMethod:) userInfo:[NSNumber numberWithInteger:itemIndex] repeats:NO];
-  
+- (void)stopGlowTimer {
+    if([glowTimer isValid]) {
+        [glowTimer invalidate];
+    }
+    
+    [glowTimer release];
+    glowTimer = nil;
 }
 
-- (void)addGlowTimerFireMethod:(NSTimer*)theTimer
-{
-  // Remove the glow from all tab bar items
-  for (NSUInteger i = 0 ; i < tabBarItems.count ; i++)
-  {
-    [tabBar removeGlowAtIndex:i];
-  }
-  
-  // Then add it to this tab bar item
-  [tabBar glowItemAtIndex:[[theTimer userInfo] integerValue]];
+- (void)startGlowTimer:(NSInteger)itemIndex {
+    // Hide glow than we start timer first time
+    if (!glowTimer || ![glowTimer isValid]) {
+        [tabBar hideGlow];
+    }
+    
+    [self stopGlowTimer];
+    glowTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:0.2] interval:0.2 target:self selector:@selector(addGlowTimerFireMethod:) userInfo:[NSNumber numberWithInteger:itemIndex] repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:glowTimer forMode:NSDefaultRunLoopMode];
+}
+
+- (void) touchDownAtItemAtIndex:(NSUInteger)itemIndex {
+    NSDictionary* data = [tabBarItems objectAtIndex:self.currentIndex];
+    UIViewController* previousViewController = [data objectForKey:@"viewController"];
+    UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
+    
+    // check on tapping same tab only on first load
+    if (itemIndex == self.currentIndex && currentView) {
+        if ([previousViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController* navigationVC = (UINavigationController*)previousViewController;
+            [navigationVC popToRootViewControllerAnimated:YES];
+        }
+    } else {  
+        data = [tabBarItems objectAtIndex:itemIndex];
+        UIViewController* nextViewController = [data objectForKey:@"viewController"];
+        
+        if (currentView == previousViewController.view) {
+            [previousViewController viewWillDisappear:NO];
+        }
+        [nextViewController viewWillAppear:NO];
+        
+        // Remove the current view controller's view
+        [currentView removeFromSuperview];
+        
+        // Use the TabBarGradient image to figure out the tab bar's height (22x2=44)
+        UIImage* tabBarGradient = [UIImage imageNamed:@"TabBarGradient.png"];
+        
+        // Set the view controller's frame to account for the tab bar
+        nextViewController.view.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-(tabBarGradient.size.height*2));
+        
+        // Se the tag so we can find it later
+        nextViewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
+        
+        // Add the new view controller's view
+        self.currentIndex = itemIndex;
+        [self.view insertSubview:nextViewController.view belowSubview:tabBar];
+        
+        [previousViewController viewDidDisappear:NO];
+        [nextViewController viewDidAppear:NO];
+        
+        // In 1 second glow the selected tab
+        [self startGlowTimer:itemIndex];
+    }
+}
+
+- (void)addGlowTimerFireMethod:(NSTimer*)theTimer {
+    [tabBar glowItemAtIndex:[[theTimer userInfo] integerValue]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -230,10 +255,10 @@ static NSArray* tabBarItems = nil;
   currentView.frame = CGRectMake(0,0,width, height-(tabBarGradient.size.height*2));
 }
 
-- (void)dealloc
-{
-  [super dealloc];
-  [tabBar release];
+- (void)dealloc {
+    [self stopGlowTimer];
+    [super dealloc];
+    [tabBar release];
 }
 
 @end
