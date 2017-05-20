@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* VerticalSwipeArticlesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* VerticalSwipeArticlesAppDelegate.m */; };
-		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
-		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 		7F59B5F512C86F0700160998 /* PullArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F59B5F312C86F0700160998 /* PullArrow.png */; };
 		7F59B5F612C86F0700160998 /* PullArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F59B5F412C86F0700160998 /* PullArrow@2x.png */; };
@@ -21,11 +21,18 @@
 		7F59B60212C8720800160998 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F59B60112C8720800160998 /* DetailViewController.xib */; };
 		7F59B60512C8720F00160998 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F59B60412C8720F00160998 /* DetailViewController.m */; };
 		7F59B60E12C872E400160998 /* DetailView.html in Resources */ = {isa = PBXBuildFile; fileRef = 7F59B60D12C872E400160998 /* DetailView.html */; };
-		7F840F3B12C85C12003D9FD1 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3212C85C12003D9FD1 /* NSObject+SBJSON.m */; };
-		7F840F3C12C85C12003D9FD1 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3412C85C12003D9FD1 /* NSString+SBJSON.m */; };
-		7F840F3D12C85C12003D9FD1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3612C85C12003D9FD1 /* SBJsonBase.m */; };
-		7F840F3E12C85C12003D9FD1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3812C85C12003D9FD1 /* SBJsonParser.m */; };
-		7F840F3F12C85C12003D9FD1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */; };
+		7F840F3B12C85C12003D9FD1 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3212C85C12003D9FD1 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F840F3C12C85C12003D9FD1 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3412C85C12003D9FD1 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F840F3D12C85C12003D9FD1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3612C85C12003D9FD1 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F840F3E12C85C12003D9FD1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3812C85C12003D9FD1 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F840F3F12C85C12003D9FD1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F7005CDB1904FDFD007665C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7005CDA1904FDFD007665C7 /* Images.xcassets */; };
+		F7005CDD1906436D007665C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7005CDC1906436D007665C7 /* QuartzCore.framework */; };
+		F7005CE01906437C007665C7 /* AllAroundPullView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7005CDF1906437C007665C7 /* AllAroundPullView.m */; };
+		F7005CE219065EFA007665C7 /* app.json in Resources */ = {isa = PBXBuildFile; fileRef = F7005CE119065EFA007665C7 /* app.json */; };
+		F7AB19701906C56B008F0E5B /* FTAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AB196E1906C56B008F0E5B /* FTAnimationManager.m */; };
+		F7AB19711906C56B008F0E5B /* FTAnimation+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AB196F1906C56B008F0E5B /* FTAnimation+UIView.m */; };
+		F7AB19741906C571008F0E5B /* FTUtils+NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AB19721906C571008F0E5B /* FTUtils+NSObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +68,20 @@
 		7F840F3912C85C12003D9FD1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* VerticalSwipeArticles-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VerticalSwipeArticles-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		F7005CDA1904FDFD007665C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VerticalSwipeArticles/Images.xcassets; sourceTree = "<group>"; };
+		F7005CDC1906436D007665C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F7005CDE1906437C007665C7 /* AllAroundPullView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllAroundPullView.h; sourceTree = "<group>"; };
+		F7005CDF1906437C007665C7 /* AllAroundPullView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllAroundPullView.m; sourceTree = "<group>"; };
+		F7005CE119065EFA007665C7 /* app.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = app.json; sourceTree = "<group>"; };
+		F7AB19681906C561008F0E5B /* FTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUtils.h; sourceTree = "<group>"; };
+		F7AB19691906C561008F0E5B /* FTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTAnimation.h; sourceTree = "<group>"; };
+		F7AB196A1906C561008F0E5B /* FTUtils+NSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FTUtils+NSObject.h"; sourceTree = "<group>"; };
+		F7AB196B1906C561008F0E5B /* FTAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTAnimationManager.h; sourceTree = "<group>"; };
+		F7AB196C1906C561008F0E5B /* FTAnimation+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FTAnimation+UIView.h"; sourceTree = "<group>"; };
+		F7AB196D1906C561008F0E5B /* FTUtils+UIGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FTUtils+UIGestureRecognizer.h"; sourceTree = "<group>"; };
+		F7AB196E1906C56B008F0E5B /* FTAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTAnimationManager.m; sourceTree = "<group>"; };
+		F7AB196F1906C56B008F0E5B /* FTAnimation+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FTAnimation+UIView.m"; sourceTree = "<group>"; };
+		F7AB19721906C571008F0E5B /* FTUtils+NSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FTUtils+NSObject.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7005CDD1906436D007665C7 /* QuartzCore.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
@@ -88,6 +110,8 @@
 				7F59B60412C8720F00160998 /* DetailViewController.m */,
 				7F59B5F912C86F1500160998 /* VerticalSwipeScrollView.h */,
 				7F59B5FA12C86F1500160998 /* VerticalSwipeScrollView.m */,
+				F7005CDE1906437C007665C7 /* AllAroundPullView.h */,
+				F7005CDF1906437C007665C7 /* AllAroundPullView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -103,6 +127,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F7AB19671906C52F008F0E5B /* FTUTils */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				7F840F2F12C85C12003D9FD1 /* JSON */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -125,6 +150,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7005CE119065EFA007665C7 /* app.json */,
+				F7005CDA1904FDFD007665C7 /* Images.xcassets */,
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				7F59B60112C8720800160998 /* DetailViewController.xib */,
@@ -139,6 +166,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7005CDC1906436D007665C7 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
@@ -162,6 +190,22 @@
 				7F840F3A12C85C12003D9FD1 /* SBJsonWriter.m */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		F7AB19671906C52F008F0E5B /* FTUTils */ = {
+			isa = PBXGroup;
+			children = (
+				F7AB19681906C561008F0E5B /* FTUtils.h */,
+				F7AB19691906C561008F0E5B /* FTAnimation.h */,
+				F7AB196A1906C561008F0E5B /* FTUtils+NSObject.h */,
+				F7AB196B1906C561008F0E5B /* FTAnimationManager.h */,
+				F7AB196C1906C561008F0E5B /* FTAnimation+UIView.h */,
+				F7AB196D1906C561008F0E5B /* FTUtils+UIGestureRecognizer.h */,
+				F7AB196E1906C56B008F0E5B /* FTAnimationManager.m */,
+				F7AB196F1906C56B008F0E5B /* FTAnimation+UIView.m */,
+				F7AB19721906C571008F0E5B /* FTUtils+NSObject.m */,
+			);
+			name = FTUTils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,8 +233,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "VerticalSwipeArticles" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -215,7 +262,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				F7005CE219065EFA007665C7 /* app.json in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
+				F7005CDB1904FDFD007665C7 /* Images.xcassets in Resources */,
 				7F59B5F512C86F0700160998 /* PullArrow.png in Resources */,
 				7F59B5F612C86F0700160998 /* PullArrow@2x.png in Resources */,
 				7F59B60212C8720800160998 /* DetailViewController.xib in Resources */,
@@ -230,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7AB19701906C56B008F0E5B /* FTAnimationManager.m in Sources */,
+				F7AB19711906C56B008F0E5B /* FTAnimation+UIView.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* VerticalSwipeArticlesAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
@@ -239,7 +290,9 @@
 				7F840F3E12C85C12003D9FD1 /* SBJsonParser.m in Sources */,
 				7F840F3F12C85C12003D9FD1 /* SBJsonWriter.m in Sources */,
 				7F59B5FC12C86F1500160998 /* VerticalSwipeScrollView.m in Sources */,
+				F7005CE01906437C007665C7 /* AllAroundPullView.m in Sources */,
 				7F59B60512C8720F00160998 /* DetailViewController.m in Sources */,
+				F7AB19741906C571008F0E5B /* FTUtils+NSObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +303,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -264,6 +320,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = VerticalSwipeArticles_Prefix.pch;
@@ -276,11 +335,12 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
@@ -289,11 +349,11 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;

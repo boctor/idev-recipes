@@ -5,17 +5,17 @@
 //  Created by Peter Boctor on 12/26/10.
 //
 // Copyright (c) 2011 Peter Boctor
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,7 +26,7 @@
 //
 
 #import "DetailViewController.h"
-
+#import "AllAroundPullView.h"
 CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
@@ -35,7 +35,10 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 -(UIWebView*) createWebViewForIndex:(NSUInteger)index;
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController{
+    UIEdgeInsets contentInset;
+    
+}
 
 @synthesize headerView, headerImageView, headerLabel;
 @synthesize footerView, footerImageView, footerLabel;
@@ -44,129 +47,129 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 - (void)viewDidLoad
 {
-  headerImageView.transform = CGAffineTransformMakeRotation(DegreesToRadians(180));
+    
+    if([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
+        [self setAutomaticallyAdjustsScrollViewInsets:NO];
+        contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0);
+    }else{
+        contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
 }
 
 -(void)willAppearIn:(UINavigationController *)navigationController
 {
-  self.verticalSwipeScrollView = [[[VerticalSwipeScrollView alloc] initWithFrame:self.view.frame headerView:headerView footerView:footerView startingAt:startIndex delegate:self] autorelease];
-  [self.view addSubview:verticalSwipeScrollView];
-}
-
-- (void) rotateImageView:(UIImageView*)imageView angle:(CGFloat)angle
-{
-  [UIView beginAnimations:nil context:nil];
-  [UIView setAnimationDuration:0.2];
-  imageView.transform = CGAffineTransformMakeRotation(DegreesToRadians(angle));
-  [UIView commitAnimations];
+    //CGRect verticalSwipeScrollViewFrame = CGRectMake(0, 64.0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-64.0);
+    CGRect verticalSwipeScrollViewFrame = self.view.frame;
+    self.verticalSwipeScrollView = [[VerticalSwipeScrollView alloc] initWithFrame:verticalSwipeScrollViewFrame contentInset:contentInset  startingAt:startIndex delegate:self];
+    [self.view addSubview:verticalSwipeScrollView];
 }
 
 # pragma mark VerticalSwipeScrollViewDelegate
 
--(void) headerLoadedInScrollView:(VerticalSwipeScrollView*)scrollView
+
+-(UIWebView*) viewForScrollView:(VerticalSwipeScrollView*)scrollView atPage:(NSUInteger)page
 {
-  [self rotateImageView:headerImageView angle:0];
+    UIWebView* webView = nil;
+    if (page < scrollView.currentPageIndex)
+        webView = previousPage;
+    else if (page > scrollView.currentPageIndex)
+        webView = nextPage;
+    BOOL isCurrentPageLoading = NO;
+    if (!webView){
+        webView = [self createWebViewForIndex:page verticalSwipeScrollViewv:scrollView];
+        isCurrentPageLoading = YES;
+    }
+    //otimization webview preload
+    if(isCurrentPageLoading){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.previousPage = page > 0 ? [self createWebViewForIndex:page-1 verticalSwipeScrollViewv:scrollView] : nil;
+            self.nextPage = (page == (appData.count-1)) ? nil : [self createWebViewForIndex:page+1 verticalSwipeScrollViewv:scrollView];        });
+    }else{
+        self.previousPage = page > 0 ? [self createWebViewForIndex:page-1 verticalSwipeScrollViewv:scrollView] : nil;
+        self.nextPage = (page == (appData.count-1)) ? nil : [self createWebViewForIndex:page+1 verticalSwipeScrollViewv:scrollView];
+    }
+    
+    self.navigationItem.title = [[[appData objectAtIndex:page] objectForKey:@"im:name"] objectForKey:@"label"];
+    if (page > 0)
+        headerLabel.text = [[[appData objectAtIndex:page-1] objectForKey:@"im:name"] objectForKey:@"label"];
+    if (page != appData.count-1)
+        footerLabel.text = [[[appData objectAtIndex:page+1] objectForKey:@"im:name"] objectForKey:@"label"];
+    [webView clearsContextBeforeDrawing];
+    return webView;
 }
 
--(void) headerUnloadedInScrollView:(VerticalSwipeScrollView*)scrollView
-{
-  [self rotateImageView:headerImageView angle:180];
+- (AllAroundPullView *)headerViewForScrollView:(UIScrollView *)scrollView atPage:(NSUInteger)page{
+    AllAroundPullView *topPullView;
+    if(page!=0){
+        topPullView = [[AllAroundPullView alloc] initWithScrollView:scrollView position:AllAroundPullViewPositionTop action:nil];
+        topPullView.hideIndicatorView = YES;
+    }
+    return topPullView;
 }
 
--(void) footerLoadedInScrollView:(VerticalSwipeScrollView*)scrollView
-{
-  [self rotateImageView:footerImageView angle:180];
+- (AllAroundPullView *)footerViewForScrollView:(UIScrollView *)scrollView atPage:(NSUInteger)page{
+    AllAroundPullView *footerPullView;
+    if(page != [self pageCount]-1){
+        footerPullView = [[AllAroundPullView alloc] initWithScrollView:scrollView position:AllAroundPullViewPositionBottom action:nil];
+        footerPullView.hideIndicatorView = YES;
+    }
+    return footerPullView;
 }
-
--(void) footerUnloadedInScrollView:(VerticalSwipeScrollView*)scrollView
-{
-  [self rotateImageView:footerImageView angle:0];
-}
-
--(UIView*) viewForScrollView:(VerticalSwipeScrollView*)scrollView atPage:(NSUInteger)page
-{
-  UIWebView* webView = nil;
-  
-  if (page < scrollView.currentPageIndex)
-    webView = [[previousPage retain] autorelease];
-  else if (page > scrollView.currentPageIndex)
-    webView = [[nextPage retain] autorelease];
-  
-  if (!webView)
-    webView = [self createWebViewForIndex:page];
-  
-  self.previousPage = page > 0 ? [self createWebViewForIndex:page-1] : nil;
-  self.nextPage = (page == (appData.count-1)) ? nil : [self createWebViewForIndex:page+1];
-  
-  self.navigationItem.title = [[[appData objectAtIndex:page] objectForKey:@"im:name"] objectForKey:@"label"];
-  if (page > 0)
-    headerLabel.text = [[[appData objectAtIndex:page-1] objectForKey:@"im:name"] objectForKey:@"label"];
-  if (page != appData.count-1)
-    footerLabel.text = [[[appData objectAtIndex:page+1] objectForKey:@"im:name"] objectForKey:@"label"];
-
-  return webView;
-}
-
 -(NSUInteger) pageCount
 {
-  return appData.count;
+    return appData.count;
 }
 
--(UIWebView*) createWebViewForIndex:(NSUInteger)index
+-(UIWebView*) createWebViewForIndex:(NSUInteger)index verticalSwipeScrollViewv:(VerticalSwipeScrollView*)scrollView
 {
-  UIWebView* webView = [[[UIWebView alloc] initWithFrame:self.view.frame] autorelease];
-  webView.opaque = NO;
-  [webView setBackgroundColor:[UIColor clearColor]];
-  [self hideGradientBackground:webView];
+    //CGRect webViewFrame = CGRectMake(0, 0, CGRectGetWidth(scrollView.frame)-contentInset.left-contentInset.right, CGRectGetHeight(scrollView.frame)-contentInset.top-contentInset.bottom);
+    CGRect webViewFrame = CGRectMake(0, 0, CGRectGetWidth(scrollView.frame),CGRectGetHeight(scrollView.frame));
+    UIWebView* webView = [[UIWebView alloc] initWithFrame:webViewFrame];
+    [webView.scrollView setContentInset:contentInset];
+    [webView.scrollView setScrollIndicatorInsets:contentInset];
+    webView.opaque = NO;
+    [webView setBackgroundColor:[UIColor clearColor]];
+    //[webView loadHTMLString:@"" baseURL:nil];
+    [self hideGradientBackground:webView];
+    
+    NSString* htmlFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/DetailView.html"];
+    NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
+    htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- title -->" withString:[[[appData objectAtIndex:index] objectForKey:@"im:name"] objectForKey:@"label"]];
+    htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- icon -->" withString:[[[[appData objectAtIndex:index] objectForKey:@"im:image"] objectAtIndex:0] objectForKey:@"label"]];
+    NSMutableString * contentString = [[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"] mutableCopy];
+    
+    //creat long html page, don't forget to remove height attri in DetailView.html
+    [contentString appendString:[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"]];
+    [contentString appendString:[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"]];
+    
+    htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- content -->" withString:contentString];
+     [webView loadHTMLString:htmlString baseURL:nil];
+     
 
-  NSString* htmlFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/DetailView.html"];
-  NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
-  htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- title -->" withString:[[[appData objectAtIndex:index] objectForKey:@"im:name"] objectForKey:@"label"]];
-  htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- icon -->" withString:[[[[appData objectAtIndex:index] objectForKey:@"im:image"] objectAtIndex:0] objectForKey:@"label"]];
-  htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!-- content -->" withString:[[[appData objectAtIndex:index] objectForKey:@"summary"] objectForKey:@"label"]];
-  [webView loadHTMLString:htmlString baseURL:nil];
-  
-  return webView;
+    return webView;
 }
 
 - (void) hideGradientBackground:(UIView*)theView
 {
-  for (UIView * subview in theView.subviews)
-  {
-    if ([subview isKindOfClass:[UIImageView class]])
-      subview.hidden = YES;
-
-    [self hideGradientBackground:subview];
-  }
+    for (UIView * subview in theView.subviews)
+    {
+        if ([subview isKindOfClass:[UIImageView class]])
+            subview.hidden = YES;
+        
+        [self hideGradientBackground:subview];
+    }
 }
 
 - (void)viewDidUnload
 {
-  self.headerView = nil;
-  self.headerImageView = nil;
-  self.headerLabel = nil;
-
-  self.footerView = nil;
-  self.footerImageView = nil;
-  self.footerLabel = nil;
+    self.headerView = nil;
+    self.headerImageView = nil;
+    self.headerLabel = nil;
+    self.footerView = nil;
+    self.footerImageView = nil;
+    self.footerLabel = nil;
 }
 
-- (void)dealloc
-{
-  [headerView release];
-  [headerImageView release];
-  [headerLabel release];
 
-  [footerView release];
-  [footerImageView release];
-  [footerLabel release];
-
-  [verticalSwipeScrollView release];
-  [appData release];
-  [previousPage release];
-  [nextPage release];
-
-  [super dealloc];
-}
 
 @end
